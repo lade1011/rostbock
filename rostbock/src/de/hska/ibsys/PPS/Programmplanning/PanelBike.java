@@ -1616,7 +1616,86 @@ public class PanelBike extends JPanel {
 		gbc_tf_e11_order.gridy = 17;
 		add(tf_e11_order, gbc_tf_e11_order);
 		tf_e11_order.setColumns(10);
+		
+		/*
+		 * calculation
+		 */
+		calculateValues();
+	}
+	
+	private void calculateValues() {
+		int result;
+		//calculate p
+		result = Integer.parseInt(this.tf_p_wish.getText()) + Integer.parseInt(this.tf_p_reserve.getText())
+				- Integer.parseInt(this.tf_p_stock.getText()) - Integer.parseInt(this.tf_p_queue.getText())
+				- Integer.parseInt(this.tf_p_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+		
+		//calculate e1
+		result = Integer.parseInt(this.tf_e1_wish.getText()) + Integer.parseInt(this.tf_e1_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e1_reserve.getText()) - Integer.parseInt(this.tf_e1_stock.getText())
+				- Integer.parseInt(this.tf_e1_queue.getText()) - Integer.parseInt(this.tf_e1_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+		
+		// calculate e2
+		result = Integer.parseInt(this.tf_e2_wish.getText()) + Integer.parseInt(this.tf_e2_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e2_reserve.getText()) - Integer.parseInt(this.tf_e2_stock.getText())
+				- Integer.parseInt(this.tf_e2_queue.getText()) - Integer.parseInt(this.tf_e2_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
 
+		// calculate e3
+		result = Integer.parseInt(this.tf_e3_wish.getText()) + Integer.parseInt(this.tf_e3_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e3_reserve.getText()) - Integer.parseInt(this.tf_e3_stock.getText())
+				- Integer.parseInt(this.tf_e3_queue.getText()) - Integer.parseInt(this.tf_e3_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e4
+		result = Integer.parseInt(this.tf_e4_wish.getText()) + Integer.parseInt(this.tf_e4_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e4_reserve.getText()) - Integer.parseInt(this.tf_e4_stock.getText())
+				- Integer.parseInt(this.tf_e4_queue.getText()) - Integer.parseInt(this.tf_e4_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e5
+		result = Integer.parseInt(this.tf_e5_wish.getText()) + Integer.parseInt(this.tf_e5_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e5_reserve.getText()) - Integer.parseInt(this.tf_e5_stock.getText())
+				- Integer.parseInt(this.tf_e5_queue.getText()) - Integer.parseInt(this.tf_e5_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e6
+		result = Integer.parseInt(this.tf_e6_wish.getText()) + Integer.parseInt(this.tf_e6_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e6_reserve.getText()) - Integer.parseInt(this.tf_e6_stock.getText())
+				- Integer.parseInt(this.tf_e6_queue.getText()) - Integer.parseInt(this.tf_e6_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e7
+		result = Integer.parseInt(this.tf_e7_wish.getText()) + Integer.parseInt(this.tf_e7_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e7_reserve.getText()) - Integer.parseInt(this.tf_e7_stock.getText())
+				- Integer.parseInt(this.tf_e7_queue.getText()) - Integer.parseInt(this.tf_e7_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e8
+		result = Integer.parseInt(this.tf_e8_wish.getText()) + Integer.parseInt(this.tf_e8_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e8_reserve.getText()) - Integer.parseInt(this.tf_e8_stock.getText())
+				- Integer.parseInt(this.tf_e8_queue.getText()) - Integer.parseInt(this.tf_e8_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e9
+		result = Integer.parseInt(this.tf_e9_wish.getText()) + Integer.parseInt(this.tf_e9_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e9_reserve.getText()) - Integer.parseInt(this.tf_e9_stock.getText())
+				- Integer.parseInt(this.tf_e9_queue.getText()) - Integer.parseInt(this.tf_e9_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e10
+		result = Integer.parseInt(this.tf_e10_wish.getText()) + Integer.parseInt(this.tf_e10_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e10_reserve.getText()) - Integer.parseInt(this.tf_e10_stock.getText())
+				- Integer.parseInt(this.tf_e10_queue.getText()) - Integer.parseInt(this.tf_e10_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
+
+		// calculate e11
+		result = Integer.parseInt(this.tf_e11_wish.getText()) + Integer.parseInt(this.tf_e11_previousWaiting.getText())
+				+ Integer.parseInt(this.tf_e11_reserve.getText()) - Integer.parseInt(this.tf_e11_stock.getText())
+				- Integer.parseInt(this.tf_e11_queue.getText()) - Integer.parseInt(this.tf_e11_progress.getText());
+		this.tf_p_order.setText(String.valueOf(result));
 	}
 
 }
