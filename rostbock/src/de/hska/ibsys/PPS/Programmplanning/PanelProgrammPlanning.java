@@ -1,8 +1,12 @@
 package de.hska.ibsys.PPS.Programmplanning;
 
 import java.awt.CardLayout;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
+
+import de.hska.ibsys.Bike.Bike;
+import de.hska.ibsys.PPS.PanelPPS;
 
 
 public class PanelProgrammPlanning extends JPanel {
@@ -19,7 +23,7 @@ public class PanelProgrammPlanning extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelProgrammPlanning() {
+	public PanelProgrammPlanning(PanelPPS pps) {
 		pppOverview = new PanelProgrammPlanningOverview(this);
 		add(pppOverview);
 		
@@ -27,15 +31,18 @@ public class PanelProgrammPlanning extends JPanel {
 		add(panelContent);
 		panelContent.setLayout(new CardLayout(0, 0));
 		
-		childBike = new PanelBike("P1", "E26", "E51", "E16", "E17", "E50", "E4", "E10", "E49", "E7", "E13", "E18");
+		//0:child, 1:woman, 2: man
+		ArrayList<Bike> bikes = pps.getpPrognose().getBikeValues();
+		
+		childBike = new PanelBike(bikes.get(0) ,"P1", "E26", "E51", "E16", "E17", "E50", "E4", "E10", "E49", "E7", "E13", "E18");
 		childBike.setVisible(true);
 		panelContent.add(childBike);
 		
-		womanBike = new PanelBike("P2", "E26", "E56", "E16", "E17", "E55", "E5", "E11", "E54", "E8", "E14", "E19");
+		womanBike = new PanelBike(bikes.get(0), "P2", "E26", "E56", "E16", "E17", "E55", "E5", "E11", "E54", "E8", "E14", "E19");
 		womanBike.setVisible(false);
 		panelContent.add(womanBike);
 		
-		manBike = new PanelBike("P3", "E26", "E31", "E16", "E17", "E30", "E6", "E12", "E29", "E9", "E15", "E20");
+		manBike = new PanelBike(bikes.get(0), "P3", "E26", "E31", "E16", "E17", "E30", "E6", "E12", "E29", "E9", "E15", "E20");
 		manBike.setVisible(false);
 		panelContent.add(manBike);
 	}

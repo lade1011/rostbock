@@ -37,6 +37,7 @@ public class PanelPPSOverview extends JPanel {
 		tglbtnNewToggleButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
+				pPPS.createProgramplaning();
 				pPPS.getpProgrammPlanning().setVisible(true);
 			}
 		});

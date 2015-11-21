@@ -59,6 +59,7 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		
 		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("Produktionsauftr\u00E4ge");
 		add(tglbtnNewToggleButton_4);
+		bg.add(tglbtnNewToggleButton_4);
 	}
 
 }
