@@ -2,17 +2,28 @@ package de.hska.ibsys.MainFrame;
 
 import java.awt.EventQueue;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
+
+import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelStart;
+import de.hska.ibsys.XML.XMLParser;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
@@ -52,6 +63,22 @@ public class MainFrame extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+//		try {
+//			XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+//			FileReader reader = new FileReader("C:/Users/Denis/Desktop/resultServlet.xml");
+//			InputSource input = new InputSource(reader);
+//			XMLParser xp = new XMLParser();
+//			xmlReader.setContentHandler(xp);
+//			xmlReader.parse(input);
+//			
+//			ArrayList<Articel> articels = xp.getArticels();
+//			for(Articel a : articels) {
+//				System.out.println(a.toString());
+//			}
+//		} catch (SAXException | IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
