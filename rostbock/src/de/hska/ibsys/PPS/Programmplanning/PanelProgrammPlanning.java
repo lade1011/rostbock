@@ -1,5 +1,6 @@
 package de.hska.ibsys.PPS.Programmplanning;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 
@@ -24,11 +25,13 @@ public class PanelProgrammPlanning extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelProgrammPlanning(PanelPPS pps) {
+		setLayout(new BorderLayout());
+		
 		pppOverview = new PanelProgrammPlanningOverview(this);
-		add(pppOverview);
+		add(pppOverview, BorderLayout.NORTH);
 		
 		JPanel panelContent = new JPanel();
-		add(panelContent);
+		add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(new CardLayout(0, 0));
 		
 		//0:child, 1:woman, 2: man

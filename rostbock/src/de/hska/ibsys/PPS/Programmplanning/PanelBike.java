@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import de.hska.ibsys.Bike.Bike;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
 import javax.swing.SwingConstants;
 import javax.swing.JFormattedTextField;
 
@@ -187,6 +188,14 @@ public class PanelBike extends JPanel {
 		tf_p_reserve = new JFormattedTextField();
 		tf_p_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_p_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -335,6 +344,14 @@ public class PanelBike extends JPanel {
 		tf_e1_reserve = new JFormattedTextField();
 		tf_e1_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e1_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -476,6 +493,14 @@ public class PanelBike extends JPanel {
 		tf_e2_reserve = new JFormattedTextField();
 		tf_e2_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e2_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -624,6 +649,14 @@ public class PanelBike extends JPanel {
 		tf_e3_reserve = new JFormattedTextField();
 		tf_e3_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e3_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -765,8 +798,16 @@ public class PanelBike extends JPanel {
 		tf_e4_reserve = new JFormattedTextField();
 		tf_e4_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e4_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
 			@Override
-			public void keyReleased(KeyEvent arg0) {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
+			@Override
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
@@ -906,6 +947,14 @@ public class PanelBike extends JPanel {
 		tf_e5_reserve = new JFormattedTextField();
 		tf_e5_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e5_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1054,6 +1103,14 @@ public class PanelBike extends JPanel {
 		tf_e6_reserve = new JFormattedTextField();
 		tf_e6_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e6_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1195,6 +1252,14 @@ public class PanelBike extends JPanel {
 		tf_e7_reserve = new JFormattedTextField();
 		tf_e7_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e7_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1336,6 +1401,14 @@ public class PanelBike extends JPanel {
 		tf_e8_reserve = new JFormattedTextField();
 		tf_e8_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e8_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1484,6 +1557,14 @@ public class PanelBike extends JPanel {
 		tf_e9_reserve = new JFormattedTextField();
 		tf_e9_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e9_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1625,6 +1706,14 @@ public class PanelBike extends JPanel {
 		tf_e10_reserve = new JFormattedTextField();
 		tf_e10_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e10_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1766,6 +1855,14 @@ public class PanelBike extends JPanel {
 		tf_e11_reserve = new JFormattedTextField();
 		tf_e11_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e11_reserve.addKeyListener(new KeyAdapter() {
+			//check valid char
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+			         e.consume();
+			    }
+		    }
 			@Override
 			public void keyReleased(KeyEvent e) {
 				calculateValues();
@@ -1862,6 +1959,9 @@ public class PanelBike extends JPanel {
 		calculateValues();
 	}
 	
+	/**
+	 * method to calculate a line of a product
+	 */
 	private void calculateValues() {
 		int result;
 		int reserve;
@@ -1871,6 +1971,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_p_queue.getText().trim())
 				- Integer.parseInt(this.tf_p_progress.getText().trim());
 		this.tf_p_order.setText(String.valueOf(result));
+		transferValue("p", result);
 		
 		reserve = this.tf_e1_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e1_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e1_wish.getText().trim())
@@ -1887,6 +1988,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e2_queue.getText().trim())
 				- Integer.parseInt(this.tf_e2_progress.getText().trim());
 		this.tf_e2_order.setText(String.valueOf(result));
+		transferValue("e2", result);
 		
 		reserve = this.tf_e3_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e3_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e3_wish.getText().trim())
@@ -1911,6 +2013,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e5_queue.getText().trim())
 				- Integer.parseInt(this.tf_e5_progress.getText().trim());
 		this.tf_e5_order.setText(String.valueOf(result));
+		transferValue("e5", result);
 		
 		reserve = this.tf_e6_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e6_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e6_wish.getText().trim())
@@ -1935,6 +2038,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e8_queue.getText().trim())
 				- Integer.parseInt(this.tf_e8_progress.getText().trim());
 		this.tf_e8_order.setText(String.valueOf(result));
+		transferValue("e8", result);
 		
 		reserve = this.tf_e9_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e9_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e9_wish.getText().trim())
@@ -1959,5 +2063,34 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e11_queue.getText().trim())
 				- Integer.parseInt(this.tf_e11_progress.getText().trim());
 		this.tf_e11_order.setText(String.valueOf(result));
+	}
+	
+	/**
+	 * method to transfer results to next products
+	 * @param product parent product
+	 * @param value value which gets transfered
+	 */
+	private void transferValue(String product, int value) {
+		value = value<0 ? 0 : value;
+		switch(product) {
+			case "p":
+				this.tf_e1_wish.setText(String.valueOf(value));
+				this.tf_e2_wish.setText(String.valueOf(value));
+				break;
+			case "e2":
+				this.tf_e3_wish.setText(String.valueOf(value));
+				this.tf_e4_wish.setText(String.valueOf(value));
+				this.tf_e5_wish.setText(String.valueOf(value));
+				break;
+			case "e5":
+				this.tf_e6_wish.setText(String.valueOf(value));
+				this.tf_e7_wish.setText(String.valueOf(value));
+				this.tf_e8_wish.setText(String.valueOf(value));
+				break;
+			case "e8":
+				this.tf_e9_wish.setText(String.valueOf(value));
+				this.tf_e10_wish.setText(String.valueOf(value));
+				this.tf_e11_wish.setText(String.valueOf(value));
+		}
 	}
 }

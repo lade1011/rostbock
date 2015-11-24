@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import de.hska.ibsys.PPS.Programmplanning.PanelProgrammPlanning;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 public class PanelPPS extends JPanel {
@@ -20,11 +21,12 @@ public class PanelPPS extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelPPS() {
+		setLayout(new BorderLayout());
 		ppsOverview = new PanelPPSOverview(this);
-		add(ppsOverview);
+		add(ppsOverview, BorderLayout.NORTH);
 		
 		panelContent = new JPanel();
-		add(panelContent);
+		add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(new CardLayout(0, 0));
 		
 		pPrognose = new PanelPrognose();
