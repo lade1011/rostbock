@@ -59,26 +59,11 @@ public class MainFrame extends JFrame {
 	private JCheckBoxMenuItem chckbxmntmEnglisch;
 	private JMenuItem mntmStartseite;
 	private JMenuItem mntmHandbuch;
+	private XMLParser xp;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-//		try {
-//			XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-//			FileReader reader = new FileReader("C:/Users/Denis/Desktop/resultServlet.xml");
-//			InputSource input = new InputSource(reader);
-//			XMLParser xp = new XMLParser();
-//			xmlReader.setContentHandler(xp);
-//			xmlReader.parse(input);
-//			
-//			ArrayList<Articel> articels = xp.getArticels();
-//			for(Articel a : articels) {
-//				System.out.println(a.toString());
-//			}
-//		} catch (SAXException | IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -146,7 +131,7 @@ public class MainFrame extends JFrame {
 		pStart.setVisible(true);
 		contentPane.add(pStart);
 		
-		pPPS = new PanelPPS();
+		pPPS = new PanelPPS(this);
 		pPPS.setVisible(false);
 		contentPane.add(pPPS);
 	}
@@ -185,5 +170,28 @@ public class MainFrame extends JFrame {
 	            e.printStackTrace();
 	        }
 	    }
+	}
+	
+	public void parseXML(String fileUri) {
+		try {
+			XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+			FileReader reader = new FileReader(fileUri);
+			InputSource input = new InputSource(reader);
+			this.xp = new XMLParser();
+			xmlReader.setContentHandler(xp);
+			xmlReader.parse(input);
+
+//			ArrayList<Articel> articels = xp.getArticels();
+//			for (Articel a : articels) {
+//				System.out.println(a.toString());
+//			}
+		} catch (SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public XMLParser getXp() {
+		return xp;
 	}
 }
