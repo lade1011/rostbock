@@ -38,11 +38,11 @@ public class PanelProgrammPlanning extends JPanel {
 		childBike.setVisible(true);
 		panelContent.add(childBike);
 		
-		womanBike = new PanelBike(bikes.get(0), "P2", "E26", "E56", "E16", "E17", "E55", "E5", "E11", "E54", "E8", "E14", "E19");
+		womanBike = new PanelBike(bikes.get(1), "P2", "E26", "E56", "E16", "E17", "E55", "E5", "E11", "E54", "E8", "E14", "E19");
 		womanBike.setVisible(false);
 		panelContent.add(womanBike);
 		
-		manBike = new PanelBike(bikes.get(0), "P3", "E26", "E31", "E16", "E17", "E30", "E6", "E12", "E29", "E9", "E15", "E20");
+		manBike = new PanelBike(bikes.get(2), "P3", "E26", "E31", "E16", "E17", "E30", "E6", "E12", "E29", "E9", "E15", "E20");
 		manBike.setVisible(false);
 		panelContent.add(manBike);
 	}

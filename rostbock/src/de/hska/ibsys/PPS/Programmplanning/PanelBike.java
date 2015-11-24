@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import de.hska.ibsys.Bike.Bike;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JFormattedTextField;
 
 public class PanelBike extends JPanel {
 
@@ -40,18 +42,18 @@ public class PanelBike extends JPanel {
 	private JTextField tf_e9_previousWaiting;
 	private JTextField tf_e10_previousWaiting;
 	private JTextField tf_e11_previousWaiting;
-	private JTextField tf_p_reserve;
-	private JTextField tf_e1_reserve;
-	private JTextField tf_e2_reserve;
-	private JTextField tf_e3_reserve;
-	private JTextField tf_e4_reserve;
-	private JTextField tf_e5_reserve;
-	private JTextField tf_e6_reserve;
-	private JTextField tf_e7_reserve;
-	private JTextField tf_e8_reserve;
-	private JTextField tf_e9_reserve;
-	private JTextField tf_e10_reserve;
-	private JTextField tf_e11_reserve;
+	private JFormattedTextField tf_p_reserve;
+	private JFormattedTextField tf_e1_reserve;
+	private JFormattedTextField tf_e2_reserve;
+	private JFormattedTextField tf_e3_reserve;
+	private JFormattedTextField tf_e4_reserve;
+	private JFormattedTextField tf_e5_reserve;
+	private JFormattedTextField tf_e6_reserve;
+	private JFormattedTextField tf_e7_reserve;
+	private JFormattedTextField tf_e8_reserve;
+	private JFormattedTextField tf_e9_reserve;
+	private JFormattedTextField tf_e10_reserve;
+	private JFormattedTextField tf_e11_reserve;
 	private JTextField tf_p_stock;
 	private JTextField tf_e1_stock;
 	private JTextField tf_e2_stock;
@@ -110,7 +112,7 @@ public class PanelBike extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
@@ -164,6 +166,7 @@ public class PanelBike extends JPanel {
 		add(lblP, gbc_lblP);
 		
 		tf_p_wish = new JTextField();
+		tf_p_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_p_wish.setEditable(false);
 		tf_p_wish.setText(String.valueOf(bike.getPrognose()));
 		GridBagConstraints gbc_tf_p_wish = new GridBagConstraints();
@@ -181,21 +184,20 @@ public class PanelBike extends JPanel {
 		gbc_label.gridy = 2;
 		add(label, gbc_label);
 		
-		tf_p_reserve = new JTextField();
+		tf_p_reserve = new JFormattedTextField();
+		tf_p_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_p_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_p_reserve.setText(String.valueOf(bike.getReserve()));
 		GridBagConstraints gbc_tf_p_reserve = new GridBagConstraints();
 		gbc_tf_p_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_p_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_p_reserve.gridx = 7;
 		gbc_tf_p_reserve.gridy = 2;
 		add(tf_p_reserve, gbc_tf_p_reserve);
-		tf_p_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_17 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_17 = new GridBagConstraints();
@@ -206,6 +208,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_17, gbc_lblNewLabel_17);
 		
 		tf_p_stock = new JTextField();
+		tf_p_stock.setEditable(false);
+		tf_p_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_p_stock.setText("0\r\n");
 		GridBagConstraints gbc_tf_p_stock = new GridBagConstraints();
 		gbc_tf_p_stock.insets = new Insets(0, 0, 5, 5);
@@ -224,6 +228,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_29, gbc_lblNewLabel_29);
 		
 		tf_p_queue = new JTextField();
+		tf_p_queue.setEditable(false);
+		tf_p_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_p_queue.setText("0");
 		GridBagConstraints gbc_tf_p_queue = new GridBagConstraints();
 		gbc_tf_p_queue.insets = new Insets(0, 0, 5, 5);
@@ -242,6 +248,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_41, gbc_lblNewLabel_41);
 		
 		tf_p_progress = new JTextField();
+		tf_p_progress.setEditable(false);
+		tf_p_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_p_progress.setText("0");
 		GridBagConstraints gbc_tf_p_progress = new GridBagConstraints();
 		gbc_tf_p_progress.insets = new Insets(0, 0, 5, 5);
@@ -260,6 +268,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_53, gbc_lblNewLabel_53);
 		
 		tf_p_order = new JTextField();
+		tf_p_order.setEditable(false);
+		tf_p_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_p_order = new GridBagConstraints();
 		gbc_tf_p_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_p_order.fill = GridBagConstraints.HORIZONTAL;
@@ -267,6 +277,13 @@ public class PanelBike extends JPanel {
 		gbc_tf_p_order.gridy = 2;
 		add(tf_p_order, gbc_tf_p_order);
 		tf_p_order.setColumns(10);
+		
+		JLabel label_5 = new JLabel(" ");
+		GridBagConstraints gbc_label_5 = new GridBagConstraints();
+		gbc_label_5.insets = new Insets(0, 0, 5, 5);
+		gbc_label_5.gridx = 1;
+		gbc_label_5.gridy = 3;
+		add(label_5, gbc_label_5);
 		
 		JLabel lblE = new JLabel(e1);
 		GridBagConstraints gbc_lblE = new GridBagConstraints();
@@ -276,6 +293,8 @@ public class PanelBike extends JPanel {
 		add(lblE, gbc_lblE);
 		
 		tf_e1_wish = new JTextField();
+		tf_e1_wish.setEditable(false);
+		tf_e1_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e1_wish.setText("0");
 		GridBagConstraints gbc_tf_e1_wish = new GridBagConstraints();
 		gbc_tf_e1_wish.insets = new Insets(0, 0, 5, 5);
@@ -294,6 +313,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel, gbc_lblNewLabel);
 		
 		tf_e1_previousWaiting = new JTextField();
+		tf_e1_previousWaiting.setEditable(false);
+		tf_e1_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e1_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e1_previousWaiting = new GridBagConstraints();
 		gbc_tf_e1_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -311,21 +332,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_10.gridy = 4;
 		add(lblNewLabel_10, gbc_lblNewLabel_10);
 		
-		tf_e1_reserve = new JTextField();
+		tf_e1_reserve = new JFormattedTextField();
+		tf_e1_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e1_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e1_reserve.setText("0");
 		GridBagConstraints gbc_tf_e1_reserve = new GridBagConstraints();
 		gbc_tf_e1_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e1_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e1_reserve.gridx = 7;
 		gbc_tf_e1_reserve.gridy = 4;
 		add(tf_e1_reserve, gbc_tf_e1_reserve);
-		tf_e1_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_18 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_18 = new GridBagConstraints();
@@ -336,6 +356,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_18, gbc_lblNewLabel_18);
 		
 		tf_e1_stock = new JTextField();
+		tf_e1_stock.setEditable(false);
+		tf_e1_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e1_stock.setText("0");
 		GridBagConstraints gbc_tf_e1_stock = new GridBagConstraints();
 		gbc_tf_e1_stock.insets = new Insets(0, 0, 5, 5);
@@ -354,6 +376,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_30, gbc_lblNewLabel_30);
 		
 		tf_e1_queue = new JTextField();
+		tf_e1_queue.setEditable(false);
+		tf_e1_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e1_queue.setText("0");
 		GridBagConstraints gbc_tf_e1_queue = new GridBagConstraints();
 		gbc_tf_e1_queue.insets = new Insets(0, 0, 5, 5);
@@ -372,6 +396,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_42, gbc_lblNewLabel_42);
 		
 		tf_e1_progress = new JTextField();
+		tf_e1_progress.setEditable(false);
+		tf_e1_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e1_progress.setText("0");
 		GridBagConstraints gbc_tf_e1_progress = new GridBagConstraints();
 		gbc_tf_e1_progress.insets = new Insets(0, 0, 5, 5);
@@ -390,7 +416,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_54, gbc_lblNewLabel_54);
 		
 		tf_e1_order = new JTextField();
-		tf_e1_order.setText("0");
+		tf_e1_order.setEditable(false);
+		tf_e1_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e1_order = new GridBagConstraints();
 		gbc_tf_e1_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e1_order.fill = GridBagConstraints.HORIZONTAL;
@@ -407,6 +434,8 @@ public class PanelBike extends JPanel {
 		add(lblE_1, gbc_lblE_1);
 		
 		tf_e2_wish = new JTextField();
+		tf_e2_wish.setEditable(false);
+		tf_e2_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e2_wish.setText("0");
 		GridBagConstraints gbc_tf_e2_wish = new GridBagConstraints();
 		gbc_tf_e2_wish.insets = new Insets(0, 0, 5, 5);
@@ -425,6 +454,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
 		tf_e2_previousWaiting = new JTextField();
+		tf_e2_previousWaiting.setEditable(false);
+		tf_e2_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e2_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e2_previousWaiting = new GridBagConstraints();
 		gbc_tf_e2_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -442,21 +473,20 @@ public class PanelBike extends JPanel {
 		gbc_label_3.gridy = 5;
 		add(label_3, gbc_label_3);
 		
-		tf_e2_reserve = new JTextField();
+		tf_e2_reserve = new JFormattedTextField();
+		tf_e2_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e2_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e2_reserve.setText("0");
 		GridBagConstraints gbc_tf_e2_reserve = new GridBagConstraints();
 		gbc_tf_e2_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e2_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e2_reserve.gridx = 7;
 		gbc_tf_e2_reserve.gridy = 5;
 		add(tf_e2_reserve, gbc_tf_e2_reserve);
-		tf_e2_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_19 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_19 = new GridBagConstraints();
@@ -467,6 +497,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_19, gbc_lblNewLabel_19);
 		
 		tf_e2_stock = new JTextField();
+		tf_e2_stock.setEditable(false);
+		tf_e2_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e2_stock.setText("0");
 		GridBagConstraints gbc_tf_e2_stock = new GridBagConstraints();
 		gbc_tf_e2_stock.insets = new Insets(0, 0, 5, 5);
@@ -485,6 +517,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_31, gbc_lblNewLabel_31);
 		
 		tf_e2_queue = new JTextField();
+		tf_e2_queue.setEditable(false);
+		tf_e2_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e2_queue.setText("0");
 		GridBagConstraints gbc_tf_e2_queue = new GridBagConstraints();
 		gbc_tf_e2_queue.insets = new Insets(0, 0, 5, 5);
@@ -503,6 +537,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_43, gbc_lblNewLabel_43);
 		
 		tf_e2_progress = new JTextField();
+		tf_e2_progress.setEditable(false);
+		tf_e2_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e2_progress.setText("0");
 		GridBagConstraints gbc_tf_e2_progress = new GridBagConstraints();
 		gbc_tf_e2_progress.insets = new Insets(0, 0, 5, 5);
@@ -521,7 +557,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_55, gbc_lblNewLabel_55);
 		
 		tf_e2_order = new JTextField();
-		tf_e2_order.setText("0");
+		tf_e2_order.setEditable(false);
+		tf_e2_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e2_order = new GridBagConstraints();
 		gbc_tf_e2_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e2_order.fill = GridBagConstraints.HORIZONTAL;
@@ -529,6 +566,13 @@ public class PanelBike extends JPanel {
 		gbc_tf_e2_order.gridy = 5;
 		add(tf_e2_order, gbc_tf_e2_order);
 		tf_e2_order.setColumns(10);
+		
+		JLabel lblNewLabel_65 = new JLabel(" ");
+		GridBagConstraints gbc_lblNewLabel_65 = new GridBagConstraints();
+		gbc_lblNewLabel_65.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_65.gridx = 1;
+		gbc_lblNewLabel_65.gridy = 6;
+		add(lblNewLabel_65, gbc_lblNewLabel_65);
 		
 		JLabel lblE_2 = new JLabel(e3);
 		GridBagConstraints gbc_lblE_2 = new GridBagConstraints();
@@ -538,6 +582,8 @@ public class PanelBike extends JPanel {
 		add(lblE_2, gbc_lblE_2);
 		
 		tf_e3_wish = new JTextField();
+		tf_e3_wish.setEditable(false);
+		tf_e3_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e3_wish.setText("0");
 		GridBagConstraints gbc_tf_e3_wish = new GridBagConstraints();
 		gbc_tf_e3_wish.insets = new Insets(0, 0, 5, 5);
@@ -556,6 +602,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
 		tf_e3_previousWaiting = new JTextField();
+		tf_e3_previousWaiting.setEditable(false);
+		tf_e3_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e3_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e3_previousWaiting = new GridBagConstraints();
 		gbc_tf_e3_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -573,21 +621,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_11.gridy = 7;
 		add(lblNewLabel_11, gbc_lblNewLabel_11);
 		
-		tf_e3_reserve = new JTextField();
+		tf_e3_reserve = new JFormattedTextField();
+		tf_e3_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e3_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e3_reserve.setText("0");
 		GridBagConstraints gbc_tf_e3_reserve = new GridBagConstraints();
 		gbc_tf_e3_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e3_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e3_reserve.gridx = 7;
 		gbc_tf_e3_reserve.gridy = 7;
 		add(tf_e3_reserve, gbc_tf_e3_reserve);
-		tf_e3_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_20 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_20 = new GridBagConstraints();
@@ -598,6 +645,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_20, gbc_lblNewLabel_20);
 		
 		tf_e3_stock = new JTextField();
+		tf_e3_stock.setEditable(false);
+		tf_e3_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e3_stock.setText("0");
 		GridBagConstraints gbc_tf_e3_stock = new GridBagConstraints();
 		gbc_tf_e3_stock.insets = new Insets(0, 0, 5, 5);
@@ -616,6 +665,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_32, gbc_lblNewLabel_32);
 		
 		tf_e3_queue = new JTextField();
+		tf_e3_queue.setEditable(false);
+		tf_e3_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e3_queue.setText("0");
 		GridBagConstraints gbc_tf_e3_queue = new GridBagConstraints();
 		gbc_tf_e3_queue.insets = new Insets(0, 0, 5, 5);
@@ -634,6 +685,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_44, gbc_lblNewLabel_44);
 		
 		tf_e3_progress = new JTextField();
+		tf_e3_progress.setEditable(false);
+		tf_e3_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e3_progress.setText("0");
 		GridBagConstraints gbc_tf_e3_progress = new GridBagConstraints();
 		gbc_tf_e3_progress.insets = new Insets(0, 0, 5, 5);
@@ -652,7 +705,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_56, gbc_lblNewLabel_56);
 		
 		tf_e3_order = new JTextField();
-		tf_e3_order.setText("0");
+		tf_e3_order.setEditable(false);
+		tf_e3_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e3_order = new GridBagConstraints();
 		gbc_tf_e3_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e3_order.fill = GridBagConstraints.HORIZONTAL;
@@ -669,6 +723,8 @@ public class PanelBike extends JPanel {
 		add(lblE_3, gbc_lblE_3);
 		
 		tf_e4_wish = new JTextField();
+		tf_e4_wish.setEditable(false);
+		tf_e4_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e4_wish.setText("0");
 		GridBagConstraints gbc_tf_e4_wish = new GridBagConstraints();
 		gbc_tf_e4_wish.insets = new Insets(0, 0, 5, 5);
@@ -687,6 +743,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
 		tf_e4_previousWaiting = new JTextField();
+		tf_e4_previousWaiting.setEditable(false);
+		tf_e4_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e4_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e4_previousWaiting = new GridBagConstraints();
 		gbc_tf_e4_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -704,21 +762,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_12.gridy = 8;
 		add(lblNewLabel_12, gbc_lblNewLabel_12);
 		
-		tf_e4_reserve = new JTextField();
+		tf_e4_reserve = new JFormattedTextField();
+		tf_e4_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e4_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent arg0) {
 				calculateValues();
 			}
 		});
-		tf_e4_reserve.setText("0");
 		GridBagConstraints gbc_tf_e4_reserve = new GridBagConstraints();
 		gbc_tf_e4_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e4_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e4_reserve.gridx = 7;
 		gbc_tf_e4_reserve.gridy = 8;
 		add(tf_e4_reserve, gbc_tf_e4_reserve);
-		tf_e4_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_21 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_21 = new GridBagConstraints();
@@ -729,6 +786,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_21, gbc_lblNewLabel_21);
 		
 		tf_e4_stock = new JTextField();
+		tf_e4_stock.setEditable(false);
+		tf_e4_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e4_stock.setText("0");
 		GridBagConstraints gbc_tf_e4_stock = new GridBagConstraints();
 		gbc_tf_e4_stock.insets = new Insets(0, 0, 5, 5);
@@ -747,6 +806,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_33, gbc_lblNewLabel_33);
 		
 		tf_e4_queue = new JTextField();
+		tf_e4_queue.setEditable(false);
+		tf_e4_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e4_queue.setText("0");
 		GridBagConstraints gbc_tf_e4_queue = new GridBagConstraints();
 		gbc_tf_e4_queue.insets = new Insets(0, 0, 5, 5);
@@ -765,6 +826,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_45, gbc_lblNewLabel_45);
 		
 		tf_e4_progress = new JTextField();
+		tf_e4_progress.setEditable(false);
+		tf_e4_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e4_progress.setText("0");
 		GridBagConstraints gbc_tf_e4_progress = new GridBagConstraints();
 		gbc_tf_e4_progress.insets = new Insets(0, 0, 5, 5);
@@ -783,7 +846,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_57, gbc_lblNewLabel_57);
 		
 		tf_e4_order = new JTextField();
-		tf_e4_order.setText("0");
+		tf_e4_order.setEditable(false);
+		tf_e4_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e4_order = new GridBagConstraints();
 		gbc_tf_e4_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e4_order.fill = GridBagConstraints.HORIZONTAL;
@@ -800,6 +864,8 @@ public class PanelBike extends JPanel {
 		add(lblE_4, gbc_lblE_4);
 		
 		tf_e5_wish = new JTextField();
+		tf_e5_wish.setEditable(false);
+		tf_e5_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e5_wish.setText("0");
 		GridBagConstraints gbc_tf_e5_wish = new GridBagConstraints();
 		gbc_tf_e5_wish.insets = new Insets(0, 0, 5, 5);
@@ -818,6 +884,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
 		tf_e5_previousWaiting = new JTextField();
+		tf_e5_previousWaiting.setEditable(false);
+		tf_e5_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e5_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e5_previousWaiting = new GridBagConstraints();
 		gbc_tf_e5_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -835,21 +903,20 @@ public class PanelBike extends JPanel {
 		gbc_label_2.gridy = 9;
 		add(label_2, gbc_label_2);
 		
-		tf_e5_reserve = new JTextField();
+		tf_e5_reserve = new JFormattedTextField();
+		tf_e5_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e5_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e5_reserve.setText("0");
 		GridBagConstraints gbc_tf_e5_reserve = new GridBagConstraints();
 		gbc_tf_e5_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e5_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e5_reserve.gridx = 7;
 		gbc_tf_e5_reserve.gridy = 9;
 		add(tf_e5_reserve, gbc_tf_e5_reserve);
-		tf_e5_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_22 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_22 = new GridBagConstraints();
@@ -860,6 +927,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_22, gbc_lblNewLabel_22);
 		
 		tf_e5_stock = new JTextField();
+		tf_e5_stock.setEditable(false);
+		tf_e5_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e5_stock.setText("0");
 		GridBagConstraints gbc_tf_e5_stock = new GridBagConstraints();
 		gbc_tf_e5_stock.insets = new Insets(0, 0, 5, 5);
@@ -878,6 +947,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_34, gbc_lblNewLabel_34);
 		
 		tf_e5_queue = new JTextField();
+		tf_e5_queue.setEditable(false);
+		tf_e5_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e5_queue.setText("0");
 		GridBagConstraints gbc_tf_e5_queue = new GridBagConstraints();
 		gbc_tf_e5_queue.insets = new Insets(0, 0, 5, 5);
@@ -896,6 +967,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_46, gbc_lblNewLabel_46);
 		
 		tf_e5_progress = new JTextField();
+		tf_e5_progress.setEditable(false);
+		tf_e5_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e5_progress.setText("0");
 		GridBagConstraints gbc_tf_e5_progress = new GridBagConstraints();
 		gbc_tf_e5_progress.insets = new Insets(0, 0, 5, 5);
@@ -914,7 +987,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_58, gbc_lblNewLabel_58);
 		
 		tf_e5_order = new JTextField();
-		tf_e5_order.setText("0");
+		tf_e5_order.setEditable(false);
+		tf_e5_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e5_order = new GridBagConstraints();
 		gbc_tf_e5_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e5_order.fill = GridBagConstraints.HORIZONTAL;
@@ -922,6 +996,13 @@ public class PanelBike extends JPanel {
 		gbc_tf_e5_order.gridy = 9;
 		add(tf_e5_order, gbc_tf_e5_order);
 		tf_e5_order.setColumns(10);
+		
+		JLabel lblNewLabel_66 = new JLabel(" ");
+		GridBagConstraints gbc_lblNewLabel_66 = new GridBagConstraints();
+		gbc_lblNewLabel_66.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_66.gridx = 1;
+		gbc_lblNewLabel_66.gridy = 10;
+		add(lblNewLabel_66, gbc_lblNewLabel_66);
 		
 		JLabel lblE_5 = new JLabel(e6);
 		GridBagConstraints gbc_lblE_5 = new GridBagConstraints();
@@ -931,6 +1012,8 @@ public class PanelBike extends JPanel {
 		add(lblE_5, gbc_lblE_5);
 		
 		tf_e6_wish = new JTextField();
+		tf_e6_wish.setEditable(false);
+		tf_e6_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e6_wish.setText("0");
 		GridBagConstraints gbc_tf_e6_wish = new GridBagConstraints();
 		gbc_tf_e6_wish.insets = new Insets(0, 0, 5, 5);
@@ -949,6 +1032,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_5, gbc_lblNewLabel_5);
 		
 		tf_e6_previousWaiting = new JTextField();
+		tf_e6_previousWaiting.setEditable(false);
+		tf_e6_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e6_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e6_previousWaiting = new GridBagConstraints();
 		gbc_tf_e6_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -966,21 +1051,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_13.gridy = 11;
 		add(lblNewLabel_13, gbc_lblNewLabel_13);
 		
-		tf_e6_reserve = new JTextField();
+		tf_e6_reserve = new JFormattedTextField();
+		tf_e6_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e6_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e6_reserve.setText("0");
 		GridBagConstraints gbc_tf_e6_reserve = new GridBagConstraints();
 		gbc_tf_e6_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e6_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e6_reserve.gridx = 7;
 		gbc_tf_e6_reserve.gridy = 11;
 		add(tf_e6_reserve, gbc_tf_e6_reserve);
-		tf_e6_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_23 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_23 = new GridBagConstraints();
@@ -991,6 +1075,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_23, gbc_lblNewLabel_23);
 		
 		tf_e6_stock = new JTextField();
+		tf_e6_stock.setEditable(false);
+		tf_e6_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e6_stock.setText("0");
 		GridBagConstraints gbc_tf_e6_stock = new GridBagConstraints();
 		gbc_tf_e6_stock.insets = new Insets(0, 0, 5, 5);
@@ -1009,6 +1095,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_35, gbc_lblNewLabel_35);
 		
 		tf_e6_queue = new JTextField();
+		tf_e6_queue.setEditable(false);
+		tf_e6_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e6_queue.setText("0");
 		GridBagConstraints gbc_tf_e6_queue = new GridBagConstraints();
 		gbc_tf_e6_queue.insets = new Insets(0, 0, 5, 5);
@@ -1027,6 +1115,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_47, gbc_lblNewLabel_47);
 		
 		tf_e6_progress = new JTextField();
+		tf_e6_progress.setEditable(false);
+		tf_e6_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e6_progress.setText("0");
 		GridBagConstraints gbc_tf_e6_progress = new GridBagConstraints();
 		gbc_tf_e6_progress.insets = new Insets(0, 0, 5, 5);
@@ -1045,7 +1135,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_59, gbc_lblNewLabel_59);
 		
 		tf_e6_order = new JTextField();
-		tf_e6_order.setText("0");
+		tf_e6_order.setEditable(false);
+		tf_e6_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e6_order = new GridBagConstraints();
 		gbc_tf_e6_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e6_order.fill = GridBagConstraints.HORIZONTAL;
@@ -1062,6 +1153,8 @@ public class PanelBike extends JPanel {
 		add(lblE_6, gbc_lblE_6);
 		
 		tf_e7_wish = new JTextField();
+		tf_e7_wish.setEditable(false);
+		tf_e7_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e7_wish.setText("0");
 		GridBagConstraints gbc_tf_e7_wish = new GridBagConstraints();
 		gbc_tf_e7_wish.insets = new Insets(0, 0, 5, 5);
@@ -1080,6 +1173,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
 		tf_e7_previousWaiting = new JTextField();
+		tf_e7_previousWaiting.setEditable(false);
+		tf_e7_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e7_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e7_previousWaiting = new GridBagConstraints();
 		gbc_tf_e7_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -1097,21 +1192,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_14.gridy = 12;
 		add(lblNewLabel_14, gbc_lblNewLabel_14);
 		
-		tf_e7_reserve = new JTextField();
+		tf_e7_reserve = new JFormattedTextField();
+		tf_e7_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e7_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e7_reserve.setText("0");
 		GridBagConstraints gbc_tf_e7_reserve = new GridBagConstraints();
 		gbc_tf_e7_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e7_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e7_reserve.gridx = 7;
 		gbc_tf_e7_reserve.gridy = 12;
 		add(tf_e7_reserve, gbc_tf_e7_reserve);
-		tf_e7_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_24 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_24 = new GridBagConstraints();
@@ -1122,6 +1216,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_24, gbc_lblNewLabel_24);
 		
 		tf_e7_stock = new JTextField();
+		tf_e7_stock.setEditable(false);
+		tf_e7_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e7_stock.setText("0");
 		GridBagConstraints gbc_tf_e7_stock = new GridBagConstraints();
 		gbc_tf_e7_stock.insets = new Insets(0, 0, 5, 5);
@@ -1140,6 +1236,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_36, gbc_lblNewLabel_36);
 		
 		tf_e7_queue = new JTextField();
+		tf_e7_queue.setEditable(false);
+		tf_e7_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e7_queue.setText("0");
 		GridBagConstraints gbc_tf_e7_queue = new GridBagConstraints();
 		gbc_tf_e7_queue.insets = new Insets(0, 0, 5, 5);
@@ -1158,6 +1256,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_48, gbc_lblNewLabel_48);
 		
 		tf_e7_progress = new JTextField();
+		tf_e7_progress.setEditable(false);
+		tf_e7_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e7_progress.setText("0");
 		GridBagConstraints gbc_tf_e7_progress = new GridBagConstraints();
 		gbc_tf_e7_progress.insets = new Insets(0, 0, 5, 5);
@@ -1176,7 +1276,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_60, gbc_lblNewLabel_60);
 		
 		tf_e7_order = new JTextField();
-		tf_e7_order.setText("0");
+		tf_e7_order.setEditable(false);
+		tf_e7_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e7_order = new GridBagConstraints();
 		gbc_tf_e7_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e7_order.fill = GridBagConstraints.HORIZONTAL;
@@ -1193,6 +1294,8 @@ public class PanelBike extends JPanel {
 		add(lblE_7, gbc_lblE_7);
 		
 		tf_e8_wish = new JTextField();
+		tf_e8_wish.setEditable(false);
+		tf_e8_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e8_wish.setText("0");
 		GridBagConstraints gbc_tf_e8_wish = new GridBagConstraints();
 		gbc_tf_e8_wish.insets = new Insets(0, 0, 5, 5);
@@ -1211,6 +1314,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_7, gbc_lblNewLabel_7);
 		
 		tf_e8_previousWaiting = new JTextField();
+		tf_e8_previousWaiting.setEditable(false);
+		tf_e8_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e8_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e8_previousWaiting = new GridBagConstraints();
 		gbc_tf_e8_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -1228,21 +1333,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_15.gridy = 13;
 		add(lblNewLabel_15, gbc_lblNewLabel_15);
 		
-		tf_e8_reserve = new JTextField();
+		tf_e8_reserve = new JFormattedTextField();
+		tf_e8_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e8_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e8_reserve.setText("0");
 		GridBagConstraints gbc_tf_e8_reserve = new GridBagConstraints();
 		gbc_tf_e8_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e8_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e8_reserve.gridx = 7;
 		gbc_tf_e8_reserve.gridy = 13;
 		add(tf_e8_reserve, gbc_tf_e8_reserve);
-		tf_e8_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_25 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_25 = new GridBagConstraints();
@@ -1253,6 +1357,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_25, gbc_lblNewLabel_25);
 		
 		tf_e8_stock = new JTextField();
+		tf_e8_stock.setEditable(false);
+		tf_e8_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e8_stock.setText("0");
 		GridBagConstraints gbc_tf_e8_stock = new GridBagConstraints();
 		gbc_tf_e8_stock.insets = new Insets(0, 0, 5, 5);
@@ -1271,6 +1377,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_37, gbc_lblNewLabel_37);
 		
 		tf_e8_queue = new JTextField();
+		tf_e8_queue.setEditable(false);
+		tf_e8_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e8_queue.setText("0");
 		GridBagConstraints gbc_tf_e8_queue = new GridBagConstraints();
 		gbc_tf_e8_queue.insets = new Insets(0, 0, 5, 5);
@@ -1289,6 +1397,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_50, gbc_lblNewLabel_50);
 		
 		tf_e8_progress = new JTextField();
+		tf_e8_progress.setEditable(false);
+		tf_e8_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e8_progress.setText("0");
 		GridBagConstraints gbc_tf_e8_progress = new GridBagConstraints();
 		gbc_tf_e8_progress.insets = new Insets(0, 0, 5, 5);
@@ -1307,7 +1417,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_61, gbc_lblNewLabel_61);
 		
 		tf_e8_order = new JTextField();
-		tf_e8_order.setText("0");
+		tf_e8_order.setEditable(false);
+		tf_e8_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e8_order = new GridBagConstraints();
 		gbc_tf_e8_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e8_order.fill = GridBagConstraints.HORIZONTAL;
@@ -1315,6 +1426,13 @@ public class PanelBike extends JPanel {
 		gbc_tf_e8_order.gridy = 13;
 		add(tf_e8_order, gbc_tf_e8_order);
 		tf_e8_order.setColumns(10);
+		
+		JLabel lblNewLabel_67 = new JLabel(" ");
+		GridBagConstraints gbc_lblNewLabel_67 = new GridBagConstraints();
+		gbc_lblNewLabel_67.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_67.gridx = 1;
+		gbc_lblNewLabel_67.gridy = 14;
+		add(lblNewLabel_67, gbc_lblNewLabel_67);
 		
 		JLabel lblE_8 = new JLabel(e9);
 		GridBagConstraints gbc_lblE_8 = new GridBagConstraints();
@@ -1324,6 +1442,8 @@ public class PanelBike extends JPanel {
 		add(lblE_8, gbc_lblE_8);
 		
 		tf_e9_wish = new JTextField();
+		tf_e9_wish.setEditable(false);
+		tf_e9_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e9_wish.setText("0");
 		GridBagConstraints gbc_tf_e9_wish = new GridBagConstraints();
 		gbc_tf_e9_wish.insets = new Insets(0, 0, 5, 5);
@@ -1342,6 +1462,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_161, gbc_lblNewLabel_161);
 		
 		tf_e9_previousWaiting = new JTextField();
+		tf_e9_previousWaiting.setEditable(false);
+		tf_e9_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e9_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e9_previousWaiting = new GridBagConstraints();
 		gbc_tf_e9_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -1359,21 +1481,20 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_16.gridy = 15;
 		add(lblNewLabel_16, gbc_lblNewLabel_16);
 		
-		tf_e9_reserve = new JTextField();
+		tf_e9_reserve = new JFormattedTextField();
+		tf_e9_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e9_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e9_reserve.setText("0");
 		GridBagConstraints gbc_tf_e9_reserve = new GridBagConstraints();
 		gbc_tf_e9_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e9_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e9_reserve.gridx = 7;
 		gbc_tf_e9_reserve.gridy = 15;
 		add(tf_e9_reserve, gbc_tf_e9_reserve);
-		tf_e9_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_26 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_26 = new GridBagConstraints();
@@ -1384,6 +1505,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_26, gbc_lblNewLabel_26);
 		
 		tf_e9_stock = new JTextField();
+		tf_e9_stock.setEditable(false);
+		tf_e9_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e9_stock.setText("0");
 		GridBagConstraints gbc_tf_e9_stock = new GridBagConstraints();
 		gbc_tf_e9_stock.insets = new Insets(0, 0, 5, 5);
@@ -1402,6 +1525,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_38, gbc_lblNewLabel_38);
 		
 		tf_e9_queue = new JTextField();
+		tf_e9_queue.setEditable(false);
+		tf_e9_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e9_queue.setText("0");
 		GridBagConstraints gbc_tf_e9_queue = new GridBagConstraints();
 		gbc_tf_e9_queue.insets = new Insets(0, 0, 5, 5);
@@ -1420,6 +1545,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_49, gbc_lblNewLabel_49);
 		
 		tf_e9_progress = new JTextField();
+		tf_e9_progress.setEditable(false);
+		tf_e9_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e9_progress.setText("0");
 		GridBagConstraints gbc_tf_e9_progress = new GridBagConstraints();
 		gbc_tf_e9_progress.insets = new Insets(0, 0, 5, 5);
@@ -1438,7 +1565,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_62, gbc_lblNewLabel_62);
 		
 		tf_e9_order = new JTextField();
-		tf_e9_order.setText("0");
+		tf_e9_order.setEditable(false);
+		tf_e9_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e9_order = new GridBagConstraints();
 		gbc_tf_e9_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e9_order.fill = GridBagConstraints.HORIZONTAL;
@@ -1455,6 +1583,8 @@ public class PanelBike extends JPanel {
 		add(lblE_9, gbc_lblE_9);
 		
 		tf_e10_wish = new JTextField();
+		tf_e10_wish.setEditable(false);
+		tf_e10_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e10_wish.setText("0");
 		GridBagConstraints gbc_tf_e10_wish = new GridBagConstraints();
 		gbc_tf_e10_wish.insets = new Insets(0, 0, 5, 5);
@@ -1473,6 +1603,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_8, gbc_lblNewLabel_8);
 		
 		tf_e10_previousWaiting = new JTextField();
+		tf_e10_previousWaiting.setEditable(false);
+		tf_e10_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e10_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e10_previousWaiting = new GridBagConstraints();
 		gbc_tf_e10_previousWaiting.insets = new Insets(0, 0, 5, 5);
@@ -1490,21 +1622,20 @@ public class PanelBike extends JPanel {
 		gbc_label_4.gridy = 16;
 		add(label_4, gbc_label_4);
 		
-		tf_e10_reserve = new JTextField();
+		tf_e10_reserve = new JFormattedTextField();
+		tf_e10_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e10_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e10_reserve.setText("0");
 		GridBagConstraints gbc_tf_e10_reserve = new GridBagConstraints();
 		gbc_tf_e10_reserve.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e10_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e10_reserve.gridx = 7;
 		gbc_tf_e10_reserve.gridy = 16;
 		add(tf_e10_reserve, gbc_tf_e10_reserve);
-		tf_e10_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_27 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_27 = new GridBagConstraints();
@@ -1515,6 +1646,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_27, gbc_lblNewLabel_27);
 		
 		tf_e10_stock = new JTextField();
+		tf_e10_stock.setEditable(false);
+		tf_e10_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e10_stock.setText("0");
 		GridBagConstraints gbc_tf_e10_stock = new GridBagConstraints();
 		gbc_tf_e10_stock.insets = new Insets(0, 0, 5, 5);
@@ -1533,6 +1666,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_39, gbc_lblNewLabel_39);
 		
 		tf_e10_queue = new JTextField();
+		tf_e10_queue.setEditable(false);
+		tf_e10_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e10_queue.setText("0");
 		GridBagConstraints gbc_tf_e10_queue = new GridBagConstraints();
 		gbc_tf_e10_queue.insets = new Insets(0, 0, 5, 5);
@@ -1551,6 +1686,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_51, gbc_lblNewLabel_51);
 		
 		tf_e10_progress = new JTextField();
+		tf_e10_progress.setEditable(false);
+		tf_e10_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e10_progress.setText("0");
 		GridBagConstraints gbc_tf_e10_progress = new GridBagConstraints();
 		gbc_tf_e10_progress.insets = new Insets(0, 0, 5, 5);
@@ -1569,7 +1706,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_63, gbc_lblNewLabel_63);
 		
 		tf_e10_order = new JTextField();
-		tf_e10_order.setText("0");
+		tf_e10_order.setEditable(false);
+		tf_e10_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e10_order = new GridBagConstraints();
 		gbc_tf_e10_order.insets = new Insets(0, 0, 5, 0);
 		gbc_tf_e10_order.fill = GridBagConstraints.HORIZONTAL;
@@ -1586,6 +1724,8 @@ public class PanelBike extends JPanel {
 		add(lblE_10, gbc_lblE_10);
 		
 		tf_e11_wish = new JTextField();
+		tf_e11_wish.setEditable(false);
+		tf_e11_wish.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e11_wish.setText("0");
 		GridBagConstraints gbc_tf_e11_wish = new GridBagConstraints();
 		gbc_tf_e11_wish.insets = new Insets(0, 0, 0, 5);
@@ -1604,6 +1744,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_9, gbc_lblNewLabel_9);
 		
 		tf_e11_previousWaiting = new JTextField();
+		tf_e11_previousWaiting.setEditable(false);
+		tf_e11_previousWaiting.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e11_previousWaiting.setText("0");
 		GridBagConstraints gbc_tf_e11_previousWaiting = new GridBagConstraints();
 		gbc_tf_e11_previousWaiting.insets = new Insets(0, 0, 0, 5);
@@ -1621,21 +1763,20 @@ public class PanelBike extends JPanel {
 		gbc_label_1.gridy = 17;
 		add(label_1, gbc_label_1);
 		
-		tf_e11_reserve = new JTextField();
+		tf_e11_reserve = new JFormattedTextField();
+		tf_e11_reserve.setText(String.valueOf(bike.getReserve()));
 		tf_e11_reserve.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
+			public void keyReleased(KeyEvent e) {
 				calculateValues();
 			}
 		});
-		tf_e11_reserve.setText("0");
 		GridBagConstraints gbc_tf_e11_reserve = new GridBagConstraints();
 		gbc_tf_e11_reserve.insets = new Insets(0, 0, 0, 5);
 		gbc_tf_e11_reserve.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e11_reserve.gridx = 7;
 		gbc_tf_e11_reserve.gridy = 17;
 		add(tf_e11_reserve, gbc_tf_e11_reserve);
-		tf_e11_reserve.setColumns(10);
 		
 		JLabel lblNewLabel_28 = new JLabel("-");
 		GridBagConstraints gbc_lblNewLabel_28 = new GridBagConstraints();
@@ -1646,6 +1787,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_28, gbc_lblNewLabel_28);
 		
 		tf_e11_stock = new JTextField();
+		tf_e11_stock.setEditable(false);
+		tf_e11_stock.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e11_stock.setText("0");
 		GridBagConstraints gbc_tf_e11_stock = new GridBagConstraints();
 		gbc_tf_e11_stock.insets = new Insets(0, 0, 0, 5);
@@ -1664,6 +1807,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_40, gbc_lblNewLabel_40);
 		
 		tf_e11_queue = new JTextField();
+		tf_e11_queue.setEditable(false);
+		tf_e11_queue.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e11_queue.setText("0");
 		GridBagConstraints gbc_tf_e11_queue = new GridBagConstraints();
 		gbc_tf_e11_queue.insets = new Insets(0, 0, 0, 5);
@@ -1682,6 +1827,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_52, gbc_lblNewLabel_52);
 		
 		tf_e11_progress = new JTextField();
+		tf_e11_progress.setEditable(false);
+		tf_e11_progress.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_e11_progress.setText("0");
 		GridBagConstraints gbc_tf_e11_progress = new GridBagConstraints();
 		gbc_tf_e11_progress.insets = new Insets(0, 0, 0, 5);
@@ -1700,7 +1847,8 @@ public class PanelBike extends JPanel {
 		add(lblNewLabel_64, gbc_lblNewLabel_64);
 		
 		tf_e11_order = new JTextField();
-		tf_e11_order.setText("0");
+		tf_e11_order.setEditable(false);
+		tf_e11_order.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_tf_e11_order = new GridBagConstraints();
 		gbc_tf_e11_order.fill = GridBagConstraints.HORIZONTAL;
 		gbc_tf_e11_order.gridx = 15;
@@ -1716,77 +1864,100 @@ public class PanelBike extends JPanel {
 	
 	private void calculateValues() {
 		int result;
-		//calculate p
-		result = Integer.parseInt(this.tf_p_wish.getText().trim()) + Integer.parseInt(this.tf_p_reserve.getText().trim())
-				- Integer.parseInt(this.tf_p_stock.getText().trim()) - Integer.parseInt(this.tf_p_queue.getText().trim())
+		int reserve;
+		reserve = this.tf_p_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_p_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_p_wish.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_p_stock.getText().trim())
+				- Integer.parseInt(this.tf_p_queue.getText().trim())
 				- Integer.parseInt(this.tf_p_progress.getText().trim());
 		this.tf_p_order.setText(String.valueOf(result));
 		
-		//calculate e1
-		result = Integer.parseInt(this.tf_e1_wish.getText().trim()) + Integer.parseInt(this.tf_e1_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e1_reserve.getText().trim()) - Integer.parseInt(this.tf_e1_stock.getText().trim())
-				- Integer.parseInt(this.tf_e1_queue.getText().trim()) - Integer.parseInt(this.tf_e1_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
+		reserve = this.tf_e1_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e1_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e1_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e1_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e1_stock.getText().trim())
+				- Integer.parseInt(this.tf_e1_queue.getText().trim())
+				- Integer.parseInt(this.tf_e1_progress.getText().trim());
+		this.tf_e1_order.setText(String.valueOf(result));
 		
-		// calculate e2
-		result = Integer.parseInt(this.tf_e2_wish.getText().trim()) + Integer.parseInt(this.tf_e2_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e2_reserve.getText().trim()) - Integer.parseInt(this.tf_e2_stock.getText().trim())
-				- Integer.parseInt(this.tf_e2_queue.getText().trim()) - Integer.parseInt(this.tf_e2_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e3
-		result = Integer.parseInt(this.tf_e3_wish.getText().trim()) + Integer.parseInt(this.tf_e3_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e3_reserve.getText().trim()) - Integer.parseInt(this.tf_e3_stock.getText().trim())
-				- Integer.parseInt(this.tf_e3_queue.getText().trim()) - Integer.parseInt(this.tf_e3_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e4
-		result = Integer.parseInt(this.tf_e4_wish.getText().trim()) + Integer.parseInt(this.tf_e4_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e4_reserve.getText().trim()) - Integer.parseInt(this.tf_e4_stock.getText().trim())
-				- Integer.parseInt(this.tf_e4_queue.getText().trim()) - Integer.parseInt(this.tf_e4_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e5
-		result = Integer.parseInt(this.tf_e5_wish.getText().trim()) + Integer.parseInt(this.tf_e5_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e5_reserve.getText().trim()) - Integer.parseInt(this.tf_e5_stock.getText().trim())
-				- Integer.parseInt(this.tf_e5_queue.getText().trim()) - Integer.parseInt(this.tf_e5_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e6
-		result = Integer.parseInt(this.tf_e6_wish.getText().trim()) + Integer.parseInt(this.tf_e6_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e6_reserve.getText().trim()) - Integer.parseInt(this.tf_e6_stock.getText().trim())
-				- Integer.parseInt(this.tf_e6_queue.getText().trim()) - Integer.parseInt(this.tf_e6_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e7
-		result = Integer.parseInt(this.tf_e7_wish.getText().trim()) + Integer.parseInt(this.tf_e7_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e7_reserve.getText().trim()) - Integer.parseInt(this.tf_e7_stock.getText().trim())
-				- Integer.parseInt(this.tf_e7_queue.getText().trim()) - Integer.parseInt(this.tf_e7_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e8
-		result = Integer.parseInt(this.tf_e8_wish.getText().trim()) + Integer.parseInt(this.tf_e8_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e8_reserve.getText().trim()) - Integer.parseInt(this.tf_e8_stock.getText().trim())
-				- Integer.parseInt(this.tf_e8_queue.getText().trim()) - Integer.parseInt(this.tf_e8_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e9
-		result = Integer.parseInt(this.tf_e9_wish.getText().trim()) + Integer.parseInt(this.tf_e9_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e9_reserve.getText().trim()) - Integer.parseInt(this.tf_e9_stock.getText().trim())
-				- Integer.parseInt(this.tf_e9_queue.getText().trim()) - Integer.parseInt(this.tf_e9_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e10
-		result = Integer.parseInt(this.tf_e10_wish.getText().trim()) + Integer.parseInt(this.tf_e10_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e10_reserve.getText().trim()) - Integer.parseInt(this.tf_e10_stock.getText().trim())
-				- Integer.parseInt(this.tf_e10_queue.getText().trim()) - Integer.parseInt(this.tf_e10_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
-
-		// calculate e11
-		result = Integer.parseInt(this.tf_e11_wish.getText().trim()) + Integer.parseInt(this.tf_e11_previousWaiting.getText().trim())
-				+ Integer.parseInt(this.tf_e11_reserve.getText().trim()) - Integer.parseInt(this.tf_e11_stock.getText().trim())
-				- Integer.parseInt(this.tf_e11_queue.getText().trim()) - Integer.parseInt(this.tf_e11_progress.getText().trim());
-		this.tf_p_order.setText(String.valueOf(result));
+		reserve = this.tf_e2_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e2_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e2_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e2_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e2_stock.getText().trim())
+				- Integer.parseInt(this.tf_e2_queue.getText().trim())
+				- Integer.parseInt(this.tf_e2_progress.getText().trim());
+		this.tf_e2_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e3_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e3_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e3_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e3_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e3_stock.getText().trim())
+				- Integer.parseInt(this.tf_e3_queue.getText().trim())
+				- Integer.parseInt(this.tf_e3_progress.getText().trim());
+		this.tf_e3_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e4_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e4_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e4_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e4_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e4_stock.getText().trim())
+				- Integer.parseInt(this.tf_e4_queue.getText().trim())
+				- Integer.parseInt(this.tf_e4_progress.getText().trim());
+		this.tf_e4_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e5_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e5_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e5_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e5_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e5_stock.getText().trim())
+				- Integer.parseInt(this.tf_e5_queue.getText().trim())
+				- Integer.parseInt(this.tf_e5_progress.getText().trim());
+		this.tf_e5_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e6_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e6_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e6_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e6_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e6_stock.getText().trim())
+				- Integer.parseInt(this.tf_e6_queue.getText().trim())
+				- Integer.parseInt(this.tf_e6_progress.getText().trim());
+		this.tf_e6_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e7_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e7_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e7_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e7_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e7_stock.getText().trim())
+				- Integer.parseInt(this.tf_e7_queue.getText().trim())
+				- Integer.parseInt(this.tf_e7_progress.getText().trim());
+		this.tf_e7_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e8_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e8_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e8_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e8_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e8_stock.getText().trim())
+				- Integer.parseInt(this.tf_e8_queue.getText().trim())
+				- Integer.parseInt(this.tf_e8_progress.getText().trim());
+		this.tf_e8_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e9_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e9_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e9_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e9_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e9_stock.getText().trim())
+				- Integer.parseInt(this.tf_e9_queue.getText().trim())
+				- Integer.parseInt(this.tf_e9_progress.getText().trim());
+		this.tf_e9_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e10_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e10_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e10_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e10_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e10_stock.getText().trim())
+				- Integer.parseInt(this.tf_e10_queue.getText().trim())
+				- Integer.parseInt(this.tf_e10_progress.getText().trim());
+		this.tf_e10_order.setText(String.valueOf(result));
+		
+		reserve = this.tf_e11_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e11_reserve.getText().trim());
+		result = Integer.parseInt(this.tf_e11_wish.getText().trim())
+				+ Integer.parseInt(this.tf_e11_previousWaiting.getText().trim()) + reserve
+				- Integer.parseInt(this.tf_e11_stock.getText().trim())
+				- Integer.parseInt(this.tf_e11_queue.getText().trim())
+				- Integer.parseInt(this.tf_e11_progress.getText().trim());
+		this.tf_e11_order.setText(String.valueOf(result));
 	}
-
 }
