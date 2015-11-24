@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import de.hska.ibsys.Bike.Bike;
+import de.hska.ibsys.XML.XMLParser;
 
 import java.awt.Font;
 import java.awt.GridBagLayout;
@@ -28,11 +29,13 @@ public class PanelPrognose extends JPanel {
 	private JSpinner spChildQuantityReserve;
 	private JSpinner spWomanQuantityReserve;
 	private JSpinner spManQuantityReserve;
+	private XMLParser xp;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelPrognose() {
+	public PanelPrognose(XMLParser xp) {
+		this.xp = xp;
 		setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Prognose");

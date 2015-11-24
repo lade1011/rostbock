@@ -10,6 +10,8 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 
 import de.hska.ibsys.Bike.Bike;
+import de.hska.ibsys.Components.Articel;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class PanelBike extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 4743633803502188641L;
+	private ArrayList<Articel> articels;
+	
 	private JTextField tf_p_wish;
 	private JTextField tf_e1_wish;
 	private JTextField tf_e2_wish;
@@ -112,8 +116,10 @@ public class PanelBike extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelBike(Bike bike, String p, String e1, String e2, String e3, String e4, String e5, String e6, String e7,
+	public PanelBike(Bike bike, ArrayList<Articel> articels, String p, String e1, String e2, String e3, String e4, String e5, String e6, String e7,
 			String e8, String e9, String e10, String e11) {
+		
+		this.articels = articels;
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -225,7 +231,7 @@ public class PanelBike extends JPanel {
 		tf_p_stock = new JTextField();
 		tf_p_stock.setEditable(false);
 		tf_p_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_p_stock.setText("0\r\n");
+		tf_p_stock.setText(String.valueOf(getStock(1, 2, 3)));
 		GridBagConstraints gbc_tf_p_stock = new GridBagConstraints();
 		gbc_tf_p_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_p_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -381,7 +387,7 @@ public class PanelBike extends JPanel {
 		tf_e1_stock = new JTextField();
 		tf_e1_stock.setEditable(false);
 		tf_e1_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e1_stock.setText("0");
+		tf_e1_stock.setText(String.valueOf(getStock(26,26,26)));
 		GridBagConstraints gbc_tf_e1_stock = new GridBagConstraints();
 		gbc_tf_e1_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e1_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -530,7 +536,7 @@ public class PanelBike extends JPanel {
 		tf_e2_stock = new JTextField();
 		tf_e2_stock.setEditable(false);
 		tf_e2_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e2_stock.setText("0");
+		tf_e2_stock.setText(String.valueOf(getStock(51,56,31)));
 		GridBagConstraints gbc_tf_e2_stock = new GridBagConstraints();
 		gbc_tf_e2_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e2_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -686,7 +692,7 @@ public class PanelBike extends JPanel {
 		tf_e3_stock = new JTextField();
 		tf_e3_stock.setEditable(false);
 		tf_e3_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e3_stock.setText("0");
+		tf_e3_stock.setText(String.valueOf(getStock(16,16,16)));
 		GridBagConstraints gbc_tf_e3_stock = new GridBagConstraints();
 		gbc_tf_e3_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e3_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -835,7 +841,7 @@ public class PanelBike extends JPanel {
 		tf_e4_stock = new JTextField();
 		tf_e4_stock.setEditable(false);
 		tf_e4_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e4_stock.setText("0");
+		tf_e4_stock.setText(String.valueOf(getStock(17,17,17)));
 		GridBagConstraints gbc_tf_e4_stock = new GridBagConstraints();
 		gbc_tf_e4_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e4_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -984,7 +990,7 @@ public class PanelBike extends JPanel {
 		tf_e5_stock = new JTextField();
 		tf_e5_stock.setEditable(false);
 		tf_e5_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e5_stock.setText("0");
+		tf_e5_stock.setText(String.valueOf(getStock(50,55,30)));
 		GridBagConstraints gbc_tf_e5_stock = new GridBagConstraints();
 		gbc_tf_e5_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e5_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1140,7 +1146,7 @@ public class PanelBike extends JPanel {
 		tf_e6_stock = new JTextField();
 		tf_e6_stock.setEditable(false);
 		tf_e6_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e6_stock.setText("0");
+		tf_e6_stock.setText(String.valueOf(getStock(4,5,6)));
 		GridBagConstraints gbc_tf_e6_stock = new GridBagConstraints();
 		gbc_tf_e6_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e6_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1289,7 +1295,7 @@ public class PanelBike extends JPanel {
 		tf_e7_stock = new JTextField();
 		tf_e7_stock.setEditable(false);
 		tf_e7_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e7_stock.setText("0");
+		tf_e7_stock.setText(String.valueOf(getStock(10,11,12)));
 		GridBagConstraints gbc_tf_e7_stock = new GridBagConstraints();
 		gbc_tf_e7_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e7_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1438,7 +1444,7 @@ public class PanelBike extends JPanel {
 		tf_e8_stock = new JTextField();
 		tf_e8_stock.setEditable(false);
 		tf_e8_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e8_stock.setText("0");
+		tf_e8_stock.setText(String.valueOf(getStock(49,54,29)));
 		GridBagConstraints gbc_tf_e8_stock = new GridBagConstraints();
 		gbc_tf_e8_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e8_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1594,7 +1600,7 @@ public class PanelBike extends JPanel {
 		tf_e9_stock = new JTextField();
 		tf_e9_stock.setEditable(false);
 		tf_e9_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e9_stock.setText("0");
+		tf_e9_stock.setText(String.valueOf(getStock(7,8,9)));
 		GridBagConstraints gbc_tf_e9_stock = new GridBagConstraints();
 		gbc_tf_e9_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e9_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1743,7 +1749,7 @@ public class PanelBike extends JPanel {
 		tf_e10_stock = new JTextField();
 		tf_e10_stock.setEditable(false);
 		tf_e10_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e10_stock.setText("0");
+		tf_e10_stock.setText(String.valueOf(getStock(13,14,15)));
 		GridBagConstraints gbc_tf_e10_stock = new GridBagConstraints();
 		gbc_tf_e10_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e10_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1892,7 +1898,7 @@ public class PanelBike extends JPanel {
 		tf_e11_stock = new JTextField();
 		tf_e11_stock.setEditable(false);
 		tf_e11_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e11_stock.setText("0");
+		tf_e11_stock.setText(String.valueOf(getStock(18,19,20)));
 		GridBagConstraints gbc_tf_e11_stock = new GridBagConstraints();
 		gbc_tf_e11_stock.insets = new Insets(0, 0, 0, 5);
 		gbc_tf_e11_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -2119,5 +2125,14 @@ public class PanelBike extends JPanel {
 			}
 		}
 		
+	}
+	
+	private int getStock(long id, long id2, long id3) {
+		for(Articel a : this.articels) {
+			if(a.getId() == id || a.getId() == id2 || a.getId() == id3) {
+				return a.getAmount();
+			}
+		}
+		return 0;
 	}
 }

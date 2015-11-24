@@ -2,17 +2,28 @@ package de.hska.ibsys.MainFrame;
 
 import java.awt.EventQueue;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
+
+import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelStart;
+import de.hska.ibsys.XML.XMLParser;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
@@ -48,6 +59,7 @@ public class MainFrame extends JFrame {
 	private JCheckBoxMenuItem chckbxmntmEnglisch;
 	private JMenuItem mntmStartseite;
 	private JMenuItem mntmHandbuch;
+	private XMLParser xp;
 	/**
 	 * Launch the application.
 	 */
@@ -119,7 +131,7 @@ public class MainFrame extends JFrame {
 		pStart.setVisible(true);
 		contentPane.add(pStart);
 		
-		pPPS = new PanelPPS();
+		pPPS = new PanelPPS(this);
 		pPPS.setVisible(false);
 		contentPane.add(pPPS);
 	}
@@ -158,5 +170,28 @@ public class MainFrame extends JFrame {
 	            e.printStackTrace();
 	        }
 	    }
+	}
+	
+	public void parseXML(String fileUri) {
+		try {
+			XMLReader xmlReader = XMLReaderFactory.createXMLReader();
+			FileReader reader = new FileReader(fileUri);
+			InputSource input = new InputSource(reader);
+			this.xp = new XMLParser();
+			xmlReader.setContentHandler(xp);
+			xmlReader.parse(input);
+
+//			ArrayList<Articel> articels = xp.getArticels();
+//			for (Articel a : articels) {
+//				System.out.println(a.toString());
+//			}
+		} catch (SAXException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public XMLParser getXp() {
+		return xp;
 	}
 }

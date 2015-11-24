@@ -2,7 +2,9 @@ package de.hska.ibsys.PPS;
 
 import javax.swing.JPanel;
 
+import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.PPS.Programmplanning.PanelProgrammPlanning;
+import de.hska.ibsys.XML.XMLParser;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -17,10 +19,13 @@ public class PanelPPS extends JPanel {
 	private PanelPrognose pPrognose;
 	private PanelProgrammPlanning pProgrammPlanning;
 	private JPanel panelContent;
+	private MainFrame mf;
+	
 	/**
 	 * Create the panel.
 	 */
-	public PanelPPS() {
+	public PanelPPS(MainFrame mf) {
+		this.mf = mf;
 		setLayout(new BorderLayout());
 		ppsOverview = new PanelPPSOverview(this);
 		add(ppsOverview, BorderLayout.NORTH);
@@ -29,7 +34,7 @@ public class PanelPPS extends JPanel {
 		add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(new CardLayout(0, 0));
 		
-		pPrognose = new PanelPrognose();
+		pPrognose = new PanelPrognose(this.mf.getXp());
 		pPrognose.setVisible(true);
 		panelContent.add(pPrognose);
 	}
@@ -47,7 +52,7 @@ public class PanelPPS extends JPanel {
 	}
 	
 	public void createProgramplaning() {
-		pProgrammPlanning = new PanelProgrammPlanning(this);
+		pProgrammPlanning = new PanelProgrammPlanning(this, this.mf.getXp());
 		pProgrammPlanning.setVisible(false);
 		this.panelContent.add(pProgrammPlanning);
 	}
