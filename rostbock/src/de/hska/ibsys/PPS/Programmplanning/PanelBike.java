@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextField;
@@ -11,6 +12,9 @@ import javax.swing.JTextField;
 import de.hska.ibsys.Bike.Bike;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.SwingConstants;
 import javax.swing.JFormattedTextField;
@@ -2065,6 +2069,8 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e11_queue.getText().trim())
 				- Integer.parseInt(this.tf_e11_progress.getText().trim());
 		this.tf_e11_order.setText(String.valueOf(result));
+		
+		markFaultyFields();
 	}
 	
 	/**
@@ -2094,5 +2100,24 @@ public class PanelBike extends JPanel {
 				this.tf_e10_wish.setText(String.valueOf(value));
 				this.tf_e11_wish.setText(String.valueOf(value));
 		}
+	}
+	
+	private void markFaultyFields() {
+		final Color OK = Color.decode("#97FFC0");
+		final Color ERROR = Color.decode("#FF8D8D");
+		
+		final List<JTextField> results = Arrays.asList(this.tf_p_order, this.tf_e1_order, this.tf_e2_order,
+				this.tf_e3_order, this.tf_e4_order, this.tf_e5_order, this.tf_e6_order, this.tf_e7_order,
+				this.tf_e8_order, this.tf_e9_order, this.tf_e10_order, this.tf_e11_order);
+		
+		for(JTextField field : results) {
+			if(Integer.parseInt(field.getText()) < 0) {
+				field.setBackground(ERROR);
+			}
+			else {
+				field.setBackground(OK);
+			}
+		}
+		
 	}
 }
