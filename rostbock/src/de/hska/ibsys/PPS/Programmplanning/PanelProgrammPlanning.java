@@ -20,6 +20,8 @@ public class PanelProgrammPlanning extends JPanel {
 	private PanelBike childBike;
 	private PanelBike womanBike;
 	private PanelBike manBike;
+	private PanelProductionOrders prodOrd;
+	private PanelOverview overview;
 	
 	/**
 	 * Create the panel.
@@ -48,8 +50,24 @@ public class PanelProgrammPlanning extends JPanel {
 		manBike = new PanelBike(bikes.get(2), "P3", "E26", "E31", "E16", "E17", "E30", "E6", "E12", "E29", "E9", "E15", "E20");
 		manBike.setVisible(false);
 		panelContent.add(manBike);
+		
+		prodOrd = new PanelProductionOrders();
+		prodOrd.setVisible(false);
+		panelContent.add(prodOrd);
+		
+		overview = new PanelOverview();
+		overview.setVisible(false);
+		panelContent.add(overview);
 	}
 	
+	public PanelProductionOrders getProdOrd() {
+		return prodOrd;
+	}
+
+	public void setProdOrd(PanelProductionOrders prodOrd) {
+		this.prodOrd = prodOrd;
+	}
+
 	/**
 	 * reset the visibility of every panel but not of the overview panel
 	 * please add more panels if you create one
@@ -58,6 +76,16 @@ public class PanelProgrammPlanning extends JPanel {
 		childBike.setVisible(false);
 		womanBike.setVisible(false);
 		manBike.setVisible(false);
+		prodOrd.setVisible(false);
+		overview.setVisible(false);
+	}
+
+	public PanelOverview getOverview() {
+		return overview;
+	}
+
+	public void setOverview(PanelOverview overview) {
+		this.overview = overview;
 	}
 
 	public PanelBike getChildBike() {
