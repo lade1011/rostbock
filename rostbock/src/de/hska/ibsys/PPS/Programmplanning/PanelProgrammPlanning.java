@@ -3,8 +3,6 @@ package de.hska.ibsys.PPS.Programmplanning;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -103,30 +101,28 @@ public class PanelProgrammPlanning extends JPanel {
 	}
 	
 	private void initComponentLists(){
-		final List<Integer> childIds = Arrays.asList(1,51,50,4,10,49,7,13,18);
-		final List<Integer> womanIds = Arrays.asList(2,56,55,5,11,54,8,14,19);
-		final List<Integer> manIds = Arrays.asList(3,31,30,6,12,29,9,15,20);
-		
-		System.out.println(xp.getArticels().size());
-		System.out.println(this.xp.getArticels().size());
-		
-		for(Articel a : this.xp.getArticels()) {
-			if(a.getId() == 26 || a.getId() == 16 || a.getId() == 17) {
-				a.setAmount(a.getAmount()/3);
-				this.childComponents.add(a);
-				this.womanComponents.add(a);
-				this.manComponents.add(a);
+		try {
+			for(Articel a : this.xp.getArticels()) {
+				System.out.println(a.getId());
+				if(a.getId() == 26 || a.getId() == 16 || a.getId() == 17) {
+					a.setAmount(a.getAmount()/3);
+					this.childComponents.add(a);
+					this.womanComponents.add(a);
+					this.manComponents.add(a);
+				}
+				else if(a.getId() == 1 || a.getId() == 51 || a.getId() == 50 || a.getId() == 4 || a.getId() == 10 || a.getId() == 49 || a.getId() == 7 || a.getId() == 13 || a.getId() == 18) {
+					this.childComponents.add(a);
+				}
+				else if (a.getId() == 2 || a.getId() == 56 || a.getId() == 55 || a.getId() == 5 || a.getId() == 11 || a.getId() == 54 || a.getId() == 8 || a.getId() == 14 || a.getId() == 19) {
+					this.womanComponents.add(a);
+				}
+				else if (a.getId() == 3 || a.getId() == 31 || a.getId() == 30 || a.getId() == 6 || a.getId() == 12 || a.getId() == 29 || a.getId() == 9 || a.getId() == 15 || a.getId() == 20) {
+					this.manComponents.add(a);
+				}
 			}
-			
-			if(childIds.contains(a.getId())) {
-				this.childComponents.add(a);
-			}
-			else if (womanIds.contains(a.getId())) {
-				this.womanComponents.add(a);
-			}
-			else if (manIds.contains(a.getId())) {
-				this.manComponents.add(a);
-			}
+		}
+		catch(Exception e) {
+			//do nothing
 		}
 	}
 

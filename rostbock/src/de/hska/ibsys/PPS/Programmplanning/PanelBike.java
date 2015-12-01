@@ -2128,11 +2128,15 @@ public class PanelBike extends JPanel {
 	}
 	
 	private int getStock(long id, long id2, long id3) {
+//		System.out.println("Date: " + " id1: " + id + " id2: " + id2 + " id3: " + id3);
 		for(Articel a : this.articels) {
+//			System.out.println(a.getId());
 			if(a.getId() == id || a.getId() == id2 || a.getId() == id3) {
+//				System.out.println(a.getAmount());
 				return a.getAmount();
 			}
 		}
+		System.out.println("nichts gefunden");
 		return 0;
 	}
 }
