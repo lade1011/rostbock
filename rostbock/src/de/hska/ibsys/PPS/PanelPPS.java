@@ -4,7 +4,6 @@ import javax.swing.JPanel;
 
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.PPS.Programmplanning.PanelProgrammPlanning;
-import de.hska.ibsys.XML.XMLParser;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;

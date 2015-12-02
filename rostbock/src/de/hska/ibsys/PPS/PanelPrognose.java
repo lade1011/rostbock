@@ -29,13 +29,13 @@ public class PanelPrognose extends JPanel {
 	private JSpinner spChildQuantityReserve;
 	private JSpinner spWomanQuantityReserve;
 	private JSpinner spManQuantityReserve;
-	private XMLParser xp;
+//	private XMLParser xp;
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelPrognose(XMLParser xp) {
-		this.xp = xp;
+//		this.xp = xp;
 		setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Prognose");
