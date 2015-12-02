@@ -2,15 +2,19 @@ package de.hska.ibsys.PPS.Programmplanning;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
 import de.hska.ibsys.Bike.Bike;
 import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.PPS.PanelPPS;
+import de.hska.ibsys.ProductionPlan.ProductionOrder;
 import de.hska.ibsys.XML.XMLParser;
 
 
@@ -30,6 +34,7 @@ public class PanelProgrammPlanning extends JPanel {
 	private ArrayList<Articel> childComponents;
 	private ArrayList<Articel> womanComponents;
 	private ArrayList<Articel> manComponents;
+	private List<ProductionOrder> prodOrders;
 	
 	/**
 	 * Create the panel.
@@ -40,8 +45,26 @@ public class PanelProgrammPlanning extends JPanel {
 		childComponents = new ArrayList<Articel>();
 		womanComponents = new ArrayList<Articel>();
 		manComponents = new ArrayList<Articel>();
-		initComponentLists();
+		prodOrders = new ArrayList<ProductionOrder>();
+		//initComponentLists();
 		setLayout(new BorderLayout());
+		
+		
+		
+		
+		/**
+		 * NUR ZUM TESTEN ... SOBALD prodORders befüllt wird kann das hier gelöscht werden
+		 */
+		for(int i = 0; i < 15; i++){
+			int amount = (i + 3) * 2;
+			ProductionOrder po = new ProductionOrder(i, amount);
+			prodOrders.add(po);
+		}
+		
+		
+		
+		
+		
 		
 		pppOverview = new PanelProgrammPlanningOverview(this);
 		add(pppOverview, BorderLayout.NORTH);
@@ -65,11 +88,11 @@ public class PanelProgrammPlanning extends JPanel {
 		manBike.setVisible(false);
 		panelContent.add(manBike);
 		
-		prodOrd = new PanelProductionOrders();
+		prodOrd = new PanelProductionOrders(prodOrders);
 		prodOrd.setVisible(false);
 		panelContent.add(prodOrd);
 		
-		overview = new PanelOverview();
+		overview = new PanelOverview(prodOrders);
 		overview.setVisible(false);
 		panelContent.add(overview);
 	}
@@ -93,7 +116,7 @@ public class PanelProgrammPlanning extends JPanel {
 		prodOrd.setVisible(false);
 		overview.setVisible(false);
 	}
-
+	
 	public PanelOverview getOverview() {
 		return overview;
 	}
@@ -129,7 +152,7 @@ public class PanelProgrammPlanning extends JPanel {
 			}
 		}
 	}
-
+	
 	public PanelBike getChildBike() {
 		return childBike;
 	}

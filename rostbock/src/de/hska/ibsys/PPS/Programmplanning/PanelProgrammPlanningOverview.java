@@ -54,10 +54,22 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		bg.add(tglbtnNewToggleButton_2);
 		
 		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("\u00DCbersicht");
+		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pProgramPlannign.resetVisibility();
+				pProgramPlannign.getOverview().setVisible(true);
+			}
+		});
 		add(tglbtnNewToggleButton_3);
 		bg.add(tglbtnNewToggleButton_3);
 		
 		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("Produktionsauftr\u00E4ge");
+		tglbtnNewToggleButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pProgramPlannign.resetVisibility();
+				pProgramPlannign.getProdOrd().setVisible(true);
+			}
+		});
 		add(tglbtnNewToggleButton_4);
 		bg.add(tglbtnNewToggleButton_4);
 	}
