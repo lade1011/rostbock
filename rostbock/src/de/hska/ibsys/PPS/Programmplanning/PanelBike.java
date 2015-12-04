@@ -231,7 +231,7 @@ public class PanelBike extends JPanel {
 		tf_p_stock = new JTextField();
 		tf_p_stock.setEditable(false);
 		tf_p_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_p_stock.setText(String.valueOf(getStock(1, 2, 3)));
+		tf_p_stock.setText(String.valueOf(getValue("stock", 1, 2, 3)));
 		GridBagConstraints gbc_tf_p_stock = new GridBagConstraints();
 		gbc_tf_p_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_p_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -271,7 +271,7 @@ public class PanelBike extends JPanel {
 		tf_p_progress = new JTextField();
 		tf_p_progress.setEditable(false);
 		tf_p_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_p_progress.setText("0");
+		tf_p_progress.setText(String.valueOf(getValue("progress", 1,2,3)));
 		GridBagConstraints gbc_tf_p_progress = new GridBagConstraints();
 		gbc_tf_p_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_p_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -387,7 +387,7 @@ public class PanelBike extends JPanel {
 		tf_e1_stock = new JTextField();
 		tf_e1_stock.setEditable(false);
 		tf_e1_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e1_stock.setText(String.valueOf(getStock(26,26,26)));
+		tf_e1_stock.setText(String.valueOf(getValue("stock", 26,26,26)));
 		GridBagConstraints gbc_tf_e1_stock = new GridBagConstraints();
 		gbc_tf_e1_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e1_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -427,7 +427,7 @@ public class PanelBike extends JPanel {
 		tf_e1_progress = new JTextField();
 		tf_e1_progress.setEditable(false);
 		tf_e1_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e1_progress.setText("0");
+		tf_e1_progress.setText(String.valueOf(getValue("progress", 26,26,26)));
 		GridBagConstraints gbc_tf_e1_progress = new GridBagConstraints();
 		gbc_tf_e1_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e1_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -536,7 +536,7 @@ public class PanelBike extends JPanel {
 		tf_e2_stock = new JTextField();
 		tf_e2_stock.setEditable(false);
 		tf_e2_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e2_stock.setText(String.valueOf(getStock(51,56,31)));
+		tf_e2_stock.setText(String.valueOf(getValue("stock", 51,56,31)));
 		GridBagConstraints gbc_tf_e2_stock = new GridBagConstraints();
 		gbc_tf_e2_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e2_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -576,7 +576,7 @@ public class PanelBike extends JPanel {
 		tf_e2_progress = new JTextField();
 		tf_e2_progress.setEditable(false);
 		tf_e2_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e2_progress.setText("0");
+		tf_e2_progress.setText(String.valueOf(getValue("progress", 51,56,31)));
 		GridBagConstraints gbc_tf_e2_progress = new GridBagConstraints();
 		gbc_tf_e2_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e2_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -692,7 +692,7 @@ public class PanelBike extends JPanel {
 		tf_e3_stock = new JTextField();
 		tf_e3_stock.setEditable(false);
 		tf_e3_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e3_stock.setText(String.valueOf(getStock(16,16,16)));
+		tf_e3_stock.setText(String.valueOf(getValue("stock", 16,16,16)));
 		GridBagConstraints gbc_tf_e3_stock = new GridBagConstraints();
 		gbc_tf_e3_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e3_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -732,7 +732,7 @@ public class PanelBike extends JPanel {
 		tf_e3_progress = new JTextField();
 		tf_e3_progress.setEditable(false);
 		tf_e3_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e3_progress.setText("0");
+		tf_e3_progress.setText(String.valueOf(getValue("progress", 16,16,16)));
 		GridBagConstraints gbc_tf_e3_progress = new GridBagConstraints();
 		gbc_tf_e3_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e3_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -841,7 +841,7 @@ public class PanelBike extends JPanel {
 		tf_e4_stock = new JTextField();
 		tf_e4_stock.setEditable(false);
 		tf_e4_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e4_stock.setText(String.valueOf(getStock(17,17,17)));
+		tf_e4_stock.setText(String.valueOf(getValue("stock", 17,17,17)));
 		GridBagConstraints gbc_tf_e4_stock = new GridBagConstraints();
 		gbc_tf_e4_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e4_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -881,7 +881,7 @@ public class PanelBike extends JPanel {
 		tf_e4_progress = new JTextField();
 		tf_e4_progress.setEditable(false);
 		tf_e4_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e4_progress.setText("0");
+		tf_e4_progress.setText(String.valueOf(getValue("progress", 17,17,17)));
 		GridBagConstraints gbc_tf_e4_progress = new GridBagConstraints();
 		gbc_tf_e4_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e4_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -990,7 +990,7 @@ public class PanelBike extends JPanel {
 		tf_e5_stock = new JTextField();
 		tf_e5_stock.setEditable(false);
 		tf_e5_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e5_stock.setText(String.valueOf(getStock(50,55,30)));
+		tf_e5_stock.setText(String.valueOf(getValue("stock", 50,55,30)));
 		GridBagConstraints gbc_tf_e5_stock = new GridBagConstraints();
 		gbc_tf_e5_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e5_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1030,7 +1030,7 @@ public class PanelBike extends JPanel {
 		tf_e5_progress = new JTextField();
 		tf_e5_progress.setEditable(false);
 		tf_e5_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e5_progress.setText("0");
+		tf_e5_progress.setText(String.valueOf(getValue("progress", 50,55,30)));
 		GridBagConstraints gbc_tf_e5_progress = new GridBagConstraints();
 		gbc_tf_e5_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e5_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -1146,7 +1146,7 @@ public class PanelBike extends JPanel {
 		tf_e6_stock = new JTextField();
 		tf_e6_stock.setEditable(false);
 		tf_e6_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e6_stock.setText(String.valueOf(getStock(4,5,6)));
+		tf_e6_stock.setText(String.valueOf(getValue("stock", 4,5,6)));
 		GridBagConstraints gbc_tf_e6_stock = new GridBagConstraints();
 		gbc_tf_e6_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e6_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1186,7 +1186,7 @@ public class PanelBike extends JPanel {
 		tf_e6_progress = new JTextField();
 		tf_e6_progress.setEditable(false);
 		tf_e6_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e6_progress.setText("0");
+		tf_e6_progress.setText(String.valueOf(getValue("progress", 4,5,6)));
 		GridBagConstraints gbc_tf_e6_progress = new GridBagConstraints();
 		gbc_tf_e6_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e6_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -1295,7 +1295,7 @@ public class PanelBike extends JPanel {
 		tf_e7_stock = new JTextField();
 		tf_e7_stock.setEditable(false);
 		tf_e7_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e7_stock.setText(String.valueOf(getStock(10,11,12)));
+		tf_e7_stock.setText(String.valueOf(getValue("stock", 10,11,12)));
 		GridBagConstraints gbc_tf_e7_stock = new GridBagConstraints();
 		gbc_tf_e7_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e7_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1335,7 +1335,7 @@ public class PanelBike extends JPanel {
 		tf_e7_progress = new JTextField();
 		tf_e7_progress.setEditable(false);
 		tf_e7_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e7_progress.setText("0");
+		tf_e7_progress.setText(String.valueOf(getValue("progress", 10,11,12)));
 		GridBagConstraints gbc_tf_e7_progress = new GridBagConstraints();
 		gbc_tf_e7_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e7_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -1444,7 +1444,7 @@ public class PanelBike extends JPanel {
 		tf_e8_stock = new JTextField();
 		tf_e8_stock.setEditable(false);
 		tf_e8_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e8_stock.setText(String.valueOf(getStock(49,54,29)));
+		tf_e8_stock.setText(String.valueOf(getValue("stock", 49,54,29)));
 		GridBagConstraints gbc_tf_e8_stock = new GridBagConstraints();
 		gbc_tf_e8_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e8_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1484,7 +1484,7 @@ public class PanelBike extends JPanel {
 		tf_e8_progress = new JTextField();
 		tf_e8_progress.setEditable(false);
 		tf_e8_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e8_progress.setText("0");
+		tf_e8_progress.setText(String.valueOf(getValue("progress", 49,54,29)));
 		GridBagConstraints gbc_tf_e8_progress = new GridBagConstraints();
 		gbc_tf_e8_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e8_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -1600,7 +1600,7 @@ public class PanelBike extends JPanel {
 		tf_e9_stock = new JTextField();
 		tf_e9_stock.setEditable(false);
 		tf_e9_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e9_stock.setText(String.valueOf(getStock(7,8,9)));
+		tf_e9_stock.setText(String.valueOf(getValue("stock", 7,8,9)));
 		GridBagConstraints gbc_tf_e9_stock = new GridBagConstraints();
 		gbc_tf_e9_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e9_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1640,7 +1640,7 @@ public class PanelBike extends JPanel {
 		tf_e9_progress = new JTextField();
 		tf_e9_progress.setEditable(false);
 		tf_e9_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e9_progress.setText("0");
+		tf_e9_progress.setText(String.valueOf(getValue("progress", 7,8,9)));
 		GridBagConstraints gbc_tf_e9_progress = new GridBagConstraints();
 		gbc_tf_e9_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e9_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -1749,7 +1749,7 @@ public class PanelBike extends JPanel {
 		tf_e10_stock = new JTextField();
 		tf_e10_stock.setEditable(false);
 		tf_e10_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e10_stock.setText(String.valueOf(getStock(13,14,15)));
+		tf_e10_stock.setText(String.valueOf(getValue("stock", 13,14,15)));
 		GridBagConstraints gbc_tf_e10_stock = new GridBagConstraints();
 		gbc_tf_e10_stock.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e10_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1789,7 +1789,7 @@ public class PanelBike extends JPanel {
 		tf_e10_progress = new JTextField();
 		tf_e10_progress.setEditable(false);
 		tf_e10_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e10_progress.setText("0");
+		tf_e10_progress.setText(String.valueOf(getValue("progress", 13,14,15)));
 		GridBagConstraints gbc_tf_e10_progress = new GridBagConstraints();
 		gbc_tf_e10_progress.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e10_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -1898,7 +1898,7 @@ public class PanelBike extends JPanel {
 		tf_e11_stock = new JTextField();
 		tf_e11_stock.setEditable(false);
 		tf_e11_stock.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e11_stock.setText(String.valueOf(getStock(18,19,20)));
+		tf_e11_stock.setText(String.valueOf(getValue("stock", 18,19,20)));
 		GridBagConstraints gbc_tf_e11_stock = new GridBagConstraints();
 		gbc_tf_e11_stock.insets = new Insets(0, 0, 0, 5);
 		gbc_tf_e11_stock.fill = GridBagConstraints.HORIZONTAL;
@@ -1938,7 +1938,7 @@ public class PanelBike extends JPanel {
 		tf_e11_progress = new JTextField();
 		tf_e11_progress.setEditable(false);
 		tf_e11_progress.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e11_progress.setText("0");
+		tf_e11_progress.setText(String.valueOf(getValue("progress", 18,19,20)));
 		GridBagConstraints gbc_tf_e11_progress = new GridBagConstraints();
 		gbc_tf_e11_progress.insets = new Insets(0, 0, 0, 5);
 		gbc_tf_e11_progress.fill = GridBagConstraints.HORIZONTAL;
@@ -2127,16 +2127,19 @@ public class PanelBike extends JPanel {
 		
 	}
 	
-	private int getStock(long id, long id2, long id3) {
-//		System.out.println("Date: " + " id1: " + id + " id2: " + id2 + " id3: " + id3);
+	private int getValue(String att, long id, long id2, long id3) {
 		for(Articel a : this.articels) {
-//			System.out.println(a.getId());
 			if(a.getId() == id || a.getId() == id2 || a.getId() == id3) {
-//				System.out.println(a.getAmount());
-				return a.getAmount();
+				switch(att) {
+					case "stock":
+						return a.getAmount();
+					case "progress":
+						return a.getOrdersInWork();
+					default :
+						return 0;
+				}
 			}
 		}
-		System.out.println("nichts gefunden");
 		return 0;
 	}
 }

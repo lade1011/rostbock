@@ -1,15 +1,12 @@
 package de.hska.ibsys.MainFrame;
 
 import java.awt.EventQueue;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,7 +17,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelStart;
 import de.hska.ibsys.XML.XMLParser;

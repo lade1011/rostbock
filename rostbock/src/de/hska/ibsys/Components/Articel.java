@@ -8,6 +8,8 @@ public class Articel {
 	private double price;
 	private double stockvalue;
 	
+	private int ordersInWork;
+	
 	public Articel(long id, int amount, int startamount, double pct, double price, double stockvalue) {
 		super();
 		this.id = id;
@@ -16,6 +18,7 @@ public class Articel {
 		this.pct = pct;
 		this.price = price;
 		this.stockvalue = stockvalue;
+		this.ordersInWork = 0;
 	}
 
 	public long getId() {
@@ -70,5 +73,17 @@ public class Articel {
 	public String toString() {
 		return "Articel [id=" + id + ", amount=" + amount + ", startamount=" + startamount + ", pct=" + pct + ", price="
 				+ price + ", stockvalue=" + stockvalue + "]";
+	}
+
+	public int getOrdersInWork() {
+		return ordersInWork;
+	}
+
+	public void setOrdersInWork(int ordersInWork) {
+		this.ordersInWork += ordersInWork;
+	}
+	
+	public void overwriteOrdersInWork(int ordersInWork) {
+		this.ordersInWork = ordersInWork;
 	}
 }

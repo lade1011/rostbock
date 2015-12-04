@@ -11,9 +11,12 @@ import de.hska.ibsys.Components.Articel;
 
 public class XMLParser implements ContentHandler {
 	private ArrayList<Articel> articels;
+	
+	private boolean listOfOrdersinwork;
 
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
+		this.listOfOrdersinwork = false;
 	}
 
 	@Override
@@ -30,6 +33,16 @@ public class XMLParser implements ContentHandler {
 					Double.parseDouble(atts.getValue("price")), Double.parseDouble(atts.getValue("stockvalue")));
 			this.articels.add(a);
 		}
+		else if(tag.equals("ordersinwork")) {
+			this.listOfOrdersinwork = true;
+		}
+		else if(tag.equals("workplace") && this.listOfOrdersinwork) {
+			for(Articel a : this.articels) {
+				if(a.getId() == Long.valueOf(atts.getValue("item"))) {
+					a.setOrdersInWork(Integer.valueOf(atts.getValue("amount")));
+				}
+			}
+		}
 	}
 
 	@Override
@@ -39,8 +52,10 @@ public class XMLParser implements ContentHandler {
 	}
 
 	@Override
-	public void endElement(String arg0, String arg1, String arg2) throws SAXException {
-		// TODO Auto-generated method stub
+	public void endElement(String uri, String tag, String qName) throws SAXException {
+		if(tag.equals("ordersinwork")) {
+			this.listOfOrdersinwork = false;
+		}
 
 	}
 
