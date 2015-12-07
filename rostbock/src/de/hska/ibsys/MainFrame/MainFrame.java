@@ -20,6 +20,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelStart;
 import de.hska.ibsys.XML.XMLParser;
+import libraries.LookAndFeel;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;
@@ -60,6 +61,9 @@ public class MainFrame extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		//
+//		new LookAndFeel();
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
