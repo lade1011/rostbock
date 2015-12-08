@@ -33,16 +33,16 @@ public class PanelPPSOverview extends JPanel {
 		add(tglbtnNewToggleButton);
 		bg.add(tglbtnNewToggleButton);
 		
-		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("Programmplanung");
-		tglbtnNewToggleButton_1.addActionListener(new ActionListener() {
+		JToggleButton tglBtnPurchasePartScheduling = new JToggleButton("Programmplanung");
+		tglBtnPurchasePartScheduling.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
 				pPPS.createProgramplaning();
 				pPPS.getpProgrammPlanning().setVisible(true);
 			}
 		});
-		add(tglbtnNewToggleButton_1);
-		bg.add(tglbtnNewToggleButton_1);
+		add(tglBtnPurchasePartScheduling);
+		bg.add(tglBtnPurchasePartScheduling);
 		
 		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("Kapazit\u00E4tsplanung");
 		add(tglbtnNewToggleButton_2);
@@ -51,6 +51,12 @@ public class PanelPPSOverview extends JPanel {
 		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("Kaufteildisposition");
 		add(tglbtnNewToggleButton_3);
 		bg.add(tglbtnNewToggleButton_3);
-
+		tglBtnPurchasePartScheduling.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pPPS.resetVisibility();
+				pPPS.createProgramplaning();
+				pPPS.getpProgrammPlanning().setVisible(true);
+			}
+		});
 	}
 }
