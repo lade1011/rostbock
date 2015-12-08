@@ -13,10 +13,12 @@ public class XMLParser implements ContentHandler {
 	private ArrayList<Articel> articels;
 	
 	private boolean listOfOrdersinwork;
+	private boolean waitinglist;
 
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
 		this.listOfOrdersinwork = false;
+		this.waitinglist = false;
 	}
 
 	@Override
@@ -43,6 +45,16 @@ public class XMLParser implements ContentHandler {
 				}
 			}
 		}
+		else if(tag.equals("waitinglistworkstations")) {
+			this.waitinglist = true;
+		}
+		else if(tag.equals("waitinglist") && this.waitinglist) {
+			for(Articel a : this.articels) {
+				if(a.getId() == Long.valueOf(atts.getValue("item"))) {
+					a.setWaitingAmount(Integer.valueOf(atts.getValue("amount")));
+				}
+			}
+		}
 	}
 
 	@Override
@@ -56,7 +68,9 @@ public class XMLParser implements ContentHandler {
 		if(tag.equals("ordersinwork")) {
 			this.listOfOrdersinwork = false;
 		}
-
+		else if(tag.equals("waitinglistworkstations")) {
+			this.waitinglist = false;
+		}
 	}
 
 	@Override

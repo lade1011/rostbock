@@ -251,7 +251,7 @@ public class PanelBike extends JPanel {
 		tf_p_queue = new JTextField();
 		tf_p_queue.setEditable(false);
 		tf_p_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_p_queue.setText("0");
+		tf_p_queue.setText(String.valueOf(getValue("queue", 1, 2, 3)));
 		GridBagConstraints gbc_tf_p_queue = new GridBagConstraints();
 		gbc_tf_p_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_p_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -407,7 +407,7 @@ public class PanelBike extends JPanel {
 		tf_e1_queue = new JTextField();
 		tf_e1_queue.setEditable(false);
 		tf_e1_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e1_queue.setText("0");
+		tf_e1_queue.setText(String.valueOf(getValue("queue", 26, 26, 26)));
 		GridBagConstraints gbc_tf_e1_queue = new GridBagConstraints();
 		gbc_tf_e1_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e1_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -556,7 +556,7 @@ public class PanelBike extends JPanel {
 		tf_e2_queue = new JTextField();
 		tf_e2_queue.setEditable(false);
 		tf_e2_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e2_queue.setText("0");
+		tf_e2_queue.setText(String.valueOf(getValue("queue", 51, 56, 31)));
 		GridBagConstraints gbc_tf_e2_queue = new GridBagConstraints();
 		gbc_tf_e2_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e2_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -712,7 +712,7 @@ public class PanelBike extends JPanel {
 		tf_e3_queue = new JTextField();
 		tf_e3_queue.setEditable(false);
 		tf_e3_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e3_queue.setText("0");
+		tf_e3_queue.setText(String.valueOf(getValue("queue", 16, 16, 16)));
 		GridBagConstraints gbc_tf_e3_queue = new GridBagConstraints();
 		gbc_tf_e3_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e3_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -861,7 +861,7 @@ public class PanelBike extends JPanel {
 		tf_e4_queue = new JTextField();
 		tf_e4_queue.setEditable(false);
 		tf_e4_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e4_queue.setText("0");
+		tf_e4_queue.setText(String.valueOf(getValue("queue", 17, 17, 17)));
 		GridBagConstraints gbc_tf_e4_queue = new GridBagConstraints();
 		gbc_tf_e4_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e4_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1010,7 +1010,7 @@ public class PanelBike extends JPanel {
 		tf_e5_queue = new JTextField();
 		tf_e5_queue.setEditable(false);
 		tf_e5_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e5_queue.setText("0");
+		tf_e5_queue.setText(String.valueOf(getValue("queue", 50, 55, 30)));
 		GridBagConstraints gbc_tf_e5_queue = new GridBagConstraints();
 		gbc_tf_e5_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e5_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1166,7 +1166,7 @@ public class PanelBike extends JPanel {
 		tf_e6_queue = new JTextField();
 		tf_e6_queue.setEditable(false);
 		tf_e6_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e6_queue.setText("0");
+		tf_e6_queue.setText(String.valueOf(getValue("queue", 4, 5, 6)));
 		GridBagConstraints gbc_tf_e6_queue = new GridBagConstraints();
 		gbc_tf_e6_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e6_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1315,7 +1315,7 @@ public class PanelBike extends JPanel {
 		tf_e7_queue = new JTextField();
 		tf_e7_queue.setEditable(false);
 		tf_e7_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e7_queue.setText("0");
+		tf_e7_queue.setText(String.valueOf(getValue("queue", 10, 11, 12)));
 		GridBagConstraints gbc_tf_e7_queue = new GridBagConstraints();
 		gbc_tf_e7_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e7_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1464,7 +1464,7 @@ public class PanelBike extends JPanel {
 		tf_e8_queue = new JTextField();
 		tf_e8_queue.setEditable(false);
 		tf_e8_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e8_queue.setText("0");
+		tf_e8_queue.setText(String.valueOf(getValue("queue", 49, 54, 29)));
 		GridBagConstraints gbc_tf_e8_queue = new GridBagConstraints();
 		gbc_tf_e8_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e8_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1620,7 +1620,7 @@ public class PanelBike extends JPanel {
 		tf_e9_queue = new JTextField();
 		tf_e9_queue.setEditable(false);
 		tf_e9_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e9_queue.setText("0");
+		tf_e9_queue.setText(String.valueOf(getValue("queue", 7, 8, 9)));
 		GridBagConstraints gbc_tf_e9_queue = new GridBagConstraints();
 		gbc_tf_e9_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e9_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1769,7 +1769,7 @@ public class PanelBike extends JPanel {
 		tf_e10_queue = new JTextField();
 		tf_e10_queue.setEditable(false);
 		tf_e10_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e10_queue.setText("0");
+		tf_e10_queue.setText(String.valueOf(getValue("queue", 13, 14, 15)));
 		GridBagConstraints gbc_tf_e10_queue = new GridBagConstraints();
 		gbc_tf_e10_queue.insets = new Insets(0, 0, 5, 5);
 		gbc_tf_e10_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1918,7 +1918,7 @@ public class PanelBike extends JPanel {
 		tf_e11_queue = new JTextField();
 		tf_e11_queue.setEditable(false);
 		tf_e11_queue.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_e11_queue.setText("0");
+		tf_e11_queue.setText(String.valueOf(getValue("queue", 18, 19, 20)));
 		GridBagConstraints gbc_tf_e11_queue = new GridBagConstraints();
 		gbc_tf_e11_queue.insets = new Insets(0, 0, 0, 5);
 		gbc_tf_e11_queue.fill = GridBagConstraints.HORIZONTAL;
@@ -1983,7 +1983,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_p_queue.getText().trim())
 				- Integer.parseInt(this.tf_p_progress.getText().trim());
 		this.tf_p_order.setText(String.valueOf(result));
-		transferValue("p", result);
+		transferValue("p", result, Integer.parseInt(this.tf_p_queue.getText().trim()));
 		
 		reserve = this.tf_e1_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e1_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e1_wish.getText().trim())
@@ -2000,7 +2000,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e2_queue.getText().trim())
 				- Integer.parseInt(this.tf_e2_progress.getText().trim());
 		this.tf_e2_order.setText(String.valueOf(result));
-		transferValue("e2", result);
+		transferValue("e2", result, Integer.parseInt(this.tf_e2_queue.getText().trim()));
 		
 		reserve = this.tf_e3_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e3_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e3_wish.getText().trim())
@@ -2025,7 +2025,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e5_queue.getText().trim())
 				- Integer.parseInt(this.tf_e5_progress.getText().trim());
 		this.tf_e5_order.setText(String.valueOf(result));
-		transferValue("e5", result);
+		transferValue("e5", result, Integer.parseInt(this.tf_e5_queue.getText().trim()));
 		
 		reserve = this.tf_e6_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e6_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e6_wish.getText().trim())
@@ -2050,7 +2050,7 @@ public class PanelBike extends JPanel {
 				- Integer.parseInt(this.tf_e8_queue.getText().trim())
 				- Integer.parseInt(this.tf_e8_progress.getText().trim());
 		this.tf_e8_order.setText(String.valueOf(result));
-		transferValue("e8", result);
+		transferValue("e8", result, Integer.parseInt(this.tf_e8_queue.getText().trim()));
 		
 		reserve = this.tf_e9_reserve.getText().isEmpty() ? 0 : Integer.parseInt(this.tf_e9_reserve.getText().trim());
 		result = Integer.parseInt(this.tf_e9_wish.getText().trim())
@@ -2082,29 +2082,42 @@ public class PanelBike extends JPanel {
 	/**
 	 * method to transfer results to next products
 	 * @param product parent product
-	 * @param value value which gets transfered
+	 * @param wish wish value which gets transfered
+	 * @param previousQueue value of waiting list which gets transfered
 	 */
-	private void transferValue(String product, int value) {
-		value = value<0 ? 0 : value;
+	private void transferValue(String product, int wish, int previousQueue) {
+		wish = wish<0 ? 0 : wish;
+		previousQueue = previousQueue<0 ? 0 : previousQueue;
 		switch(product) {
 			case "p":
-				this.tf_e1_wish.setText(String.valueOf(value));
-				this.tf_e2_wish.setText(String.valueOf(value));
+				this.tf_e1_wish.setText(String.valueOf(wish));
+				this.tf_e1_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e2_wish.setText(String.valueOf(wish));
+				this.tf_e2_previousWaiting.setText(String.valueOf(previousQueue));
 				break;
 			case "e2":
-				this.tf_e3_wish.setText(String.valueOf(value));
-				this.tf_e4_wish.setText(String.valueOf(value));
-				this.tf_e5_wish.setText(String.valueOf(value));
+				this.tf_e3_wish.setText(String.valueOf(wish));
+				this.tf_e3_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e4_wish.setText(String.valueOf(wish));
+				this.tf_e4_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e5_wish.setText(String.valueOf(wish));
+				this.tf_e5_previousWaiting.setText(String.valueOf(previousQueue));
 				break;
 			case "e5":
-				this.tf_e6_wish.setText(String.valueOf(value));
-				this.tf_e7_wish.setText(String.valueOf(value));
-				this.tf_e8_wish.setText(String.valueOf(value));
+				this.tf_e6_wish.setText(String.valueOf(wish));
+				this.tf_e6_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e7_wish.setText(String.valueOf(wish));
+				this.tf_e7_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e8_wish.setText(String.valueOf(wish));
+				this.tf_e8_previousWaiting.setText(String.valueOf(previousQueue));
 				break;
 			case "e8":
-				this.tf_e9_wish.setText(String.valueOf(value));
-				this.tf_e10_wish.setText(String.valueOf(value));
-				this.tf_e11_wish.setText(String.valueOf(value));
+				this.tf_e9_wish.setText(String.valueOf(wish));
+				this.tf_e9_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e10_wish.setText(String.valueOf(wish));
+				this.tf_e10_previousWaiting.setText(String.valueOf(previousQueue));
+				this.tf_e11_wish.setText(String.valueOf(wish));
+				this.tf_e11_previousWaiting.setText(String.valueOf(previousQueue));
 		}
 	}
 	
@@ -2135,6 +2148,8 @@ public class PanelBike extends JPanel {
 						return a.getAmount();
 					case "progress":
 						return a.getOrdersInWork();
+					case "queue":
+						return a.getWaitingAmount();
 					default :
 						return 0;
 				}

@@ -9,6 +9,7 @@ public class Articel {
 	private double stockvalue;
 	
 	private int ordersInWork;
+	private int waitingAmount;
 	
 	public Articel(long id, int amount, int startamount, double pct, double price, double stockvalue) {
 		super();
@@ -19,6 +20,7 @@ public class Articel {
 		this.price = price;
 		this.stockvalue = stockvalue;
 		this.ordersInWork = 0;
+		this.waitingAmount = 0;
 	}
 
 	public long getId() {
@@ -85,5 +87,17 @@ public class Articel {
 	
 	public void overwriteOrdersInWork(int ordersInWork) {
 		this.ordersInWork = ordersInWork;
+	}
+
+	public int getWaitingAmount() {
+		return waitingAmount;
+	}
+
+	public void setWaitingAmount(int waitingAmount) {
+		this.waitingAmount += waitingAmount;
+	}
+	
+	public void overwriteWaitingAmount(int waitingAmount) {
+		this.waitingAmount = waitingAmount;
 	}
 }

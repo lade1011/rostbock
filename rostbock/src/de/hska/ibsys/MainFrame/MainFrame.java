@@ -20,7 +20,6 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelStart;
 import de.hska.ibsys.XML.XMLParser;
-import libraries.LookAndFeel;
 
 import java.awt.CardLayout;
 import java.awt.Desktop;

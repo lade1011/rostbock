@@ -127,8 +127,7 @@ public class PanelProgrammPlanning extends JPanel {
 				if(a.getId() == 26 || a.getId() == 16 || a.getId() == 17) {
 					a.setAmount(a.getAmount()/3);
 					a.overwriteOrdersInWork(a.getOrdersInWork()/3);
-//					System.out.println("Value: " + a.getOrdersInWork()/3);
-//					System.out.println("Value2: " + a.getOrdersInWork());
+					a.overwriteWaitingAmount(a.getWaitingAmount()/3);
 					this.childComponents.add(a);
 					this.womanComponents.add(a);
 					this.manComponents.add(a);
