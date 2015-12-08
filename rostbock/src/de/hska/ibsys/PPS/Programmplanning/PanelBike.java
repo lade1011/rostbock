@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import de.hska.ibsys.Bike.Bike;
 import de.hska.ibsys.Components.Articel;
+import de.hska.ibsys.ProductionPlan.ProductionOrder;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -28,7 +29,20 @@ public class PanelBike extends JPanel {
 	 */
 	private static final long serialVersionUID = 4743633803502188641L;
 	private ArrayList<Articel> articels;
+	private ArrayList<ProductionOrder> productionOrders;
 	
+	private JLabel lblP;
+	private JLabel lblE_1;
+	private JLabel lblE_2;
+	private JLabel lblE_3;
+	private JLabel lblE_4;
+	private JLabel lblE_5;
+	private JLabel lblE_6;
+	private JLabel lblE_7;
+	private JLabel lblE_8;
+	private JLabel lblE_9;
+	private JLabel lblE_10;
+	private JLabel lblE_11;
 	private JTextField tf_p_wish;
 	private JTextField tf_e1_wish;
 	private JTextField tf_e2_wish;
@@ -170,7 +184,7 @@ public class PanelBike extends JPanel {
 		gbc_lblProduktionsauftrge.gridy = 1;
 		add(lblProduktionsauftrge, gbc_lblProduktionsauftrge);
 		
-		JLabel lblP = new JLabel(p);
+		lblP = new JLabel(p);
 		GridBagConstraints gbc_lblP = new GridBagConstraints();
 		gbc_lblP.insets = new Insets(0, 0, 5, 5);
 		gbc_lblP.gridx = 1;
@@ -198,7 +212,6 @@ public class PanelBike extends JPanel {
 		
 		tf_p_reserve = new JFormattedTextField();
 		tf_p_reserve.setText(String.valueOf(bike.getReserve()));
-//		tf_p_reserve.setPreferredSize(maxTextfield);
 		tf_p_reserve.addKeyListener(new KeyAdapter() {
 			//check valid char
 			@Override
@@ -306,12 +319,12 @@ public class PanelBike extends JPanel {
 		gbc_label_5.gridy = 3;
 		add(label_5, gbc_label_5);
 		
-		JLabel lblE = new JLabel(e1);
-		GridBagConstraints gbc_lblE = new GridBagConstraints();
-		gbc_lblE.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE.gridx = 1;
-		gbc_lblE.gridy = 4;
-		add(lblE, gbc_lblE);
+		lblE_1 = new JLabel(e1);
+		GridBagConstraints gbc_lblE_1 = new GridBagConstraints();
+		gbc_lblE_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_1.gridx = 1;
+		gbc_lblE_1.gridy = 4;
+		add(lblE_1, gbc_lblE_1);
 		
 		tf_e1_wish = new JTextField();
 		tf_e1_wish.setEditable(false);
@@ -455,12 +468,12 @@ public class PanelBike extends JPanel {
 		add(tf_e1_order, gbc_tf_e1_order);
 		tf_e1_order.setColumns(10);
 		
-		JLabel lblE_1 = new JLabel(e2);
-		GridBagConstraints gbc_lblE_1 = new GridBagConstraints();
-		gbc_lblE_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_1.gridx = 1;
-		gbc_lblE_1.gridy = 5;
-		add(lblE_1, gbc_lblE_1);
+		lblE_2 = new JLabel(e2);
+		GridBagConstraints gbc_lblE_2 = new GridBagConstraints();
+		gbc_lblE_2.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_2.gridx = 1;
+		gbc_lblE_2.gridy = 5;
+		add(lblE_2, gbc_lblE_2);
 		
 		tf_e2_wish = new JTextField();
 		tf_e2_wish.setEditable(false);
@@ -611,12 +624,12 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_65.gridy = 6;
 		add(lblNewLabel_65, gbc_lblNewLabel_65);
 		
-		JLabel lblE_2 = new JLabel(e3);
-		GridBagConstraints gbc_lblE_2 = new GridBagConstraints();
-		gbc_lblE_2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_2.gridx = 1;
-		gbc_lblE_2.gridy = 7;
-		add(lblE_2, gbc_lblE_2);
+		lblE_3 = new JLabel(e3);
+		GridBagConstraints gbc_lblE_3 = new GridBagConstraints();
+		gbc_lblE_3.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_3.gridx = 1;
+		gbc_lblE_3.gridy = 7;
+		add(lblE_3, gbc_lblE_3);
 		
 		tf_e3_wish = new JTextField();
 		tf_e3_wish.setEditable(false);
@@ -760,12 +773,12 @@ public class PanelBike extends JPanel {
 		add(tf_e3_order, gbc_tf_e3_order);
 		tf_e3_order.setColumns(10);
 		
-		JLabel lblE_3 = new JLabel(e4);
-		GridBagConstraints gbc_lblE_3 = new GridBagConstraints();
-		gbc_lblE_3.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_3.gridx = 1;
-		gbc_lblE_3.gridy = 8;
-		add(lblE_3, gbc_lblE_3);
+		lblE_4 = new JLabel(e4);
+		GridBagConstraints gbc_lblE_4 = new GridBagConstraints();
+		gbc_lblE_4.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_4.gridx = 1;
+		gbc_lblE_4.gridy = 8;
+		add(lblE_4, gbc_lblE_4);
 		
 		tf_e4_wish = new JTextField();
 		tf_e4_wish.setEditable(false);
@@ -909,12 +922,12 @@ public class PanelBike extends JPanel {
 		add(tf_e4_order, gbc_tf_e4_order);
 		tf_e4_order.setColumns(10);
 		
-		JLabel lblE_4 = new JLabel(e5);
-		GridBagConstraints gbc_lblE_4 = new GridBagConstraints();
-		gbc_lblE_4.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_4.gridx = 1;
-		gbc_lblE_4.gridy = 9;
-		add(lblE_4, gbc_lblE_4);
+		lblE_5 = new JLabel(e5);
+		GridBagConstraints gbc_lblE_5 = new GridBagConstraints();
+		gbc_lblE_5.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_5.gridx = 1;
+		gbc_lblE_5.gridy = 9;
+		add(lblE_5, gbc_lblE_5);
 		
 		tf_e5_wish = new JTextField();
 		tf_e5_wish.setEditable(false);
@@ -1065,12 +1078,12 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_66.gridy = 10;
 		add(lblNewLabel_66, gbc_lblNewLabel_66);
 		
-		JLabel lblE_5 = new JLabel(e6);
-		GridBagConstraints gbc_lblE_5 = new GridBagConstraints();
-		gbc_lblE_5.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_5.gridx = 1;
-		gbc_lblE_5.gridy = 11;
-		add(lblE_5, gbc_lblE_5);
+		lblE_6 = new JLabel(e6);
+		GridBagConstraints gbc_lblE_6 = new GridBagConstraints();
+		gbc_lblE_6.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_6.gridx = 1;
+		gbc_lblE_6.gridy = 11;
+		add(lblE_6, gbc_lblE_6);
 		
 		tf_e6_wish = new JTextField();
 		tf_e6_wish.setEditable(false);
@@ -1214,12 +1227,12 @@ public class PanelBike extends JPanel {
 		add(tf_e6_order, gbc_tf_e6_order);
 		tf_e6_order.setColumns(10);
 		
-		JLabel lblE_6 = new JLabel(e7);
-		GridBagConstraints gbc_lblE_6 = new GridBagConstraints();
-		gbc_lblE_6.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_6.gridx = 1;
-		gbc_lblE_6.gridy = 12;
-		add(lblE_6, gbc_lblE_6);
+		lblE_7 = new JLabel(e7);
+		GridBagConstraints gbc_lblE_7 = new GridBagConstraints();
+		gbc_lblE_7.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_7.gridx = 1;
+		gbc_lblE_7.gridy = 12;
+		add(lblE_7, gbc_lblE_7);
 		
 		tf_e7_wish = new JTextField();
 		tf_e7_wish.setEditable(false);
@@ -1363,12 +1376,12 @@ public class PanelBike extends JPanel {
 		add(tf_e7_order, gbc_tf_e7_order);
 		tf_e7_order.setColumns(10);
 		
-		JLabel lblE_7 = new JLabel(e8);
-		GridBagConstraints gbc_lblE_7 = new GridBagConstraints();
-		gbc_lblE_7.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_7.gridx = 1;
-		gbc_lblE_7.gridy = 13;
-		add(lblE_7, gbc_lblE_7);
+		lblE_8 = new JLabel(e8);
+		GridBagConstraints gbc_lblE_8 = new GridBagConstraints();
+		gbc_lblE_8.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_8.gridx = 1;
+		gbc_lblE_8.gridy = 13;
+		add(lblE_8, gbc_lblE_8);
 		
 		tf_e8_wish = new JTextField();
 		tf_e8_wish.setEditable(false);
@@ -1519,12 +1532,12 @@ public class PanelBike extends JPanel {
 		gbc_lblNewLabel_67.gridy = 14;
 		add(lblNewLabel_67, gbc_lblNewLabel_67);
 		
-		JLabel lblE_8 = new JLabel(e9);
-		GridBagConstraints gbc_lblE_8 = new GridBagConstraints();
-		gbc_lblE_8.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_8.gridx = 1;
-		gbc_lblE_8.gridy = 15;
-		add(lblE_8, gbc_lblE_8);
+		lblE_9 = new JLabel(e9);
+		GridBagConstraints gbc_lblE_9 = new GridBagConstraints();
+		gbc_lblE_9.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_9.gridx = 1;
+		gbc_lblE_9.gridy = 15;
+		add(lblE_9, gbc_lblE_9);
 		
 		tf_e9_wish = new JTextField();
 		tf_e9_wish.setEditable(false);
@@ -1668,12 +1681,12 @@ public class PanelBike extends JPanel {
 		add(tf_e9_order, gbc_tf_e9_order);
 		tf_e9_order.setColumns(10);
 		
-		JLabel lblE_9 = new JLabel(e10);
-		GridBagConstraints gbc_lblE_9 = new GridBagConstraints();
-		gbc_lblE_9.insets = new Insets(0, 0, 5, 5);
-		gbc_lblE_9.gridx = 1;
-		gbc_lblE_9.gridy = 16;
-		add(lblE_9, gbc_lblE_9);
+		lblE_10 = new JLabel(e10);
+		GridBagConstraints gbc_lblE_10 = new GridBagConstraints();
+		gbc_lblE_10.insets = new Insets(0, 0, 5, 5);
+		gbc_lblE_10.gridx = 1;
+		gbc_lblE_10.gridy = 16;
+		add(lblE_10, gbc_lblE_10);
 		
 		tf_e10_wish = new JTextField();
 		tf_e10_wish.setEditable(false);
@@ -1817,12 +1830,12 @@ public class PanelBike extends JPanel {
 		add(tf_e10_order, gbc_tf_e10_order);
 		tf_e10_order.setColumns(10);
 		
-		JLabel lblE_10 = new JLabel(e11);
-		GridBagConstraints gbc_lblE_10 = new GridBagConstraints();
-		gbc_lblE_10.insets = new Insets(0, 0, 0, 5);
-		gbc_lblE_10.gridx = 1;
-		gbc_lblE_10.gridy = 17;
-		add(lblE_10, gbc_lblE_10);
+		lblE_11 = new JLabel(e11);
+		GridBagConstraints gbc_lblE_11 = new GridBagConstraints();
+		gbc_lblE_11.insets = new Insets(0, 0, 0, 5);
+		gbc_lblE_11.gridx = 1;
+		gbc_lblE_11.gridy = 17;
+		add(lblE_11, gbc_lblE_11);
 		
 		tf_e11_wish = new JTextField();
 		tf_e11_wish.setEditable(false);
@@ -1965,9 +1978,7 @@ public class PanelBike extends JPanel {
 		add(tf_e11_order, gbc_tf_e11_order);
 		tf_e11_order.setColumns(10);
 		
-		/*
-		 * calculation
-		 */
+		//calculation
 		calculateValues();
 	}
 	
@@ -2077,6 +2088,7 @@ public class PanelBike extends JPanel {
 		this.tf_e11_order.setText(String.valueOf(result));
 		
 		markFaultyFields();
+		createProductionOrder();
 	}
 	
 	/**
@@ -2156,5 +2168,65 @@ public class PanelBike extends JPanel {
 			}
 		}
 		return 0;
+	}
+	
+	/**
+	 * init the productionOrders list
+	 * replaceAll("\\D+","") extracts the articelnumber
+	 */
+	private void createProductionOrder() {
+		this.productionOrders = new ArrayList<ProductionOrder>();
+		
+		int aN = Integer.valueOf(this.lblP.getText().replaceAll("\\D+",""));
+		ProductionOrder po = new ProductionOrder(aN, Integer.valueOf(this.tf_p_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_1.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e1_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_2.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e2_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_3.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e3_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_4.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e4_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_5.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e5_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_6.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e6_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_7.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e7_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_8.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e8_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_9.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e9_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_10.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e10_order.getText()));
+		this.productionOrders.add(po);
+		
+		aN = Integer.valueOf(this.lblE_11.getText().replaceAll("\\D+",""));
+		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e11_order.getText()));
+		this.productionOrders.add(po);
+	}
+
+	public ArrayList<ProductionOrder> getProductionOrders() {
+		return productionOrders;
 	}
 }

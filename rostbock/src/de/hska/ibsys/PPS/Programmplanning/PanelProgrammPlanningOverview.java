@@ -17,7 +17,7 @@ public class PanelProgrammPlanningOverview extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelProgrammPlanningOverview(PanelProgrammPlanning pProgramPlannign) {
+	public PanelProgrammPlanningOverview(PanelProgrammPlanning pProgramPlanning) {
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
 		ButtonGroup bg = new ButtonGroup();
@@ -25,8 +25,8 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		JToggleButton tglbtnNewToggleButton = new JToggleButton("Kinderfahrrad");
 		tglbtnNewToggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pProgramPlannign.resetVisibility();
-				pProgramPlannign.getChildBike().setVisible(true);
+				pProgramPlanning.resetVisibility();
+				pProgramPlanning.getChildBike().setVisible(true);
 			}
 		});
 		tglbtnNewToggleButton.setSelected(true);
@@ -36,8 +36,8 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("Damenfahrrad");
 		tglbtnNewToggleButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pProgramPlannign.resetVisibility();
-				pProgramPlannign.getWomanBike().setVisible(true);
+				pProgramPlanning.resetVisibility();
+				pProgramPlanning.getWomanBike().setVisible(true);
 			}
 		});
 		add(tglbtnNewToggleButton_1);
@@ -46,28 +46,29 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("Herrenfahrrad");
 		tglbtnNewToggleButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pProgramPlannign.resetVisibility();
-				pProgramPlannign.getManBike().setVisible(true);
+				pProgramPlanning.resetVisibility();
+				pProgramPlanning.getManBike().setVisible(true);
 			}
 		});
 		add(tglbtnNewToggleButton_2);
 		bg.add(tglbtnNewToggleButton_2);
 		
-		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("\u00DCbersicht");
+		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("Uebersicht");
 		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pProgramPlannign.resetVisibility();
-				pProgramPlannign.getOverview().setVisible(true);
+				pProgramPlanning.resetVisibility();
+				pProgramPlanning.getOverview().setVisible(true);
 			}
 		});
 		add(tglbtnNewToggleButton_3);
 		bg.add(tglbtnNewToggleButton_3);
 		
-		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("Produktionsauftr\u00E4ge");
+		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("Produktionsauftraege");
 		tglbtnNewToggleButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pProgramPlannign.resetVisibility();
-				pProgramPlannign.getProdOrd().setVisible(true);
+				pProgramPlanning.resetVisibility();
+				pProgramPlanning.getProdOrd().initProdOrders(pProgramPlanning.getChildBike().getProductionOrders(), pProgramPlanning.getWomanBike().getProductionOrders(), pProgramPlanning.getManBike().getProductionOrders());
+				pProgramPlanning.getProdOrd().setVisible(true);
 			}
 		});
 		add(tglbtnNewToggleButton_4);

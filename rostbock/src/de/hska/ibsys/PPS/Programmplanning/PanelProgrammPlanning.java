@@ -84,7 +84,7 @@ public class PanelProgrammPlanning extends JPanel {
 		manBike.setVisible(false);
 		panelContent.add(manBike);
 		
-		prodOrd = new PanelProductionOrders(prodOrders);
+		prodOrd = new PanelProductionOrders();
 		prodOrd.setVisible(false);
 		panelContent.add(prodOrd);
 		
