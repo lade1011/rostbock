@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 import de.hska.ibsys.Bike.Bike;
 import de.hska.ibsys.Components.Articel;
-import de.hska.ibsys.ProductionPlan.ProductionOrder;
+import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -29,7 +29,7 @@ public class PanelBike extends JPanel {
 	 */
 	private static final long serialVersionUID = 4743633803502188641L;
 	private ArrayList<Articel> articels;
-	private ArrayList<ProductionOrder> productionOrders;
+	private ArrayList<ArticleAmountPair> productionOrders;
 	
 	private JLabel lblP;
 	private JLabel lblE_1;
@@ -2175,58 +2175,58 @@ public class PanelBike extends JPanel {
 	 * replaceAll("\\D+","") extracts the articelnumber
 	 */
 	private void createProductionOrder() {
-		this.productionOrders = new ArrayList<ProductionOrder>();
+		this.productionOrders = new ArrayList<ArticleAmountPair>();
 		
 		int aN = Integer.valueOf(this.lblP.getText().replaceAll("\\D+",""));
-		ProductionOrder po = new ProductionOrder(aN, Integer.valueOf(this.tf_p_order.getText()));
+		ArticleAmountPair po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_p_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_1.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e1_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e1_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_2.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e2_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e2_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_3.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e3_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e3_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_4.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e4_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e4_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_5.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e5_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e5_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_6.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e6_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e6_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_7.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e7_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e7_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_8.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e8_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e8_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_9.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e9_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e9_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_10.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e10_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e10_order.getText()));
 		this.productionOrders.add(po);
 		
 		aN = Integer.valueOf(this.lblE_11.getText().replaceAll("\\D+",""));
-		po = new ProductionOrder(aN, Integer.valueOf(this.tf_e11_order.getText()));
+		po = new ArticleAmountPair(aN, Integer.valueOf(this.tf_e11_order.getText()));
 		this.productionOrders.add(po);
 	}
 
-	public ArrayList<ProductionOrder> getProductionOrders() {
+	public ArrayList<ArticleAmountPair> getProductionOrders() {
 		return productionOrders;
 	}
 }

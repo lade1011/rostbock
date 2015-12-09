@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import de.hska.ibsys.Bike.Bike;
 import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.PPS.PanelPPS;
-import de.hska.ibsys.ProductionPlan.ProductionOrder;
+import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.XML.XMLParser;
 
 
@@ -30,7 +30,7 @@ public class PanelProgrammPlanning extends JPanel {
 	private ArrayList<Articel> childComponents;
 	private ArrayList<Articel> womanComponents;
 	private ArrayList<Articel> manComponents;
-	private List<ProductionOrder> prodOrders;
+	private List<ArticleAmountPair> prodOrders;
 	
 	/**
 	 * Create the panel.
@@ -41,26 +41,9 @@ public class PanelProgrammPlanning extends JPanel {
 		childComponents = new ArrayList<Articel>();
 		womanComponents = new ArrayList<Articel>();
 		manComponents = new ArrayList<Articel>();
-		prodOrders = new ArrayList<ProductionOrder>();
+		prodOrders = new ArrayList<ArticleAmountPair>();
 		initComponentLists();
 		setLayout(new BorderLayout());
-		
-		
-		
-		
-		/**
-		 * NUR ZUM TESTEN ... SOBALD prodORders befüllt wird kann das hier gelöscht werden
-		 */
-		for(int i = 0; i < 15; i++){
-			int amount = (i + 3) * 2;
-			ProductionOrder po = new ProductionOrder(i, amount);
-			prodOrders.add(po);
-		}
-		
-		
-		
-		
-		
 		
 		pppOverview = new PanelProgrammPlanningOverview(this);
 		add(pppOverview, BorderLayout.NORTH);

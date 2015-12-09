@@ -4,7 +4,11 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
+
+import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
+
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class PanelProgrammPlanningOverview extends JPanel {
@@ -56,6 +60,19 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("Uebersicht");
 		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try{
+					ArrayList<ArticleAmountPair> prodOrders = new ArrayList<ArticleAmountPair>();
+					prodOrders.addAll(pProgramPlanning.getChildBike().getProductionOrders());
+					prodOrders.addAll(pProgramPlanning.getWomanBike().getProductionOrders());
+					prodOrders.addAll(pProgramPlanning.getManBike().getProductionOrders());
+					pProgramPlanning.getOverview().acutalizeOrders(prodOrders);
+					//TODO: Hier die inStock und inWaiting
+					pProgramPlanning.getOverview().acutalizeInStock(new ArrayList<ArticleAmountPair>());
+					pProgramPlanning.getOverview().acutalizeInWork(new ArrayList<ArticleAmountPair>());
+					pProgramPlanning.getOverview().acutalizeInQueue(new ArrayList<ArticleAmountPair>());
+				}catch(Exception ex){
+					//Hier passiert nichts
+				}
 				pProgramPlanning.resetVisibility();
 				pProgramPlanning.getOverview().setVisible(true);
 			}

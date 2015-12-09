@@ -1,10 +1,10 @@
 package de.hska.ibsys.ProductionPlan;
 
-public class ProductionOrder{ 
+public class ArticleAmountPair implements Comparable<ArticleAmountPair>{ 
 	  public int articelNumber; 
 	  public int amount; 
 	  
-	  public ProductionOrder(int aN, int a) { 
+	  public ArticleAmountPair(int aN, int a) { 
 	    this.articelNumber = aN; 
 	    this.amount = a; 
 	  }
@@ -23,5 +23,10 @@ public class ProductionOrder{
 
 	public void setAmount(int amount) {
 		this.amount = amount;
-	} 
+	}
+
+	@Override
+	public int compareTo(ArticleAmountPair po) {
+		return this.articelNumber == po.articelNumber ? 0 : this.articelNumber < po.articelNumber ? -1 : 1;
+	}
 }

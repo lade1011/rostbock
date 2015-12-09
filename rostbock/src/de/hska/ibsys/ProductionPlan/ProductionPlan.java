@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductionPlan {
-	private List<ProductionOrder> numberAmountCombinations;
+	private List<ArticleAmountPair> numberAmountCombinations;
 
 	public ProductionPlan() {
 		super();
-		this.numberAmountCombinations = new ArrayList<ProductionOrder>();
+		this.numberAmountCombinations = new ArrayList<ArticleAmountPair>();
 	}
 	
-	public void AddProductionOrder(ProductionOrder order){
+	public void AddProductionOrder(ArticleAmountPair order){
 		this.numberAmountCombinations.add(order);
 		return;
 	}
 
-	public List<ProductionOrder> getNumberAmountCombinations() {
+	public List<ArticleAmountPair> getNumberAmountCombinations() {
 		return numberAmountCombinations;
 	}
 }
