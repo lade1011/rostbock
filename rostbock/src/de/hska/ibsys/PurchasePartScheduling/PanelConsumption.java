@@ -1,14 +1,18 @@
 package de.hska.ibsys.PurchasePartScheduling;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.PPS.PanelPPSOverview;
 import de.hska.ibsys.PPS.PanelPrognose;
 import de.hska.ibsys.PPS.Programmplanning.PanelProgrammPlanning;
+import de.hska.ibsys.help.Definitions;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
@@ -36,17 +40,13 @@ public class PanelConsumption extends JPanel {
 		add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(new CardLayout(0, 0));
 
-		String[] columnNames = { "Artikel", "Bezeichnung", "aktueller Lagerbestand", "Lagerzugang",
-				"Lieferdauer Abweichung", "Diskontmenge", "Preis", "Bestellkosten", "Bruttobedarf P1",
-				"Bruttobedarf P2", "Bruttobedarf P3", "Bruttobedarf P4", "Anfangsbestand P1", "Anfangsbestand P2",
-				"Anfangsbestand P3", "Anfangsbestand P4", "Anfangsbestand P5" };
+		
 
 		Object[][] data = {};
-		table = new JTable(data, columnNames);
-		table.setRowSelectionAllowed(false);
-		table.setShowVerticalLines(false);
-		table.setShowHorizontalLines(false);
-		table.setShowGrid(false);
+		table = new JTable(data, Definitions.consumptionColumnNames);
+		JScrollPane jsp = new JScrollPane(table);
+		jsp.setPreferredSize(new Dimension(750, 450));
+		add(jsp);
 
 		TableColumn column = null;
 		for (int i = 0; i < 5; i++) {
@@ -57,6 +57,5 @@ public class PanelConsumption extends JPanel {
 				column.setPreferredWidth(50);
 			}
 		}
-		panelContent.add(table, "name_1916221735059");
 	}
 }

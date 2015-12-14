@@ -53,6 +53,7 @@ public class PanelPPSOverview extends JPanel {
 		bg.add(tglbtnNewToggleButton_3);
 		tglBtnPurchasePartScheduling.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Btn clicked");
 				pPPS.resetVisibility();
 				pPPS.createProgramplaning();
 				pPPS.getpProgrammPlanning().setVisible(true);
