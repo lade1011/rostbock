@@ -51,12 +51,11 @@ public class PanelPPSOverview extends JPanel {
 		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("Kaufteildisposition");
 		add(tglbtnNewToggleButton_3);
 		bg.add(tglbtnNewToggleButton_3);
-		tglBtnPurchasePartScheduling.addActionListener(new ActionListener() {
+		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Btn clicked");
+				System.out.println("GEDRÜCKT");
 				pPPS.resetVisibility();
-				pPPS.createProgramplaning();
-				pPPS.getpProgrammPlanning().setVisible(true);
+				pPPS.getpConsumption().setVisible(true);
 			}
 		});
 	}

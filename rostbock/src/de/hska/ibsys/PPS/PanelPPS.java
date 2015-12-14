@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.PPS.Programmplanning.PanelProgrammPlanning;
+import de.hska.ibsys.PurchasePartScheduling.PanelConsumption;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -18,6 +19,7 @@ public class PanelPPS extends JPanel {
 	private PanelPrognose pPrognose;
 	private PanelProgrammPlanning pProgrammPlanning;
 	private JPanel panelContent;
+	private PanelConsumption pConsumption;
 	private MainFrame mf;
 	
 	/**
@@ -36,7 +38,12 @@ public class PanelPPS extends JPanel {
 		pPrognose = new PanelPrognose(this.mf.getXp());
 		pPrognose.setVisible(true);
 		panelContent.add(pPrognose);
+		
+		pConsumption = new PanelConsumption();
+		pConsumption.setVisible(false);
+		panelContent.add(pConsumption);
 	}
+	
 	public PanelPrognose getpPrognose() {
 		return pPrognose;
 	}
@@ -48,6 +55,12 @@ public class PanelPPS extends JPanel {
 	}
 	public void setpProgrammPlanning(PanelProgrammPlanning pProgrammPlanning) {
 		this.pProgrammPlanning = pProgrammPlanning;
+	}
+	public PanelConsumption getpConsumption() {
+		return pConsumption;
+	}
+	public void setpConsumption(PanelConsumption pConsumption) {
+		this.pConsumption = pConsumption;
 	}
 	
 	public void createProgramplaning() {
@@ -66,6 +79,9 @@ public class PanelPPS extends JPanel {
 		}
 		if(pProgrammPlanning != null) {
 			pProgrammPlanning.setVisible(false);
+		}
+		if(pConsumption != null) {
+			pConsumption.setVisible(false);
 		}
 	}
 }
