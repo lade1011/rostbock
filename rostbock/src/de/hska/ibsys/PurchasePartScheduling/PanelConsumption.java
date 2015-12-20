@@ -5,10 +5,14 @@ import javax.swing.JScrollPane;
 
 import de.hska.ibsys.help.Definitions;
 
+import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 public class PanelConsumption extends JPanel {
 
@@ -22,21 +26,23 @@ public class PanelConsumption extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelConsumption() {
-		
+
 		Object[][] data = {};
 		table = new JTable(data, Definitions.consumptionColumnNames);
+		DefaultTableModel dtm = new DefaultTableModel(0, 0);
+		table.setModel(dtm);
+		
 		JScrollPane jsp = new JScrollPane(table);
 		jsp.setPreferredSize(new Dimension(750, 450));
 		add(jsp);
-
 		TableColumn column = null;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < table.getColumnCount(); i++) {
 			column = table.getColumnModel().getColumn(i);
-			if (i == 2) {
-				column.setPreferredWidth(100); // third column is bigger
-			} else {
-				column.setPreferredWidth(50);
-			}
+			column.sizeWidthToFit();
+		}
+
+		for (int count = 1; count <= 30; count++) {
+//			dtm.addRow(new Object[] { "data", "data", "data", "data", "data", "data" });
 		}
 	}
 }
