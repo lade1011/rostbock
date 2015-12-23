@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import de.hska.ibsys.help.*;
-
+import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 public class PanelOverview extends JPanel {
@@ -21,8 +21,8 @@ public class PanelOverview extends JPanel {
 	private Object[][] rowData;
 	
 	
-	public PanelOverview(List<ArticleAmountPair> orders){
-		fillRowData(orders);
+	public PanelOverview(List<ArticleAmountPair> orders, List<Articel> articels){
+		fillRowData(orders, articels);
 		
 		table = new JTable(rowData, Definitions.overviewColumnNames);
 		JScrollPane jsp = new JScrollPane(table);
@@ -30,9 +30,8 @@ public class PanelOverview extends JPanel {
 		add(jsp);
 	}
 
-	private void fillRowData(List<ArticleAmountPair> orders) {
+	private void fillRowData(List<ArticleAmountPair> orders, List<Articel> articels) {
 		rowData = new Object[59][Definitions.overviewColumnNames.length];
-		
 		for(int i = 0; i < 59; i++){
 			rowData[i][0] = i+1;
 			rowData[i][1] = Definitions.descriptions[i];
@@ -44,6 +43,7 @@ public class PanelOverview extends JPanel {
 			rowData[i][7] = 0;
 		}
 		acutalizeOrders(orders);
+		acutalizeOthers(articels);
 	}
 	
 	public void acutalizeOrders(List<ArticleAmountPair> orders){
@@ -52,22 +52,14 @@ public class PanelOverview extends JPanel {
 		}
 	}
 	
-	public void acutalizeInQueue(List<ArticleAmountPair> orders){
-		for(ArticleAmountPair po : orders){
-			rowData[po.articelNumber - 1][5] = po.amount;
-		}
-	}
-	
-	public void acutalizeInStock(List<ArticleAmountPair> orders){
-		for(ArticleAmountPair po : orders){
-			rowData[po.articelNumber - 1][3] = po.amount;
-			rowData[po.articelNumber - 1][4] = po.amount / Definitions.startStockValues[po.articelNumber - 1];
-		}
-	}
-	
-	public void acutalizeInWork(List<ArticleAmountPair> orders){
-		for(ArticleAmountPair po : orders){
-			rowData[po.articelNumber - 1][6] = po.amount;
+	public void acutalizeOthers(List<Articel> articels){
+		for(Articel a : articels){
+			rowData[(int) (a.getId() - 1)][6] = a.getOrdersInWork();
+			rowData[(int) (a.getId() - 1)][3] = a.getStartamount();
+			double startStock = (double)Definitions.startStockValues[(int) (a.getId() - 1)];
+			double amount = (double)a.getAmount();
+			rowData[(int) (a.getId() - 1)][4] = Math.round(((amount - startStock) / startStock) * 100);
+			rowData[(int) (a.getId() - 1)][5] = a.getWaitingAmount();
 		}
 	}
 }

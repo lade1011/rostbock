@@ -67,9 +67,6 @@ public class PanelProgrammPlanningOverview extends JPanel {
 					prodOrders.addAll(pProgramPlanning.getManBike().getProductionOrders());
 					pProgramPlanning.getOverview().acutalizeOrders(prodOrders);
 					//TODO: Hier die inStock und inWaiting
-					pProgramPlanning.getOverview().acutalizeInStock(new ArrayList<ArticleAmountPair>());
-					pProgramPlanning.getOverview().acutalizeInWork(new ArrayList<ArticleAmountPair>());
-					pProgramPlanning.getOverview().acutalizeInQueue(new ArrayList<ArticleAmountPair>());
 				}catch(Exception ex){
 					//Hier passiert nichts
 				}

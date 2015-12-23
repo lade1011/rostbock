@@ -70,8 +70,16 @@ public class PanelProgrammPlanning extends JPanel {
 		prodOrd = new PanelProductionOrders();
 		prodOrd.setVisible(false);
 		panelContent.add(prodOrd);
+		List<Articel> arts;
+		try
+		{
+			arts = this.xp.getArticels();
+		}catch(Exception e){
+			arts = new ArrayList<Articel>();
+		}
 		
-		overview = new PanelOverview(prodOrders);
+		
+		overview = new PanelOverview(prodOrders, arts);
 		overview.setVisible(false);
 		panelContent.add(overview);
 	}
