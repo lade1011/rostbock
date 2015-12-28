@@ -10,12 +10,12 @@ public class Definitions {
 			"Schutzblech vorne", "Schutzblech vorne", "Schutzblech vorne",
 			"Lenker cpl.", "Sattel cpl.", "Rahmen", "Rahmen", "Rahmen",
 			"Kette", "Kette", "Kette", "Mutter 3/8", "Scheibe 3/8", "Pedal cpl.",
-			"Schraube 3/8", "Rohr 3/4", "Vorderrad mont.", "Rahmen und Räder", "Fahrrad ohne Pedal",
+			"Schraube 3/8", "Rohr 3/4", "Vorderrad mont.", "Rahmen und Rï¿½der", "Fahrrad ohne Pedal",
 			"Farbe", "Felge cpl.", "Speiche", "Konus", "Freilauf", "Gabel", "Welle", "Blech",
 			"Lenker", "Mutter 3/4", "Griff", "Sattel", "Stange 1/2", "Mutter 1/4", "Schraube 1/4",
-			"Zahnkranz", "Pedal", "Vorderrad cpl.", "Rahmen und Räder", "Fahrrad ohne Pedal",
-			"Felge cpl.", "Speiche", "Vorderrad cpl.", "Rahmen und Räder", "Fahrrad ohne Pedal",
-			"Felge cpl.", "Speiche", "Schweißdraht"
+			"Zahnkranz", "Pedal", "Vorderrad cpl.", "Rahmen und Rï¿½der", "Fahrrad ohne Pedal",
+			"Felge cpl.", "Speiche", "Vorderrad cpl.", "Rahmen und Rï¿½der", "Fahrrad ohne Pedal",
+			"Felge cpl.", "Speiche", "Schweiï¿½draht"
 			};
 	
 	public static String[] usage = {
@@ -38,10 +38,11 @@ public class Definitions {
 	public static String[] overviewColumnNames = {
 			"Artikelnummer", "Bezeichnung", "Verwendung",
 			"aktueller Lagerbestand", "Prozentual", "in Warteschlange", 
-			"in Bearbeitung", "Produktionsaufträge"
+			"in Bearbeitung", "Produktionsauftrï¿½ge"
 			};
 	public static String[] consumptionColumnNames = { "Artikel", "Bezeichnung", "aktueller Lagerbestand", "Lagerzugang",
 			"Lieferdauer Abweichung", "Diskontmenge", "Preis", "Bestellkosten", "Bruttobedarf P1",
 			"Bruttobedarf P2", "Bruttobedarf P3", "Bruttobedarf P4", "Anfangsbestand P1", "Anfangsbestand P2",
 			"Anfangsbestand P3", "Anfangsbestand P4", "Anfangsbestand P5" };
+	
 }
