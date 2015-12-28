@@ -1,32 +1,34 @@
 package de.hska.ibsys.PurchasePartScheduling;
 
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.BoxLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
 
-public class PanelConsumption extends JPanel {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+
+public class ConsumptionOverview extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	private ConsumptionOverview cw;
-	private Content c;
 	
-	public PanelConsumption() {
-		setLayout(new BorderLayout());
-		//panel = new JPanel();
-		
-		cw = new ConsumptionOverview(this);
-		add(cw, BorderLayout.NORTH);
-		
-		c = new Content();
-		add(c, BorderLayout.CENTER);
+	public ConsumptionOverview(PanelConsumption pc) {
 		
 		
+		
+		ButtonGroup bg = new ButtonGroup();
+		
+		JButton btnAbc = new JButton("Verbrauch");
+		btnAbc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pc.getContent().changeVisibility();
+				pc.getContent().getPc().setVisible(true);
+			}
+		});
+		bg.add(btnAbc);
+		add(btnAbc);
 		/*JButton btnVerbruche = new JButton("Verbräuche");
 		btnVerbruche.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,23 +52,18 @@ public class PanelConsumption extends JPanel {
 				repaint();
 				revalidate();
 			}
+		});*/
+		JButton btnDef = new JButton("Bestellungen");
+		btnDef.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pc.getContent().changeVisibility();
+				pc.getContent().getPo().setVisible(true);
+			}
 		});
-		btnPanel.add(btnBestellungen);
-		//add(btnBestellungen);
 		
-		add(btnPanel, BorderLayout.CENTER);
-		
-		JLabel lblTest = new JLabel("test");
-		panel.add(lblTest);*/
+		bg.add(btnDef);
+		add(btnDef);
 
-	}
-
-	public Content getContent() {
-		return c;
-	}
-
-	public void setC(Content c) {
-		this.c = c;
 	}
 
 }
