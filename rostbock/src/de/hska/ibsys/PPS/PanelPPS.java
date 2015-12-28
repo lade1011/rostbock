@@ -8,6 +8,7 @@ import de.hska.ibsys.PurchasePartScheduling.PanelConsumption;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 
 public class PanelPPS extends JPanel {
 	
@@ -39,7 +40,7 @@ public class PanelPPS extends JPanel {
 		pPrognose.setVisible(true);
 		panelContent.add(pPrognose);
 		
-		pConsumption = new PanelConsumption();
+		pConsumption = new PanelConsumption(this.mf);
 		pConsumption.setVisible(false);
 		panelContent.add(pConsumption);
 	}
@@ -67,6 +68,23 @@ public class PanelPPS extends JPanel {
 		pProgrammPlanning = new PanelProgrammPlanning(this, this.mf.getXp());
 		pProgrammPlanning.setVisible(false);
 		this.panelContent.add(pProgrammPlanning);
+	}
+	
+	public ArrayList<Integer> getPrognoseValues() {
+		ArrayList<Integer> values = new ArrayList<Integer>();
+		values.add((int)this.pPrognose.getSpChildP3().getValue());
+		values.add((int)this.pPrognose.getSpWomanP3().getValue());
+		values.add((int)this.pPrognose.getSpManP3().getValue());
+		
+		values.add((int)this.pPrognose.getSpChildP4().getValue());
+		values.add((int)this.pPrognose.getSpWomanP4().getValue());
+		values.add((int)this.pPrognose.getSpManP4().getValue());
+		
+		values.add((int)this.pPrognose.getSpChildP5().getValue());
+		values.add((int)this.pPrognose.getSpWomanP5().getValue());
+		values.add((int)this.pPrognose.getSpManP5().getValue());
+		
+		return values;
 	}
 	
 	/**

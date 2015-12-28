@@ -26,6 +26,16 @@ public class PanelPrognose extends JPanel {
 	private JSpinner spChildP2;
 	private JSpinner spWomanP2;
 	private JSpinner spManP2;
+	private JSpinner spChildP3;
+	private JSpinner spWomanP3;
+	private JSpinner spManP3;
+	private JSpinner spChildP4;
+	private JSpinner spWomanP4;
+	private JSpinner spManP4;
+	private JSpinner spChildP5;
+	private JSpinner spWomanP5;
+	private JSpinner spManP5;
+	
 	private JSpinner spChildQuantityReserve;
 	private JSpinner spWomanQuantityReserve;
 	private JSpinner spManQuantityReserve;
@@ -110,7 +120,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spChildQuantityReserve.gridy = 3;
 		panel.add(spChildQuantityReserve, gbc_spChildQuantityReserve);
 		
-		JSpinner spChildP3 = new JSpinner();
+		spChildP3 = new JSpinner();
 		spChildP3.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spChildP3 = new GridBagConstraints();
 		gbc_spChildP3.insets = new Insets(0, 0, 5, 5);
@@ -118,7 +128,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spChildP3.gridy = 3;
 		panel.add(spChildP3, gbc_spChildP3);
 		
-		JSpinner spChildP4 = new JSpinner();
+		spChildP4 = new JSpinner();
 		spChildP4.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spChildP4 = new GridBagConstraints();
 		gbc_spChildP4.insets = new Insets(0, 0, 5, 5);
@@ -126,7 +136,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spChildP4.gridy = 3;
 		panel.add(spChildP4, gbc_spChildP4);
 		
-		JSpinner spChildP5 = new JSpinner();
+		spChildP5 = new JSpinner();
 		GridBagConstraints gbc_spChildP5 = new GridBagConstraints();
 		gbc_spChildP5.insets = new Insets(0, 0, 5, 0);
 		gbc_spChildP5.gridx = 12;
@@ -156,7 +166,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spWomanQuantityReserve.gridy = 5;
 		panel.add(spWomanQuantityReserve, gbc_spWomanQuantityReserve);
 		
-		JSpinner spWomanP3 = new JSpinner();
+		spWomanP3 = new JSpinner();
 		spWomanP3.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spWomanP3 = new GridBagConstraints();
 		gbc_spWomanP3.insets = new Insets(0, 0, 5, 5);
@@ -164,7 +174,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spWomanP3.gridy = 5;
 		panel.add(spWomanP3, gbc_spWomanP3);
 		
-		JSpinner spWomanP4 = new JSpinner();
+		spWomanP4 = new JSpinner();
 		spWomanP4.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spWomanP4 = new GridBagConstraints();
 		gbc_spWomanP4.insets = new Insets(0, 0, 5, 5);
@@ -172,7 +182,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spWomanP4.gridy = 5;
 		panel.add(spWomanP4, gbc_spWomanP4);
 		
-		JSpinner spWomanP5 = new JSpinner();
+		spWomanP5 = new JSpinner();
 		GridBagConstraints gbc_spWomanP5 = new GridBagConstraints();
 		gbc_spWomanP5.insets = new Insets(0, 0, 5, 0);
 		gbc_spWomanP5.gridx = 12;
@@ -202,7 +212,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spManQuantityReserve.gridy = 7;
 		panel.add(spManQuantityReserve, gbc_spManQuantityReserve);
 		
-		JSpinner spManP3 = new JSpinner();
+		spManP3 = new JSpinner();
 		spManP3.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spManP3 = new GridBagConstraints();
 		gbc_spManP3.insets = new Insets(0, 0, 0, 5);
@@ -210,7 +220,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spManP3.gridy = 7;
 		panel.add(spManP3, gbc_spManP3);
 		
-		JSpinner spManP4 = new JSpinner();
+		spManP4 = new JSpinner();
 		spManP4.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spManP4 = new GridBagConstraints();
 		gbc_spManP4.insets = new Insets(0, 0, 0, 5);
@@ -218,7 +228,7 @@ public class PanelPrognose extends JPanel {
 		gbc_spManP4.gridy = 7;
 		panel.add(spManP4, gbc_spManP4);
 		
-		JSpinner spManP5 = new JSpinner();
+		spManP5 = new JSpinner();
 		GridBagConstraints gbc_spManP5 = new GridBagConstraints();
 		gbc_spManP5.gridx = 12;
 		gbc_spManP5.gridy = 7;
@@ -237,6 +247,54 @@ public class PanelPrognose extends JPanel {
 		bikes.add(man);
 		
 		return bikes;
+	}
+
+	public JSpinner getSpChildP2() {
+		return spChildP2;
+	}
+
+	public JSpinner getSpWomanP2() {
+		return spWomanP2;
+	}
+
+	public JSpinner getSpManP2() {
+		return spManP2;
+	}
+
+	public JSpinner getSpChildP3() {
+		return spChildP3;
+	}
+
+	public JSpinner getSpWomanP3() {
+		return spWomanP3;
+	}
+
+	public JSpinner getSpManP3() {
+		return spManP3;
+	}
+
+	public JSpinner getSpChildP4() {
+		return spChildP4;
+	}
+
+	public JSpinner getSpWomanP4() {
+		return spWomanP4;
+	}
+
+	public JSpinner getSpManP4() {
+		return spManP4;
+	}
+
+	public JSpinner getSpChildP5() {
+		return spChildP5;
+	}
+
+	public JSpinner getSpWomanP5() {
+		return spWomanP5;
+	}
+
+	public JSpinner getSpManP5() {
+		return spManP5;
 	}
 
 }

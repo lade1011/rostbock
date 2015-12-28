@@ -2,7 +2,9 @@ package de.hska.ibsys.PurchasePartScheduling;
 
 import javax.swing.JPanel;
 
+import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.Components.Order;
+import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.help.Definitions;
 
 import java.util.ArrayList;
@@ -14,12 +16,20 @@ public class POrders extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public POrders() {
+	private MainFrame mf;
+	private ArrayList<Integer> prognose1;
+	private ArrayList<Articel> articels;
+	private ArrayList<Order> orders;
+	
+	public POrders(MainFrame mf) {
+		this.mf = mf;
+		this.prognose1 = new ArrayList<Integer>();
+		this.articels = articels;
 		
 		JLabel lblBestellungen = new JLabel("Bestellungen");
 		add(lblBestellungen);
 
-		ArrayList<Order> orders = new ArrayList<Order>();
+		orders = new ArrayList<Order>();
 		orders.add(new Order(21, 1.8, 0.4, 1, 0, 0, 300));
 		orders.add(new Order(22, 1.7, 0.4, 0, 1, 0, 300));
 		orders.add(new Order(23, 1.2, 0.2, 0, 0, 1, 300));
@@ -50,6 +60,28 @@ public class POrders extends JPanel {
 		orders.add(new Order(58, 1.6, 0.5, 0, 72, 0, 22000));
 		orders.add(new Order(59, 0.7, 0.2, 2, 2, 2, 1800));
 		
+		
+	}
+	
+	public void bla () {
+		this.articels = this.mf.getXp().getArticels();
+		for(Order o : this.orders) {
+			for(Articel a : this.articels) {
+				if(o.getId() == a.getId()) {
+					o.setAnfangsbestand(a.getAmount());
+					//Nur wenn XML eingelesen wurde
+					break;
+				}
+			}
+		}
+	}
+
+	public ArrayList<Integer> getPrognose1() {
+		return prognose1;
+	}
+
+	public void setPrognose1(ArrayList<Integer> prognose1) {
+		this.prognose1 = prognose1;
 	}
 
 }

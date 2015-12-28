@@ -53,8 +53,8 @@ public class PanelPPSOverview extends JPanel {
 		bg.add(tglbtnNewToggleButton_3);
 		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("GEDRÜCKT");
 				pPPS.resetVisibility();
+				pPPS.getpConsumption().setPrognose1(pPPS.getPrognoseValues());
 				pPPS.getpConsumption().setVisible(true);
 			}
 		});
