@@ -45,4 +45,10 @@ public class Definitions {
 			"Bruttobedarf P2", "Bruttobedarf P3", "Bruttobedarf P4", "Anfangsbestand P1", "Anfangsbestand P2",
 			"Anfangsbestand P3", "Anfangsbestand P4", "Anfangsbestand P5" };
 	
+	public static String[] orderColumnNames = {
+			"Teile-Nr.", "Akt. Bestand", "n. Per. 1",
+			"n. Per. 2", "n. Per. 3", "n. Per. 4", 
+			"Bestellmenge", "Ampel", "Eilbestellung"
+			};
+	
 }

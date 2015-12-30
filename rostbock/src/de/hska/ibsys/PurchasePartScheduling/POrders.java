@@ -5,11 +5,17 @@ import javax.swing.JPanel;
 import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.Components.Order;
 import de.hska.ibsys.MainFrame.MainFrame;
+import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.help.Definitions;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class POrders extends JPanel {
 
@@ -20,14 +26,14 @@ public class POrders extends JPanel {
 	private ArrayList<Integer> prognose1;
 	private ArrayList<Articel> articels;
 	private ArrayList<Order> orders;
+
+	//Tabelle
+	private JTable table;
+	private Object[][] rowData;
 	
 	public POrders(MainFrame mf) {
 		this.mf = mf;
 		this.prognose1 = new ArrayList<Integer>();
-		this.articels = articels;
-		
-		JLabel lblBestellungen = new JLabel("Bestellungen");
-		add(lblBestellungen);
 
 		orders = new ArrayList<Order>();
 		orders.add(new Order(21, 1.8, 0.4, 1, 0, 0, 300));
@@ -60,7 +66,28 @@ public class POrders extends JPanel {
 		orders.add(new Order(58, 1.6, 0.5, 0, 72, 0, 22000));
 		orders.add(new Order(59, 0.7, 0.2, 2, 2, 2, 1800));
 		
+		fillRowData(orders);
+		this.table = new JTable(rowData, Definitions.orderColumnNames);
+		JScrollPane jsp = new JScrollPane(this.table);
+		jsp.setPreferredSize(new Dimension(750, 450));
+		add(jsp);
 		
+		
+	}
+	private void fillRowData(List<Order> orders) {
+		rowData = new Object[59][Definitions.orderColumnNames.length];
+		for(int i = 0; i < orders.size(); i++){
+			Order o = orders.get(i);
+			rowData[i][0] = o.getId();
+			rowData[i][1] = o.getAnfangsbestand();
+			rowData[i][2] = o.bestandNachPeriode(1);
+			rowData[i][3] = o.bestandNachPeriode(2);
+			rowData[i][4] = o.bestandNachPeriode(3);
+			rowData[i][5] = o.bestandNachPeriode(4); 
+			rowData[i][6] = 0;
+			rowData[i][7] = 0;
+			rowData[i][8] = o.isRushOrder() ? "Ja" : "Nein";
+		}
 	}
 	
 	public void bla () {

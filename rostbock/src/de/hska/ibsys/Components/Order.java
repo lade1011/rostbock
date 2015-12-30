@@ -48,7 +48,7 @@ public class Order {
 		this.bedarfPeriode4 = verbrauchP1 * per2bis4.get(6) + verbrauchP2 * per2bis4.get(7) + verbrauchP3 * per2bis4.get(8);
 	}
 	
-	public int bestandNachPeriode1(int p){
+	public int bestandNachPeriode(int p){
 		switch(p) {
 			case 1:
 				return this.anfangsbestand - bedarfPeriode1;
@@ -71,5 +71,20 @@ public class Order {
 
 	public int getId() {
 		return id;
+	}
+
+
+	public int getAnfangsbestand() {
+		return anfangsbestand;
+	}
+
+
+	public boolean isRushOrder() {
+		return isRushOrder;
+	}
+
+
+	public void setRushOrder(boolean isRushOrder) {
+		this.isRushOrder = isRushOrder;
 	}
 }
