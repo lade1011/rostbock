@@ -1,5 +1,6 @@
 package de.hska.ibsys.PurchasePartScheduling;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.hska.ibsys.Components.Articel;
@@ -7,6 +8,7 @@ import de.hska.ibsys.Components.Order;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.help.Definitions;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -43,6 +45,8 @@ public class POrders extends JPanel {
 	public POrders(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
 		this.prognose1 = prognose1;
+		
+		setLayout(new BorderLayout());
 
 		orders = new ArrayList<Order>();
 		orders.add(new Order(21, 1.8, 0.4, 1, 0, 0, 300));
@@ -137,7 +141,25 @@ public class POrders extends JPanel {
 		
 		JScrollPane jsp = new JScrollPane(this.table);
 		jsp.setPreferredSize(new Dimension(750, 450));
-		add(jsp);
+		add(jsp, BorderLayout.CENTER);
+		
+		JPanel colorDesc = new JPanel();
+		JLabel white = new JLabel("White: ");
+		white.setForeground(Color.BLACK);
+		colorDesc.add(white);
+		JLabel wDesc = new JLabel("Everything is ok");
+		colorDesc.add(wDesc);
+		JLabel orange = new JLabel("Orange: ");
+		orange.setForeground(Color.ORANGE);
+		colorDesc.add(orange);
+		JLabel oDesc = new JLabel("Normal order is recommended");
+		colorDesc.add(oDesc);
+		JLabel red = new JLabel("Red: ");
+		red.setForeground(Color.RED);
+		colorDesc.add(red);
+		JLabel rDesc = new JLabel("Rush order is recommended");
+		colorDesc.add(rDesc);
+		add(colorDesc, BorderLayout.SOUTH);
 	}
 	
 	private Color getOrderColor(int orderId) {
