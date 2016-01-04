@@ -18,12 +18,9 @@ public class Order {
 	private int bedarfPeriode4;
 	
 	private int anfangsbestand;
-	private boolean toOrder;
-	private boolean isRushOrder;
 
 	public Order(int id, double lieferfrist, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
 			int diskontmenge) {
-//		this.anfangsbestand = 1000; //TODO entfernen
 		this.id = id;
 		this.lieferfrist = lieferfrist;
 		this.abweichung = abweichung;
@@ -31,9 +28,6 @@ public class Order {
 		this.verbrauchP2 = verbrauchP2;
 		this.verbrauchP3 = verbrauchP3;
 		this.diskontmenge = diskontmenge;
-		
-		this.toOrder = false;
-		this.isRushOrder = false;
 	}
 	
 	
@@ -41,11 +35,18 @@ public class Order {
 		return this.lieferfrist + this.abweichung;
 	}
 	
-	public void setBedarf(ArrayList<Integer> per1, ArrayList<Integer> per2bis4){
-		this.bedarfPeriode1 = verbrauchP1 * per1.get(0) + verbrauchP2 * per1.get(1) + verbrauchP3 * per1.get(2); 
-		this.bedarfPeriode2 = verbrauchP1 * per2bis4.get(0) + verbrauchP2 * per2bis4.get(1) + verbrauchP3 * per2bis4.get(2);
-		this.bedarfPeriode3 = verbrauchP1 * per2bis4.get(3) + verbrauchP2 * per2bis4.get(4) + verbrauchP3 * per2bis4.get(5);
-		this.bedarfPeriode4 = verbrauchP1 * per2bis4.get(6) + verbrauchP2 * per2bis4.get(7) + verbrauchP3 * per2bis4.get(8);
+	public void setBedarf(ArrayList<Integer> per){
+		ArrayList<Integer> correctPer = new ArrayList<Integer>();
+		for(int p : per) {
+			if(p<0) {
+				p = 0;
+			}
+			correctPer.add(p);
+		}
+		this.bedarfPeriode1 = verbrauchP1 * correctPer.get(0) + verbrauchP2 * correctPer.get(1) + verbrauchP3 * correctPer.get(2); 
+		this.bedarfPeriode2 = verbrauchP1 * correctPer.get(3) + verbrauchP2 * correctPer.get(4) + verbrauchP3 * correctPer.get(5);
+		this.bedarfPeriode3 = verbrauchP1 * correctPer.get(6) + verbrauchP2 * correctPer.get(7) + verbrauchP3 * correctPer.get(8);
+		this.bedarfPeriode4 = verbrauchP1 * correctPer.get(9) + verbrauchP2 * correctPer.get(10) + verbrauchP3 * correctPer.get(11);
 	}
 	
 	public int bestandNachPeriode(int p){
@@ -59,7 +60,7 @@ public class Order {
 			case 4: 
 				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3 - bedarfPeriode4;
 			default:
-				return -1;
+				return -999999999;
 		}
 	}
 	
@@ -78,13 +79,27 @@ public class Order {
 		return anfangsbestand;
 	}
 
-
-	public boolean isRushOrder() {
-		return isRushOrder;
+	public boolean isOrder() {
+		int per = (int) Math.ceil(sichereLieferfrist());
+		int bestand = bestandNachPeriode(per + 1);
+		if(bestand == -999999999) {
+			return false;
+		}
+		else if(bestand < 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
-
-
-	public void setRushOrder(boolean isRushOrder) {
-		this.isRushOrder = isRushOrder;
+	
+	public boolean isRushOrder() {
+		if(this.isOrder()) {
+			double rush = sichereLieferfrist()/2;
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

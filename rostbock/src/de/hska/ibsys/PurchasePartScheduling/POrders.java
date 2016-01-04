@@ -32,9 +32,9 @@ public class POrders extends JPanel {
 	private JTable table;
 	private Object[][] rowData;
 	
-	public POrders(MainFrame mf) {
+	public POrders(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
-		this.prognose1 = new ArrayList<Integer>();
+		this.prognose1 = prognose1;
 
 		orders = new ArrayList<Order>();
 		orders.add(new Order(21, 1.8, 0.4, 1, 0, 0, 300));
@@ -67,13 +67,12 @@ public class POrders extends JPanel {
 		orders.add(new Order(58, 1.6, 0.5, 0, 72, 0, 22000));
 		orders.add(new Order(59, 0.7, 0.2, 2, 2, 2, 1800));
 		
-		setAmounts();
+		setMissingValues();
 		fillRowData(orders);
 		this.table = new JTable(rowData, Definitions.orderColumnNames);
 		JScrollPane jsp = new JScrollPane(this.table);
 		jsp.setPreferredSize(new Dimension(750, 450));
 		add(jsp);
-		
 		
 	}
 	private void fillRowData(List<Order> orders) {
@@ -88,13 +87,15 @@ public class POrders extends JPanel {
 			rowData[i][5] = o.bestandNachPeriode(4); 
 			rowData[i][6] = 0;
 			rowData[i][7] = 0;
-			rowData[i][8] = o.isRushOrder() ? "Ja" : "Nein";
+			rowData[i][8] = o.isOrder() ? "Ja" : "Nein";
+			rowData[i][9] = o.isRushOrder() ? "Ja" : "Nein";
 		}
 	}
 	
-	public void setAmounts () {
+	public void setMissingValues () {
 		this.articels = this.mf.getXp().getArticels();
 		for(Order o : this.orders) {
+			o.setBedarf(this.prognose1);
 			for(Articel a : this.articels) {
 				if(o.getId() == a.getId()) {
 					o.setAnfangsbestand(a.getAmount());

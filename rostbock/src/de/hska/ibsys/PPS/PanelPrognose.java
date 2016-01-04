@@ -56,7 +56,7 @@ public class PanelPrognose extends JPanel {
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -137,6 +137,7 @@ public class PanelPrognose extends JPanel {
 		panel.add(spChildP4, gbc_spChildP4);
 		
 		spChildP5 = new JSpinner();
+		spChildP5.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spChildP5 = new GridBagConstraints();
 		gbc_spChildP5.insets = new Insets(0, 0, 5, 0);
 		gbc_spChildP5.gridx = 12;
@@ -183,6 +184,7 @@ public class PanelPrognose extends JPanel {
 		panel.add(spWomanP4, gbc_spWomanP4);
 		
 		spWomanP5 = new JSpinner();
+		spWomanP5.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spWomanP5 = new GridBagConstraints();
 		gbc_spWomanP5.insets = new Insets(0, 0, 5, 0);
 		gbc_spWomanP5.gridx = 12;
@@ -229,6 +231,7 @@ public class PanelPrognose extends JPanel {
 		panel.add(spManP4, gbc_spManP4);
 		
 		spManP5 = new JSpinner();
+		spManP5.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spManP5 = new GridBagConstraints();
 		gbc_spManP5.gridx = 12;
 		gbc_spManP5.gridy = 7;

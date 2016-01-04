@@ -55,7 +55,6 @@ public class PanelPPSOverview extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
 				pPPS.createPConsumption();
-				pPPS.getpConsumption().setPrognose1(pPPS.getPrognoseValues());
 				pPPS.getpConsumption().setVisible(true);
 			}
 		});

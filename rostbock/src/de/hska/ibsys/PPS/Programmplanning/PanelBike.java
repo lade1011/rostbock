@@ -2229,4 +2229,8 @@ public class PanelBike extends JPanel {
 	public ArrayList<ArticleAmountPair> getProductionOrders() {
 		return productionOrders;
 	}
+	
+	public int getBikeOrder() {
+		return Integer.valueOf(this.tf_p_order.getText());
+	}
 }
