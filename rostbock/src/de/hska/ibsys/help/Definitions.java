@@ -48,7 +48,7 @@ public class Definitions {
 	public static String[] orderColumnNames = {
 			"Teile-Nr.", "Akt. Bestand", "n. Per. 1",
 			"n. Per. 2", "n. Per. 3", "n. Per. 4", 
-			"Bestellmenge", "Ampel", "Bestellung", "Eilbestellung"
+			"Bestellmenge", "Bestellung", "Eilbestellung"
 			};
 	
 }

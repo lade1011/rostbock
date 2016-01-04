@@ -7,12 +7,19 @@ import de.hska.ibsys.Components.Order;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.help.Definitions;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 public class POrders extends JPanel {
 
@@ -32,6 +39,7 @@ public class POrders extends JPanel {
 	private JTable table;
 	private Object[][] rowData;
 	
+	@SuppressWarnings("serial")
 	public POrders(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
 		this.prognose1 = prognose1;
@@ -69,14 +77,113 @@ public class POrders extends JPanel {
 		
 		setMissingValues();
 		fillRowData(orders);
-		this.table = new JTable(rowData, Definitions.orderColumnNames);
+		this.table = new JTable(rowData, Definitions.orderColumnNames) {
+			public boolean isCellEditable(int row, int column) {
+				Object o = getValueAt(row, column - 1);
+				if (o.equals(false)) {
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+		};
+		
+		TableColumn tc = this.table.getColumnModel().getColumn(7);
+		tc.setCellEditor(this.table.getDefaultEditor(Boolean.class));
+		tc.setCellRenderer(this.table.getDefaultRenderer(Boolean.class));
+		tc = this.table.getColumnModel().getColumn(8);
+		tc.setCellEditor(this.table.getDefaultEditor(Boolean.class));
+		tc.setCellRenderer(this.table.getDefaultRenderer(Boolean.class));
+		
+		this.table.getModel().addTableModelListener(new TableModelListener() {
+			@Override
+			public void tableChanged(TableModelEvent e) {
+				int row = e.getFirstRow();
+		        int column = e.getColumn();
+		        TableModel model = (TableModel)e.getSource();
+//		        String columnName = model.getColumnName(column);
+		        Object data = model.getValueAt(row, column);
+		        
+		        if(column == 7 && (boolean) data == false) {
+		        	model.setValueAt(false, row, column +1);
+		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
+		        }
+		        else if(column == 8) {
+		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
+		        }
+		        else if(column == 6) {
+		        	updateDiskontMenge((int) model.getValueAt(row, 0), data);
+		        }
+		        
+			}
+		});
+		this.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			Color orderColor = Color.WHITE;
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+
+				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				if(column == 0) {
+					orderColor = getOrderColor((int) value);
+				}
+				setForeground(Color.BLACK);
+				setBackground(orderColor);
+				return this;
+			}
+        });
+		
+		
 		JScrollPane jsp = new JScrollPane(this.table);
 		jsp.setPreferredSize(new Dimension(750, 450));
 		add(jsp);
-		
 	}
+	
+	private Color getOrderColor(int orderId) {
+		for(Order o : this.orders) {
+			if(o.getId() == orderId) {
+				if(o.isOrder() && o.isRushOrder()) {
+					return Color.RED;
+				}
+				else if(o.isOrder() && !o.isRushOrder()) {
+					return Color.ORANGE;
+				}
+				else {
+					return Color.WHITE;
+				}
+			}
+		}
+		return Color.WHITE;
+	}
+	
+	private void changeOrderValue(int orderId, int column, Object data) {
+		for(Order o : this.orders) {
+			if(o.getId() == orderId) {
+				if(column == 7) {
+					o.setToOrder((boolean) data);
+				}
+				else if(column == 8) {
+					o.setWithRush((boolean) data);
+				}
+				break;
+			}
+		}
+	}
+	
+	private void updateDiskontMenge(int orderId, Object value) {
+		for(Order o : this.orders) {
+			if(o.getId() == orderId) {
+				System.out.println("Id:" + o.getId() + "value: " + value);
+				o.setDiskontmenge(Integer.valueOf((String) value));
+				System.out.println("Id:" + o.getId() + "value: " + o.getDiskontmenge());
+				break;
+			}
+		}
+	}
+	
 	private void fillRowData(List<Order> orders) {
-		rowData = new Object[59][Definitions.orderColumnNames.length];
+		rowData = new Object[orders.size()][Definitions.orderColumnNames.length];
 		for(int i = 0; i < orders.size(); i++){
 			Order o = orders.get(i);
 			rowData[i][0] = o.getId();
@@ -85,10 +192,9 @@ public class POrders extends JPanel {
 			rowData[i][3] = o.bestandNachPeriode(2);
 			rowData[i][4] = o.bestandNachPeriode(3);
 			rowData[i][5] = o.bestandNachPeriode(4); 
-			rowData[i][6] = 0;
-			rowData[i][7] = 0;
-			rowData[i][8] = o.isOrder() ? "Ja" : "Nein";
-			rowData[i][9] = o.isRushOrder() ? "Ja" : "Nein";
+			rowData[i][6] = o.getDiskontmenge();
+			rowData[i][7] = o.isToOrder(); //isOrder();
+			rowData[i][8] = o.isWithRush(); //o.isRushOrder();
 		}
 	}
 	
@@ -99,7 +205,6 @@ public class POrders extends JPanel {
 			for(Articel a : this.articels) {
 				if(o.getId() == a.getId()) {
 					o.setAnfangsbestand(a.getAmount());
-					//Nur wenn XML eingelesen wurde
 					break;
 				}
 			}

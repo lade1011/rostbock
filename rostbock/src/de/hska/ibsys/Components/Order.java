@@ -18,6 +18,11 @@ public class Order {
 	private int bedarfPeriode4;
 	
 	private int anfangsbestand;
+	
+	private boolean toOrder;
+	
+
+	private boolean withRush;
 
 	public Order(int id, double lieferfrist, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
 			int diskontmenge) {
@@ -96,10 +101,45 @@ public class Order {
 	public boolean isRushOrder() {
 		if(this.isOrder()) {
 			double rush = sichereLieferfrist()/2;
-			return true;
+			int per = (int) Math.ceil(rush);
+			
+			int bestand = bestandNachPeriode(per + 1);
+			if(bestand == -999999999) {
+				return false;
+			}
+			else if(bestand < 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		else {
 			return false;
 		}
+	}
+	
+	
+	public boolean isToOrder() {
+		return toOrder;
+	}
+	public void setToOrder(boolean toOrder) {
+		this.toOrder = toOrder;
+	}
+	public boolean isWithRush() {
+		return withRush;
+	}
+	public void setWithRush(boolean withRush) {
+		this.withRush = withRush;
+	}
+
+
+	public int getDiskontmenge() {
+		return diskontmenge;
+	}
+
+
+	public void setDiskontmenge(int diskontmenge) {
+		this.diskontmenge = diskontmenge;
 	}
 }
