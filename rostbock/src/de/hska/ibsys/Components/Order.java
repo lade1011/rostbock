@@ -23,7 +23,7 @@ public class Order {
 
 	public Order(int id, double lieferfrist, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
 			int diskontmenge) {
-		this.anfangsbestand = 1000; //TODO entfernen
+//		this.anfangsbestand = 1000; //TODO entfernen
 		this.id = id;
 		this.lieferfrist = lieferfrist;
 		this.abweichung = abweichung;

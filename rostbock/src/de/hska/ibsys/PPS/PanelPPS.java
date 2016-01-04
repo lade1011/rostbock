@@ -40,9 +40,9 @@ public class PanelPPS extends JPanel {
 		pPrognose.setVisible(true);
 		panelContent.add(pPrognose);
 		
-		pConsumption = new PanelConsumption(this.mf);
-		pConsumption.setVisible(false);
-		panelContent.add(pConsumption);
+//		pConsumption = new PanelConsumption(this.mf);
+//		pConsumption.setVisible(false);
+//		panelContent.add(pConsumption);
 	}
 	
 	public PanelPrognose getpPrognose() {
@@ -68,6 +68,12 @@ public class PanelPPS extends JPanel {
 		pProgrammPlanning = new PanelProgrammPlanning(this, this.mf.getXp());
 		pProgrammPlanning.setVisible(false);
 		this.panelContent.add(pProgrammPlanning);
+	}
+	
+	public void createPConsumption() {
+		pConsumption = new PanelConsumption(this.mf);
+		pConsumption.setVisible(false);
+		this.panelContent.add(pConsumption);
 	}
 	
 	public ArrayList<Integer> getPrognoseValues() {

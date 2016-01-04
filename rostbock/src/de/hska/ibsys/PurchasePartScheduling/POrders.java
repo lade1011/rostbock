@@ -5,20 +5,21 @@ import javax.swing.JPanel;
 import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.Components.Order;
 import de.hska.ibsys.MainFrame.MainFrame;
-import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.help.Definitions;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class POrders extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4143755668817809840L;
 	/**
 	 * Create the panel.
 	 */
@@ -66,6 +67,7 @@ public class POrders extends JPanel {
 		orders.add(new Order(58, 1.6, 0.5, 0, 72, 0, 22000));
 		orders.add(new Order(59, 0.7, 0.2, 2, 2, 2, 1800));
 		
+		setAmounts();
 		fillRowData(orders);
 		this.table = new JTable(rowData, Definitions.orderColumnNames);
 		JScrollPane jsp = new JScrollPane(this.table);
@@ -90,7 +92,7 @@ public class POrders extends JPanel {
 		}
 	}
 	
-	public void bla () {
+	public void setAmounts () {
 		this.articels = this.mf.getXp().getArticels();
 		for(Order o : this.orders) {
 			for(Articel a : this.articels) {
