@@ -41,8 +41,11 @@ public class POrders extends JPanel {
 	private JTable table;
 	private Object[][] rowData;
 	
-	@SuppressWarnings("serial")
 	public POrders(MainFrame mf, ArrayList<Integer> prognose1) {
+		initOrders(mf, prognose1);
+	}
+	
+	public void initOrders(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
 		this.prognose1 = prognose1;
 		

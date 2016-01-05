@@ -19,8 +19,12 @@ public class Content extends JPanel {
 	
 	private POrders po;
 	private PConsumption pc;
+	private MainFrame mf;
+	private ArrayList<Integer> prognose1;
 	
 	public Content(MainFrame mf, ArrayList<Integer> prognose1) {
+		this.mf = mf;
+		this.prognose1 = prognose1;
 		po = new POrders(mf, prognose1);
 		po.setVisible(false);
 		setLayout(new CardLayout(0, 0));
@@ -30,13 +34,13 @@ public class Content extends JPanel {
 	}
 	
 	public void changeVisibility() {
-		
 		this.po.setVisible(false);
 		this.pc.setVisible(false);
 	}
 
 	public POrders getPo() {
-		return po;
+		this.po.initOrders(this.mf, this.prognose1);
+		return this.po;
 	}
 
 	public void setPo(POrders po) {
