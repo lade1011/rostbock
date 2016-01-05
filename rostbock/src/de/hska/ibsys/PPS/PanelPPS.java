@@ -39,10 +39,6 @@ public class PanelPPS extends JPanel {
 		pPrognose = new PanelPrognose(this.mf.getXp());
 		pPrognose.setVisible(true);
 		panelContent.add(pPrognose);
-		
-//		pConsumption = new PanelConsumption(this.mf);
-//		pConsumption.setVisible(false);
-//		panelContent.add(pConsumption);
 	}
 	
 	public PanelPrognose getpPrognose() {
@@ -65,9 +61,11 @@ public class PanelPPS extends JPanel {
 	}
 	
 	public void createProgramplaning() {
-		pProgrammPlanning = new PanelProgrammPlanning(this, this.mf.getXp());
-		pProgrammPlanning.setVisible(false);
-		this.panelContent.add(pProgrammPlanning);
+		if(this.pProgrammPlanning == null || !this.getpPrognose().getBikeValues().equals(this.pProgrammPlanning.getBikes())) {
+			this.pProgrammPlanning = new PanelProgrammPlanning(this.getpPrognose().getBikeValues(), this.mf.getXp());
+			this.pProgrammPlanning.setVisible(false);
+			this.panelContent.add(this.pProgrammPlanning);
+		}
 	}
 	
 	public void createPConsumption() {

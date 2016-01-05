@@ -24,4 +24,20 @@ public class Bike {
 	public void setReserve(int reserve) {
 		this.reserve = reserve;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bike other = (Bike) obj;
+		if (prognose != other.prognose)
+			return false;
+		if (reserve != other.reserve)
+			return false;
+		return true;
+	}
 }

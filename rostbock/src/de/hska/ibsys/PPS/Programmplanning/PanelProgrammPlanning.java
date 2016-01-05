@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import de.hska.ibsys.Bike.Bike;
 import de.hska.ibsys.Components.Articel;
-import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.XML.XMLParser;
 
@@ -31,12 +30,13 @@ public class PanelProgrammPlanning extends JPanel {
 	private ArrayList<Articel> womanComponents;
 	private ArrayList<Articel> manComponents;
 	private List<ArticleAmountPair> prodOrders;
+	private ArrayList<Bike> bikes;
 	
 	/**
 	 * Create the panel.
 	 * @param xp 
 	 */
-	public PanelProgrammPlanning(PanelPPS pps, XMLParser xp) {
+	public PanelProgrammPlanning(ArrayList<Bike> newBikes, XMLParser xp) {
 		this.xp = xp;
 		childComponents = new ArrayList<Articel>();
 		womanComponents = new ArrayList<Articel>();
@@ -53,7 +53,7 @@ public class PanelProgrammPlanning extends JPanel {
 		panelContent.setLayout(new CardLayout(0, 0));
 		
 		//0:child, 1:woman, 2: man
-		ArrayList<Bike> bikes = pps.getpPrognose().getBikeValues();
+		bikes = newBikes;
 		
 		childBike = new PanelBike(bikes.get(0), this.childComponents ,"P1", "E26", "E51", "E16", "E17", "E50", "E4", "E10", "E49", "E7", "E13", "E18");
 		childBike.setVisible(true);
@@ -161,5 +161,13 @@ public class PanelProgrammPlanning extends JPanel {
 
 	public void setManBike(PanelBike manBike) {
 		this.manBike = manBike;
+	}
+
+	public ArrayList<Bike> getBikes() {
+		return bikes;
+	}
+
+	public void setBikes(ArrayList<Bike> bikes) {
+		this.bikes = bikes;
 	}
 }

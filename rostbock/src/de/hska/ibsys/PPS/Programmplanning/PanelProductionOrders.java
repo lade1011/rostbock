@@ -2,7 +2,6 @@ package de.hska.ibsys.PPS.Programmplanning;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import de.hska.ibsys.help.*;
 
