@@ -2,7 +2,6 @@ package de.hska.ibsys.PurchasePartScheduling;
 
 import javax.swing.JPanel;
 
-import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.MainFrame.MainFrame;
 
 import java.awt.CardLayout;
@@ -11,16 +10,22 @@ import java.util.ArrayList;
 public class Content extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2688336293021394573L;
+	/**
 	 * Create the panel.
 	 */
 	
 	private POrders po;
 	private PConsumption pc;
+	private MainFrame mf;
 	private ArrayList<Integer> prognose1;
 	
-	public Content(MainFrame mf) {
-		this.prognose1 = new ArrayList<Integer>();
-		po = new POrders(mf);
+	public Content(MainFrame mf, ArrayList<Integer> prognose1) {
+		this.mf = mf;
+		this.prognose1 = prognose1;
+		po = new POrders(mf, prognose1);
 		po.setVisible(false);
 		setLayout(new CardLayout(0, 0));
 		add(po, "name_15517043973275");
@@ -29,21 +34,13 @@ public class Content extends JPanel {
 	}
 	
 	public void changeVisibility() {
-		/*if(this.po.isVisible()){
-			this.po.setVisible(false);
-			this.pc.setVisible(true);
-		}
-		else{
-			this.po.setVisible(true);
-			this.po.setVisible(false);
-		}*/
-		
 		this.po.setVisible(false);
 		this.pc.setVisible(false);
 	}
 
 	public POrders getPo() {
-		return po;
+		this.po.initOrders(this.mf, this.prognose1);
+		return this.po;
 	}
 
 	public void setPo(POrders po) {
@@ -56,15 +53,6 @@ public class Content extends JPanel {
 
 	public void setPc(PConsumption pc) {
 		this.pc = pc;
-	}
-
-	public ArrayList<Integer> getPrognose1() {
-		return prognose1;
-	}
-
-	public void setPrognose1(ArrayList<Integer> prognose1) {
-		this.prognose1 = prognose1;
-		this.po.setPrognose1(prognose1);
 	}
 
 }

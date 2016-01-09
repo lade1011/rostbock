@@ -2,7 +2,6 @@ package de.hska.ibsys.PPS.Programmplanning;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 import de.hska.ibsys.help.*;
 
@@ -53,9 +52,6 @@ public class PanelProductionOrders extends JPanel {
 	}
 	
 	public void initProdOrders(ArrayList<ArticleAmountPair> childOrders, ArrayList<ArticleAmountPair> womanOrders, ArrayList<ArticleAmountPair> manOrders) {
-		System.out.println(childOrders.size());
-		System.out.println(womanOrders.size());
-		System.out.println(manOrders.size());
 		this.prodOrders = new ArrayList<ArticleAmountPair>();
 		
 		ArticleAmountPair p26 = new ArticleAmountPair(26, childOrders.get(1).getAmount() + womanOrders.get(1).getAmount() + manOrders.get(1).getAmount());

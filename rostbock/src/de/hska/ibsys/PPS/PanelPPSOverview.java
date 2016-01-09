@@ -54,7 +54,7 @@ public class PanelPPSOverview extends JPanel {
 		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
-				pPPS.getpConsumption().setPrognose1(pPPS.getPrognoseValues());
+				pPPS.createPConsumption();
 				pPPS.getpConsumption().setVisible(true);
 			}
 		});

@@ -16,8 +16,6 @@ public class ConsumptionOverview extends JPanel {
 	
 	public ConsumptionOverview(PanelConsumption pc) {
 		
-		
-		
 		ButtonGroup bg = new ButtonGroup();
 		
 		JButton btnAbc = new JButton("Verbrauch");
