@@ -29,7 +29,7 @@ public class Content extends JPanel {
 		po.setVisible(false);
 		setLayout(new CardLayout(0, 0));
 		add(po, "name_15517043973275");
-		pc = new PConsumption();
+		pc = new PConsumption(mf, prognose1);
 		add(pc, "name_15517075683305");
 	}
 	
