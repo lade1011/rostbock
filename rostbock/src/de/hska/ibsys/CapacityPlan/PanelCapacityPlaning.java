@@ -35,25 +35,26 @@ public class PanelCapacityPlaning extends JPanel {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
+				{1, 0, 0, 0, 0, 0, 0, 0},
+				{2, 0, 0, 0, 0, 0, 0, 0},
+				{3, 0, 0, 0, 0, 0, 0, 0},
+				{4, 0, 0, 0, 0, 0, 0, 0},
+				{5, 0, 0, 0, 0, 0, 0, 0},
+				{6, 0, 0, 0, 0, 0, 0, 0},
+				{7, 0, 0, 0, 0, 0, 0, 0},
+				{8, 0, 0, 0, 0, 0, 0, 0},
+				{9, 0, 0, 0, 0, 0, 0, 0},
+				{10, 0, 0, 0, 0, 0, 0, 0},
+				{11, 0, 0, 0, 0, 0, 0, 0},
+				{12, 0, 0, 0, 0, 0, 0, 0},
+				{13, 0, 0, 0, 0, 0, 0, 0},
+				{14, 0, 0, 0, 0, 0, 0, 0},
+				{15, 0, 0, 0, 0, 0, 0, 0},
 			},
 			new String[] {
 				"Arbeitsplatz", "Leerzeit", "Kapazit\u00E4tsbedarf (R\u00FCckst\u00E4nde)", "Kapazit\u00E4tsbedarf (neu)", "R\u00FCstzeit (R\u00FCckst\u00E4nde)", "R\u00FCstzeit (neu)", "2. Schicht", "3. Schicht"
 			}
+			
 		) {
 			/**
 			 * 
