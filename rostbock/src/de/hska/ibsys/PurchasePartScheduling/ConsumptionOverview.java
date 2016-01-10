@@ -18,7 +18,7 @@ public class ConsumptionOverview extends JPanel {
 		
 		ButtonGroup bg = new ButtonGroup();
 		
-		JButton btnAbc = new JButton("Verbrauch");
+		JButton btnAbc = new JButton("Bruttobedarf + Verbrauch");
 		btnAbc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pc.getContent().changeVisibility();
