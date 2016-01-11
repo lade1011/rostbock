@@ -9,6 +9,7 @@ import javax.swing.JTable;
 
 import de.hska.ibsys.help.*;
 import de.hska.ibsys.Components.Articel;
+import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 public class PanelOverview extends JPanel {
@@ -48,7 +49,12 @@ public class PanelOverview extends JPanel {
 	
 	public void acutalizeOrders(List<ArticleAmountPair> orders){
 		for(ArticleAmountPair po : orders){
-			rowData[po.articelNumber - 1][7] = po.amount;
+			rowData[po.articelNumber - 1][7] = 0;
+		}
+		for(ArticleAmountPair po : orders){
+			int amount = (int)rowData[po.articelNumber - 1][7];
+			amount += po.amount;
+			rowData[po.articelNumber - 1][7] = amount;
 		}
 	}
 	

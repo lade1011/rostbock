@@ -50,5 +50,10 @@ public class Definitions {
 			"n. Per. 2", "n. Per. 3", "n. Per. 4", 
 			"Bestellmenge", "Bestellung", "Eilbestellung"
 			};
+	public static String[] capacityColumnNames = {
+			"Arbeitsplatz", "Kapazitätsbedarf", "Rüstzeit",
+			"Kapazitätsbedarf (alt)", "Rüstzeit (alt)", "Gesamt", 
+			"Schichten", "Überstunden (min)"
+			};
 	
 }

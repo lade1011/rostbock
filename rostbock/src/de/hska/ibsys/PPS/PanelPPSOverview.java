@@ -45,6 +45,13 @@ public class PanelPPSOverview extends JPanel {
 		bg.add(tglBtnPurchasePartScheduling);
 		
 		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("Kapazit\u00E4tsplanung");
+		tglbtnNewToggleButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pPPS.resetVisibility();
+				pPPS.createPCapacity();
+				pPPS.getpCapacity().setVisible(true);
+			}
+		});
 		add(tglbtnNewToggleButton_2);
 		bg.add(tglbtnNewToggleButton_2);
 		
