@@ -4,7 +4,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.hska.ibsys.Components.Articel;
-import de.hska.ibsys.Components.Order;
+import de.hska.ibsys.Components.Consumption;
+import de.hska.ibsys.Components.Consumption;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.help.Definitions;
 
@@ -35,55 +36,55 @@ public class PConsumption extends JPanel {
 	private MainFrame mf;
 	private ArrayList<Integer> prognose1;
 	private ArrayList<Articel> articels;
-	private ArrayList<Order> orders;
+	private ArrayList<Consumption> consumptions;
 
 	//Tabelle
 	private JTable table;
 	private Object[][] rowData;
 	
 	public PConsumption(MainFrame mf, ArrayList<Integer> prognose1) {
-		initOrders(mf, prognose1);
+		initconsumptions(mf, prognose1);
 	}
 	
-	public void initOrders(MainFrame mf, ArrayList<Integer> prognose1) {
+	public void initconsumptions(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
 		this.prognose1 = prognose1;
 		
 		setLayout(new BorderLayout());
 
-		orders = new ArrayList<Order>();
-		orders.add(new Order(21, 1.8, 0.4, 1, 0, 0, 300));
-		orders.add(new Order(22, 1.7, 0.4, 0, 1, 0, 300));
-		orders.add(new Order(23, 1.2, 0.2, 0, 0, 1, 300));
-		orders.add(new Order(24, 3.2, 0.3, 7, 7, 7, 6100));
-		orders.add(new Order(25, 0.9, 0.2, 4, 4, 4, 3600));
-		orders.add(new Order(27, 0.9, 0.2, 2, 2, 2, 1800));
-		orders.add(new Order(28, 1.7, 0.4, 4, 5, 6, 4500));
-		orders.add(new Order(32, 2.1, 0.5, 3, 3, 3, 2700));
-		orders.add(new Order(33, 1.9, 0.5, 0, 0, 2, 900));
-		orders.add(new Order(34, 1.6, 0.3, 0, 0, 72, 22000));
-		orders.add(new Order(35, 2.2, 0.4, 4, 4, 4, 3600));
-		orders.add(new Order(36, 1.2, 0.1, 1, 1, 1, 900));
-		orders.add(new Order(37, 1.5, 0.3, 1, 1, 1, 900));
-		orders.add(new Order(38, 1.7, 0.4, 1, 1, 1, 300));
-		orders.add(new Order(39, 1.5, 0.3, 2, 2, 2, 1800));
-		orders.add(new Order(40, 1.7, 0.2, 1, 1, 1, 900));
-		orders.add(new Order(41, 0.9, 0.2, 1, 1, 1, 900));
-		orders.add(new Order(42, 1.2, 0.3, 2, 2, 2, 1800));
-		orders.add(new Order(43, 2.0, 0.5, 1, 1, 1, 2700));
-		orders.add(new Order(44, 1.0, 0.2, 3, 3, 3, 900));
-		orders.add(new Order(45, 1.7, 0.3, 1, 1, 1, 900));
-		orders.add(new Order(46, 0.9, 0.3, 1, 1, 1, 900));
-		orders.add(new Order(47, 1.7, 0.1, 1, 1, 1, 900));
-		orders.add(new Order(48, 1.0, 0.2, 2, 2, 2, 1800));
-		orders.add(new Order(52, 1.6, 0.4, 2, 0, 0, 600));
-		orders.add(new Order(53, 1.6, 0.2, 72, 0, 0, 22000));
-		orders.add(new Order(57, 1.7, 0.3, 0, 2, 0, 600));
-		orders.add(new Order(58, 1.6, 0.5, 0, 72, 0, 22000));
-		orders.add(new Order(59, 0.7, 0.2, 2, 2, 2, 1800));
+		consumptions = new ArrayList<Consumption>();
+		consumptions.add(new Consumption(21, "KetteK", 0.4, 1, 0, 0, 300));
+		consumptions.add(new Consumption(22, "KetteD", 0.4, 0, 1, 0, 300));
+		consumptions.add(new Consumption(23, "KetteH", 0.2, 0, 0, 1, 300));
+		consumptions.add(new Consumption(24, "Mutter", 0.3, 7, 7, 7, 6100));
+		consumptions.add(new Consumption(25, "Scheibe", 0.2, 4, 4, 4, 3600));
+		consumptions.add(new Consumption(27, "Schraube", 0.2, 2, 2, 2, 1800));
+		consumptions.add(new Consumption(28, "Rohr", 0.4, 4, 5, 6, 4500));
+		consumptions.add(new Consumption(32, "Farbe", 0.5, 3, 3, 3, 2700));
+		consumptions.add(new Consumption(33, "FelgeH", 0.5, 0, 0, 2, 900));
+		consumptions.add(new Consumption(34, "SpeicheH", 0.3, 0, 0, 72, 22000));
+		consumptions.add(new Consumption(35, "Nabe", 0.4, 4, 4, 4, 3600));
+		consumptions.add(new Consumption(36, "Freilauf", 0.1, 1, 1, 1, 900));
+		consumptions.add(new Consumption(37, "Gabel", 0.3, 1, 1, 1, 900));
+		consumptions.add(new Consumption(38, "Welle", 0.4, 1, 1, 1, 300));
+		consumptions.add(new Consumption(39, "Blech", 0.3, 2, 2, 2, 1800));
+		consumptions.add(new Consumption(40, "Lenker", 0.2, 1, 1, 1, 900));
+		consumptions.add(new Consumption(41, "Mutter", 0.2, 1, 1, 1, 900));
+		consumptions.add(new Consumption(42, "Griff", 0.3, 2, 2, 2, 1800));
+		consumptions.add(new Consumption(43, "Sattel", 0.5, 1, 1, 1, 2700));
+		consumptions.add(new Consumption(44, "Stange", 0.2, 3, 3, 3, 900));
+		consumptions.add(new Consumption(45, "Mutter", 0.3, 1, 1, 1, 900));
+		consumptions.add(new Consumption(46, "Schraube", 0.3, 1, 1, 1, 900));
+		consumptions.add(new Consumption(47, "Zahnkranz", 0.1, 1, 1, 1, 900));
+		consumptions.add(new Consumption(48, "Pedal", 0.2, 2, 2, 2, 1800));
+		consumptions.add(new Consumption(52, "FelgeK", 0.4, 2, 0, 0, 600));
+		consumptions.add(new Consumption(53, "SpeicheK", 0.2, 72, 0, 0, 22000));
+		consumptions.add(new Consumption(57, "FelgeD", 0.3, 0, 2, 0, 600));
+		consumptions.add(new Consumption(58, "SpeicheD", 0.5, 0, 72, 0, 22000));
+		consumptions.add(new Consumption(59, "Schweissdraht", 0.2, 2, 2, 2, 1800));
 		
 		setMissingValues();
-		fillRowData(orders);
+		fillRowData(consumptions);
 		this.table = new JTable(rowData, Definitions.consumptionColumnNames) {
 			public boolean isCellEditable(int row, int column) {
 				Object o = getValueAt(row, column - 1);
@@ -114,10 +115,10 @@ public class PConsumption extends JPanel {
 		        
 		        if(column == 7 && (boolean) data == false) {
 		        	model.setValueAt(false, row, column +1);
-		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
+		        	changeConsumptionValue((int) model.getValueAt(row, 0), column, data);
 		        }
 		        else if(column == 8) {
-		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
+		        	changeConsumptionValue((int) model.getValueAt(row, 0), column, data);
 		        }
 		        else if(column == 6) {
 		        	updateDiskontMenge((int) model.getValueAt(row, 0), data);
@@ -126,24 +127,25 @@ public class PConsumption extends JPanel {
 			}
 		});
 		this.table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-			Color orderColor = Color.WHITE;
+			Color ConsumptionColor = Color.WHITE;
 			@Override
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
 					boolean hasFocus, int row, int column) {
 
 				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				if(column == 0) {
-					orderColor = getOrderColor((int) value);
+					ConsumptionColor = getConsumptionColor((int) value);
 				}
 				setForeground(Color.BLACK);
-				setBackground(orderColor);
+				setBackground(ConsumptionColor);
 				return this;
 			}
         });
 		
 		
-		JScrollPane jsp = new JScrollPane(this.table);
-		jsp.setPreferredSize(new Dimension(750, 450));
+		JScrollPane jsp = new JScrollPane(this.table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+			    JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		jsp.setPreferredSize(new Dimension(750, 750));
 		add(jsp, BorderLayout.CENTER);
 		
 		JPanel colorDesc = new JPanel();
@@ -155,23 +157,23 @@ public class PConsumption extends JPanel {
 		JLabel orange = new JLabel("Orange: ");
 		orange.setForeground(Color.ORANGE);
 		colorDesc.add(orange);
-		JLabel oDesc = new JLabel("Normal order is recommended");
+		JLabel oDesc = new JLabel("Normal Consumption is recommended");
 		colorDesc.add(oDesc);
 		JLabel red = new JLabel("Red: ");
 		red.setForeground(Color.RED);
 		colorDesc.add(red);
-		JLabel rDesc = new JLabel("Rush order is recommended");
+		JLabel rDesc = new JLabel("Rush Consumption is recommended");
 		colorDesc.add(rDesc);
 		add(colorDesc, BorderLayout.SOUTH);
 	}
 	
-	private Color getOrderColor(int orderId) {
-//		for(Order o : this.orders) {
-//			if(o.getId() == orderId) {
-//				if(o.isOrder() && o.isRushOrder()) {
+	private Color getConsumptionColor(int ConsumptionId) {
+//		for(Consumption o : this.consumptions) {
+//			if(o.getId() == ConsumptionId) {
+//				if(o.isConsumption() && o.isRushConsumption()) {
 //					return Color.RED;
 //				}
-//				else if(o.isOrder() && !o.isRushOrder()) {
+//				else if(o.isConsumption() && !o.isRushConsumption()) {
 //					return Color.ORANGE;
 //				}
 //				else {
@@ -182,23 +184,23 @@ public class PConsumption extends JPanel {
 		return Color.WHITE;
 	}
 	
-	private void changeOrderValue(int orderId, int column, Object data) {
-		for(Order o : this.orders) {
-			if(o.getId() == orderId) {
+	private void changeConsumptionValue(int ConsumptionId, int column, Object data) {
+		for(Consumption c : this.consumptions) {
+			if(c.getId() == ConsumptionId) {
 				if(column == 7) {
-					o.setToOrder((boolean) data);
+					//c.setToConsumption((boolean) data);
 				}
 				else if(column == 8) {
-					o.setWithRush((boolean) data);
+					c.setWithRush((boolean) data);
 				}
 				break;
 			}
 		}
 	}
 	
-	private void updateDiskontMenge(int orderId, Object value) {
-		for(Order o : this.orders) {
-			if(o.getId() == orderId) {
+	private void updateDiskontMenge(int ConsumptionId, Object value) {
+		for(Consumption o : this.consumptions) {
+			if(o.getId() == ConsumptionId) {
 				System.out.println("Id:" + o.getId() + "value: " + value);
 				o.setDiskontmenge(Integer.valueOf((String) value));
 				System.out.println("Id:" + o.getId() + "value: " + o.getDiskontmenge());
@@ -207,19 +209,19 @@ public class PConsumption extends JPanel {
 		}
 	}
 	
-	private void fillRowData(List<Order> orders) {
-		rowData = new Object[orders.size()][Definitions.consumptionColumnNames.length];
-		for(int i = 0; i < orders.size(); i++){
-			Order o = orders.get(i);
-			rowData[i][0] = o.getId();
-			rowData[i][1] = o.getAnfangsbestand();
-			rowData[i][2] = o.bestandNachPeriode(1);
-			rowData[i][3] = o.bestandNachPeriode(2);
-			rowData[i][4] = o.bestandNachPeriode(3);
-			rowData[i][5] = o.bestandNachPeriode(4); 
-			rowData[i][6] = o.getDiskontmenge();
-			rowData[i][7] = o.isToOrder(); //isOrder();
-			rowData[i][8] = o.isWithRush(); //o.isRushOrder();
+	private void fillRowData(List<Consumption> consumptions) {
+		rowData = new Object[consumptions.size()][Definitions.consumptionColumnNames.length];
+		for(int i = 0; i < consumptions.size(); i++){
+			Consumption c = consumptions.get(i);
+			rowData[i][0] = c.getId();
+			rowData[i][1] = c.getBezeichnung();
+			rowData[i][2] = "";
+			rowData[i][3] = "";
+			rowData[i][4] = "";
+			rowData[i][5] = ""; 
+			rowData[i][6] = c.getDiskontmenge();
+			rowData[i][7] = c.isToOrder(); //isConsumption();
+			rowData[i][8] = c.isWithRush(); //o.isRushConsumption();
 			rowData[i][9] = "0";
 			rowData[i][10] = "0";
 			rowData[i][11] = "0";
@@ -228,17 +230,18 @@ public class PConsumption extends JPanel {
 			rowData[i][14] = "0";
 			rowData[i][15] = "0";
 			rowData[i][16] = "0";
+			
 
 		}
 	}
 	
 	public void setMissingValues () {
 		this.articels = this.mf.getXp().getArticels();
-		for(Order o : this.orders) {
-			o.setBedarf(this.prognose1);
+		for(Consumption c : this.consumptions) {
+			c.setBedarf(this.prognose1);
 			for(Articel a : this.articels) {
-				if(o.getId() == a.getId()) {
-					o.setAnfangsbestand(a.getAmount());
+				if(c.getId() == a.getId()) {
+//					c.setAnfangsbestand(a.getAmount());
 					break;
 				}
 			}

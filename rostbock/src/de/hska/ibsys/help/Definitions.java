@@ -40,7 +40,7 @@ public class Definitions {
 			"aktueller Lagerbestand", "Prozentual", "in Warteschlange", 
 			"in Bearbeitung", "Produktionsauftr�ge"
 			};
-	public static String[] consumptionColumnNames = { "Art.", "Bezeichnung", "akt. Lagerbestand", "Lagerzugang",
+	public static String[] consumptionColumnNames = { "Art.", "Bezeichnung", "akt. Lagerb.", "Lagerzugang",
 			"Lfd. Abw.", "Diskontmenge", "Preis", "Best.kosten", "Bedarf P1",
 			"Bedarf P2", "Bedarf P3", "Bedarf P4", "Anfangsb. P1", "Anfangsb. P2",
 			"Anfangsb. P3", "Anfangsb. P4", "Anfangsb. P5" };
