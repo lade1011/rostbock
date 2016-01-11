@@ -87,6 +87,10 @@ public class Order {
 	public boolean isOrder() {
 		int per = (int) Math.ceil(sichereLieferfrist());
 		int bestand = bestandNachPeriode(per + 1);
+		if(per >= 4){
+			bestand = bestandNachPeriode(4);
+		}
+		
 		if(bestand == -999999999) {
 			return false;
 		}
@@ -104,6 +108,10 @@ public class Order {
 			int per = (int) Math.ceil(rush);
 			
 			int bestand = bestandNachPeriode(per + 1);
+			if(per >= 4){
+				bestand = bestandNachPeriode(4);
+			}
+			
 			if(bestand == -999999999) {
 				return false;
 			}

@@ -169,16 +169,23 @@ public class POrders extends JPanel {
 		for(Order o : this.orders) {
 			if(o.getId() == orderId) {
 				if(o.isOrder() && o.isRushOrder()) {
+
+					System.out.println("rot"+o.getId());
 					return Color.RED;
 				}
 				else if(o.isOrder() && !o.isRushOrder()) {
+
+					System.out.println("orange"+o.getId());
 					return Color.ORANGE;
 				}
 				else {
+					System.out.println("white"+o.getId() + " " + o.isOrder() + " xx" + o.isRushOrder());
 					return Color.WHITE;
 				}
 			}
 		}
+
+		System.out.println("der längste");
 		return Color.WHITE;
 	}
 	

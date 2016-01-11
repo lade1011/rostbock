@@ -25,32 +25,10 @@ public class ConsumptionOverview extends JPanel {
 				pc.getContent().getPc().setVisible(true);
 			}
 		});
+		btnAbc.setSelected(true);
 		bg.add(btnAbc);
 		add(btnAbc);
-		/*JButton btnVerbruche = new JButton("Verbräuche");
-		btnVerbruche.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				remove(panel);
-				panel = new PConsumption();
-				add(panel);
-				repaint();
-				revalidate();
-			}
-		});
-		setLayout(new BorderLayout(0, 0));
-		btnPanel.add(btnVerbruche);
-		//add(btnVerbruche);
 		
-		JButton btnBestellungen = new JButton("Bestellungen");
-		btnBestellungen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				remove(panel);
-				panel = new POrders();
-				add(panel);
-				repaint();
-				revalidate();
-			}
-		});*/
 		JButton btnDef = new JButton("Bestellungen");
 		btnDef.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
