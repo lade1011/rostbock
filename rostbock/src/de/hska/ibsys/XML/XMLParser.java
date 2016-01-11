@@ -8,15 +8,18 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 import de.hska.ibsys.Components.Articel;
+import de.hska.ibsys.Components.Order;
 
 public class XMLParser implements ContentHandler {
 	private ArrayList<Articel> articels;
+	private ArrayList<Order> supplies;
 	
 	private boolean listOfOrdersinwork;
 	private boolean waitinglist;
 
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
+		this.supplies = new ArrayList<Order>();
 		this.listOfOrdersinwork = false;
 		this.waitinglist = false;
 	}
@@ -34,6 +37,10 @@ public class XMLParser implements ContentHandler {
 					Integer.parseInt(atts.getValue("startamount")), Double.parseDouble(atts.getValue("pct")),
 					Double.parseDouble(atts.getValue("price")), Double.parseDouble(atts.getValue("stockvalue")));
 			this.articels.add(a);
+		}
+		else if(tag.equals("order")){
+//			Order o = new Order(Long.valueOf(atts.getValue("id")), atts.getValue("lieferfrist"), 0, 
+			
 		}
 		else if(tag.equals("ordersinwork")) {
 			this.listOfOrdersinwork = true;

@@ -144,30 +144,30 @@ public class PConsumption extends JPanel {
 				return this;
 			}
         });
-		
+//		this.table.getColumn(1).setWidth(20);
 		
 		JScrollPane jsp = new JScrollPane(this.table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 			    JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		jsp.setPreferredSize(new Dimension(750, 750));
 		add(jsp, BorderLayout.CENTER);
 		
-		JPanel colorDesc = new JPanel();
-		JLabel white = new JLabel("White: ");
-		white.setForeground(Color.BLACK);
-		colorDesc.add(white);
-		JLabel wDesc = new JLabel("Everything is ok");
-		colorDesc.add(wDesc);
-		JLabel orange = new JLabel("Orange: ");
-		orange.setForeground(Color.ORANGE);
-		colorDesc.add(orange);
-		JLabel oDesc = new JLabel("Normal Consumption is recommended");
-		colorDesc.add(oDesc);
-		JLabel red = new JLabel("Red: ");
-		red.setForeground(Color.RED);
-		colorDesc.add(red);
-		JLabel rDesc = new JLabel("Rush Consumption is recommended");
-		colorDesc.add(rDesc);
-		add(colorDesc, BorderLayout.SOUTH);
+//		JPanel colorDesc = new JPanel();
+//		JLabel white = new JLabel("White: ");
+//		white.setForeground(Color.BLACK);
+//		colorDesc.add(white);
+//		JLabel wDesc = new JLabel("Everything is ok");
+//		colorDesc.add(wDesc);
+//		JLabel orange = new JLabel("Orange: ");
+//		orange.setForeground(Color.ORANGE);
+//		colorDesc.add(orange);
+//		JLabel oDesc = new JLabel("Normal Consumption is recommended");
+//		colorDesc.add(oDesc);
+//		JLabel red = new JLabel("Red: ");
+//		red.setForeground(Color.RED);
+//		colorDesc.add(red);
+//		JLabel rDesc = new JLabel("Rush Consumption is recommended");
+//		colorDesc.add(rDesc);
+//		add(colorDesc, BorderLayout.SOUTH);
 	}
 	
 	private Color getConsumptionColor(int ConsumptionId) {
