@@ -220,10 +220,10 @@ public class PConsumption extends JPanel {
 			rowData[i][5] = c.getDiskontmenge(); 
 			rowData[i][6] = c.getPreis();
 			rowData[i][7] = c.getBestellkosten();
-			rowData[i][8] = c.isWithRush(); //o.isRushConsumption();
-			rowData[i][9] = "0";
-			rowData[i][10] = "0";
-			rowData[i][11] = "0";
+			rowData[i][8] = c.getBedarfProdukt(200, 140, 20);
+			rowData[i][9] = c.getBedarfProdukt(200, 150, 50);
+			rowData[i][10] = c.getBedarfProdukt(250, 150, 100);
+			rowData[i][11] = c.getBedarfProdukt(250, 150, 100);
 			rowData[i][12] = "0";
 			rowData[i][13] = "0";
 			rowData[i][14] = "0";

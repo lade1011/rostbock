@@ -176,4 +176,12 @@ public class Consumption {
 	public int getBestellkosten() {
 		return (int) bestellkosten;
 	}
+	
+	public int getBedarfProdukt(int prodauftragKind, int prodauftragDamen, int prodauftragHerren){
+		int bK = this.bedarfProd1 * prodauftragKind;
+		int bD = this.bedarfProd2 * prodauftragDamen;
+		int bH = this.bedarfProd3 * prodauftragHerren;
+		
+		return bK + bD + bH;
+	}
 }
