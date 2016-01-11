@@ -96,6 +96,7 @@ public class PConsumption extends JPanel {
 				}
 			}
 		};
+		this.table.setGridColor(Color.LIGHT_GRAY);
 		
 //		TableColumn tc = this.table.getColumnModel().getColumn(7);
 //		tc.setCellEditor(this.table.getDefaultEditor(Boolean.class));
@@ -220,15 +221,14 @@ public class PConsumption extends JPanel {
 			rowData[i][5] = c.getDiskontmenge(); 
 			rowData[i][6] = c.getPreis();
 			rowData[i][7] = c.getBestellkosten();
-			rowData[i][8] = c.getBedarfProdukt(200, 140, 20);
+			rowData[i][8] = c.getBedarfProdukt(200, 140, 20); //TODO aus Import oder Eingabe einlesen
 			rowData[i][9] = c.getBedarfProdukt(200, 150, 50);
 			rowData[i][10] = c.getBedarfProdukt(250, 150, 100);
 			rowData[i][11] = c.getBedarfProdukt(250, 150, 100);
-			rowData[i][12] = "0";
-			rowData[i][13] = "0";
-			rowData[i][14] = "0";
-			rowData[i][15] = "0";
-			rowData[i][16] = "0";
+			rowData[i][12] = c.getLagerbestand() - (int) rowData[i][8];
+			rowData[i][13] = (int) rowData[i][12] - (int) rowData[i][9];
+			rowData[i][14] = (int) rowData[i][13] - (int) rowData[i][10];
+			rowData[i][15] = (int) rowData[i][14] - (int) rowData[i][11];
 			
 
 		}
