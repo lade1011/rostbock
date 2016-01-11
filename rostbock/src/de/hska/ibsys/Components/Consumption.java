@@ -12,27 +12,38 @@ public class Consumption {
 	private int verbrauchP3;
 	private int diskontmenge;
 	
-	private int bedarfPeriode1;
-	private int bedarfPeriode2;
-	private int bedarfPeriode3;
-	private int bedarfPeriode4;
+	private double lagerbestand;
+	private int bedarfProd1;
+	private int bedarfProd2;
+	private int bedarfProd3;
 	
 	private String bezeichnung;
+	
+	private double preis;
 	
 	private boolean toOrder;
 	
 
 	private boolean withRush;
 
-	public Consumption(int id, String bezeichnung, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
-			int diskontmenge) {
+	private double bestellkosten;
+
+	public Consumption(int id, String bezeichnung, double lieferdauer, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
+			int diskontmenge, double preis, double bestellkosten, int bp1, int bp2, int bp3) {
 		this.id = id;
+		this.lieferfrist = lieferdauer;
 		this.bezeichnung = bezeichnung;
 		this.abweichung = abweichung;
 		this.verbrauchP1 = verbrauchP1;
 		this.verbrauchP2 = verbrauchP2;
 		this.verbrauchP3 = verbrauchP3;
 		this.diskontmenge = diskontmenge;
+		this.preis = preis;
+		this.bestellkosten = bestellkosten;
+		
+		this.bedarfProd1 = bp1;
+		this.bedarfProd2 = bp2;
+		this.bedarfProd3 = bp3;
 	}
 	
 	
@@ -48,10 +59,7 @@ public class Consumption {
 			}
 			correctPer.add(p);
 		}
-		this.bedarfPeriode1 = verbrauchP1 * correctPer.get(0) + verbrauchP2 * correctPer.get(1) + verbrauchP3 * correctPer.get(2); 
-		this.bedarfPeriode2 = verbrauchP1 * correctPer.get(3) + verbrauchP2 * correctPer.get(4) + verbrauchP3 * correctPer.get(5);
-		this.bedarfPeriode3 = verbrauchP1 * correctPer.get(6) + verbrauchP2 * correctPer.get(7) + verbrauchP3 * correctPer.get(8);
-		this.bedarfPeriode4 = verbrauchP1 * correctPer.get(9) + verbrauchP2 * correctPer.get(10) + verbrauchP3 * correctPer.get(11);
+
 	}
 	
 //	public int bestandNachPeriode(int p){
@@ -143,5 +151,29 @@ public class Consumption {
 
 	public void setDiskontmenge(int diskontmenge) {
 		this.diskontmenge = diskontmenge;
+	}
+
+
+	public int getLagerbestand() {
+		return (int) lagerbestand;
+	}
+
+
+	public void setLagerbestand(double lagerbestand) {
+		this.lagerbestand = lagerbestand;
+	}
+	
+	public String getLieferdauerAbw(){
+		return this.lieferfrist + " ("+this.abweichung+")";
+	}
+
+
+	public double getPreis() {
+		return this.preis;
+	}
+
+
+	public int getBestellkosten() {
+		return (int) bestellkosten;
 	}
 }
