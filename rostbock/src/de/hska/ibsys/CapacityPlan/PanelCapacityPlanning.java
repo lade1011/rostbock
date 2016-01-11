@@ -57,14 +57,14 @@ public class PanelCapacityPlanning extends JPanel {
 			
 			rowData[x][0] = i;
 			int bedarf = calculateBedarf(i);
-			int rüstzeit = calcuclateRüstzeit(i);
+			int ruestzeit = calcuclateRuestzeit(i);
 			rowData[x][1] = bedarf;
-			rowData[x][2] = rüstzeit;
+			rowData[x][2] = ruestzeit;
 			
 			rowData[x][3] = 0; //TODO: KapBedarf alt
-			rowData[x][4] = 0; //TODO: Rüstzeit alt
+			rowData[x][4] = 0; //TODO: Ruestzeit alt
 			
-			int gesBedarf = bedarf + rüstzeit;
+			int gesBedarf = bedarf + ruestzeit;
 			rowData[x][5] = gesBedarf;
 			
 			int anzahlSchichten = calculateSchichten(gesBedarf);
@@ -73,97 +73,97 @@ public class PanelCapacityPlanning extends JPanel {
 		}
 	}
 
-	private int calcuclateRüstzeit(int workplaceNumber){
-		int rüstzeit = 0;
+	private int calcuclateRuestzeit(int workplaceNumber){
+		int ruestzeit = 0;
 		
 		if(workplaceNumber == 1){
-			rüstzeit += orders.getOrDefault(49, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 49) : 0;
-			rüstzeit += orders.getOrDefault(54, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 54) : 0;
-			rüstzeit += orders.getOrDefault(29, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 29) : 0;
+			ruestzeit += orders.getOrDefault(49, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 49) : 0;
+			ruestzeit += orders.getOrDefault(54, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 54) : 0;
+			ruestzeit += orders.getOrDefault(29, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 29) : 0;
 		}else if(workplaceNumber == 2){
-			rüstzeit += orders.getOrDefault(50, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 50) : 0;
-			rüstzeit += orders.getOrDefault(55, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 55) : 0;
-			rüstzeit += orders.getOrDefault(30, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 30) : 0;
+			ruestzeit += orders.getOrDefault(50, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 50) : 0;
+			ruestzeit += orders.getOrDefault(55, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 55) : 0;
+			ruestzeit += orders.getOrDefault(30, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 30) : 0;
 		}else if(workplaceNumber == 3){
-			rüstzeit += orders.getOrDefault(51, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 51) : 0;
-			rüstzeit += orders.getOrDefault(56, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 56) : 0;
-			rüstzeit += orders.getOrDefault(31, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 31) : 0;
+			ruestzeit += orders.getOrDefault(51, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 51) : 0;
+			ruestzeit += orders.getOrDefault(56, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 56) : 0;
+			ruestzeit += orders.getOrDefault(31, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 31) : 0;
 		}else if(workplaceNumber == 4){
-			rüstzeit += orders.getOrDefault(1, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 1) : 0;
-			rüstzeit += orders.getOrDefault(2, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 2) : 0;
-			rüstzeit += orders.getOrDefault(3, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 3) : 0;
+			ruestzeit += orders.getOrDefault(1, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 1) : 0;
+			ruestzeit += orders.getOrDefault(2, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 2) : 0;
+			ruestzeit += orders.getOrDefault(3, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 3) : 0;
 		}else if(workplaceNumber == 6){
-			rüstzeit += orders.getOrDefault(16, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 16) : 0;
-			rüstzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
-			rüstzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
-			rüstzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
+			ruestzeit += orders.getOrDefault(16, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 16) : 0;
+			ruestzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
+			ruestzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
+			ruestzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
 		}else if(workplaceNumber == 7){
-			rüstzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
-			rüstzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
-			rüstzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
-			rüstzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
-			rüstzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
-			rüstzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
-			rüstzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
-			rüstzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
-			rüstzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
-			rüstzeit += orders.getOrDefault(26, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 26) : 0;
+			ruestzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
+			ruestzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
+			ruestzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
+			ruestzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
+			ruestzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
+			ruestzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
+			ruestzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
+			ruestzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
+			ruestzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
+			ruestzeit += orders.getOrDefault(26, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 26) : 0;
 		}else if(workplaceNumber == 8){
-			rüstzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
-			rüstzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
-			rüstzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
-			rüstzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
-			rüstzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
-			rüstzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
-			rüstzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
-			rüstzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
-			rüstzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
+			ruestzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
+			ruestzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
+			ruestzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
+			ruestzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
+			ruestzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
+			ruestzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
+			ruestzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
+			ruestzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
+			ruestzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
 		}else if(workplaceNumber == 9){
-			rüstzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
-			rüstzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
-			rüstzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
-			rüstzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
-			rüstzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
-			rüstzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
-			rüstzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
-			rüstzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
-			rüstzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
+			ruestzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
+			ruestzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
+			ruestzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
+			ruestzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
+			ruestzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
+			ruestzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
+			ruestzeit += orders.getOrDefault(18, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 18) : 0;
+			ruestzeit += orders.getOrDefault(19, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 19) : 0;
+			ruestzeit += orders.getOrDefault(20, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 20) : 0;
 		}else if(workplaceNumber == 10){
-			rüstzeit += orders.getOrDefault(4, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 4) : 0;
-			rüstzeit += orders.getOrDefault(5, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 5) : 0;
-			rüstzeit += orders.getOrDefault(6, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 6) : 0;
-			rüstzeit += orders.getOrDefault(7, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 7) : 0;
-			rüstzeit += orders.getOrDefault(8, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 8) : 0;
-			rüstzeit += orders.getOrDefault(9, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 9) : 0;
+			ruestzeit += orders.getOrDefault(4, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 4) : 0;
+			ruestzeit += orders.getOrDefault(5, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 5) : 0;
+			ruestzeit += orders.getOrDefault(6, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 6) : 0;
+			ruestzeit += orders.getOrDefault(7, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 7) : 0;
+			ruestzeit += orders.getOrDefault(8, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 8) : 0;
+			ruestzeit += orders.getOrDefault(9, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 9) : 0;
 		}else if(workplaceNumber == 11){
-			rüstzeit += orders.getOrDefault(4, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 4) : 0;
-			rüstzeit += orders.getOrDefault(5, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 5) : 0;
-			rüstzeit += orders.getOrDefault(6, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 6) : 0;
-			rüstzeit += orders.getOrDefault(7, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 7) : 0;
-			rüstzeit += orders.getOrDefault(8, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 8) : 0;
-			rüstzeit += orders.getOrDefault(9, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 9) : 0;
+			ruestzeit += orders.getOrDefault(4, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 4) : 0;
+			ruestzeit += orders.getOrDefault(5, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 5) : 0;
+			ruestzeit += orders.getOrDefault(6, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 6) : 0;
+			ruestzeit += orders.getOrDefault(7, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 7) : 0;
+			ruestzeit += orders.getOrDefault(8, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 8) : 0;
+			ruestzeit += orders.getOrDefault(9, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 9) : 0;
 		}else if(workplaceNumber == 12){
-			rüstzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
-			rüstzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
-			rüstzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
-			rüstzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
-			rüstzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
-			rüstzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
+			ruestzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
+			ruestzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
+			ruestzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
+			ruestzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
+			ruestzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
+			ruestzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
 		}else if(workplaceNumber == 13){
-			rüstzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
-			rüstzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
-			rüstzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
-			rüstzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
-			rüstzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
-			rüstzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
+			ruestzeit += orders.getOrDefault(10, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 10) : 0;
+			ruestzeit += orders.getOrDefault(11, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 11) : 0;
+			ruestzeit += orders.getOrDefault(12, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 12) : 0;
+			ruestzeit += orders.getOrDefault(13, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 13) : 0;
+			ruestzeit += orders.getOrDefault(14, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 14) : 0;
+			ruestzeit += orders.getOrDefault(15, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 15) : 0;
 		}else if(workplaceNumber == 14){
-			rüstzeit += orders.getOrDefault(16, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 16) : 0;
+			ruestzeit += orders.getOrDefault(16, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 16) : 0;
 		}else{
-			rüstzeit += orders.getOrDefault(17, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 17) : 0;
-			rüstzeit += orders.getOrDefault(26, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 26) : 0;
+			ruestzeit += orders.getOrDefault(17, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 17) : 0;
+			ruestzeit += orders.getOrDefault(26, 0) > 0 ? Workplace.getToolingTime(workplaceNumber, 26) : 0;
 		}
 		
-		return rüstzeit;
+		return ruestzeit;
 	}
 	
 	private int calculateBedarf(int workplaceNumber) {
