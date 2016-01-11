@@ -224,16 +224,21 @@ public class POrders extends JPanel {
 	}
 	
 	public void setMissingValues () {
-		this.articels = this.mf.getXp().getArticels();
-		for(Order o : this.orders) {
-			o.setBedarf(this.prognose1);
-			for(Articel a : this.articels) {
-				if(o.getId() == a.getId()) {
-					o.setAnfangsbestand(a.getAmount());
-					break;
+		try{
+			this.articels = this.mf.getXp().getArticels();
+			for(Order o : this.orders) {
+				o.setBedarf(this.prognose1);
+				for(Articel a : this.articels) {
+					if(o.getId() == a.getId()) {
+						o.setAnfangsbestand(a.getAmount());
+						break;
+					}
 				}
 			}
+		}catch(Exception e){
+			
 		}
+		
 	}
 
 	public ArrayList<Integer> getPrognose1() {

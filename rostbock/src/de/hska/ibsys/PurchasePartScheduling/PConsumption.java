@@ -235,15 +235,19 @@ public class PConsumption extends JPanel {
 	}
 	
 	public void setMissingValues () {
-		this.articels = this.mf.getXp().getArticels();
-		for(Consumption c : this.consumptions) {
-			c.setBedarf(this.prognose1);
-			for(Articel a : this.articels) {
-				if(c.getId() == a.getId()) {
-					c.setLagerbestand(a.getAmount());
-					break;
+		try{
+			this.articels = this.mf.getXp().getArticels();
+			for(Consumption c : this.consumptions) {
+				c.setBedarf(this.prognose1);
+				for(Articel a : this.articels) {
+					if(c.getId() == a.getId()) {
+						c.setLagerbestand(a.getAmount());
+						break;
+					}
 				}
 			}
+		}catch(Exception e){
+			
 		}
 	}
 

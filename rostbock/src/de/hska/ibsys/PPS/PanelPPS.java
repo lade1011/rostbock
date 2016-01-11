@@ -2,13 +2,16 @@ package de.hska.ibsys.PPS;
 
 import javax.swing.JPanel;
 
+import de.hska.ibsys.CapacityPlan.PanelCapacityPlanning;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.PPS.Programmplanning.PanelProgrammPlanning;
+import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.PurchasePartScheduling.PanelConsumption;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PanelPPS extends JPanel {
 	
@@ -16,11 +19,13 @@ public class PanelPPS extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = -1494634615296682412L;
+	public static List<ArticleAmountPair> prodOrders;
 	private PanelPPSOverview ppsOverview;
 	private PanelPrognose pPrognose;
 	private PanelProgrammPlanning pProgrammPlanning;
 	private JPanel panelContent;
 	private PanelConsumption pConsumption;
+	private PanelCapacityPlanning pCapacity;
 	private MainFrame mf;
 	
 	/**
@@ -59,6 +64,12 @@ public class PanelPPS extends JPanel {
 	public void setpConsumption(PanelConsumption pConsumption) {
 		this.pConsumption = pConsumption;
 	}
+	public PanelCapacityPlanning getpCapacity() {
+		return pCapacity;
+	}
+	public void setpCapacity(PanelCapacityPlanning pCapacity) {
+		this.pCapacity = pCapacity;
+	}
 	
 	public void createProgramplaning() {
 		if(this.pProgrammPlanning == null || !this.getpPrognose().getBikeValues().equals(this.pProgrammPlanning.getBikes())) {
@@ -72,6 +83,12 @@ public class PanelPPS extends JPanel {
 		pConsumption = new PanelConsumption(this.mf, getPrognoseValues());
 		pConsumption.setVisible(false);
 		this.panelContent.add(pConsumption);
+	}
+	
+	public void createPCapacity() {
+		pCapacity = new PanelCapacityPlanning();
+		pCapacity.setVisible(false);
+		this.panelContent.add(pCapacity);
 	}
 	
 	public ArrayList<Integer> getPrognoseValues() {
@@ -122,6 +139,9 @@ public class PanelPPS extends JPanel {
 		}
 		if(pConsumption != null) {
 			pConsumption.setVisible(false);
+		}
+		if(pCapacity != null) {
+			pCapacity.setVisible(false);
 		}
 	}
 }

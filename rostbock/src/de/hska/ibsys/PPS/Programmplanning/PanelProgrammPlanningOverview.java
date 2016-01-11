@@ -5,6 +5,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 import java.awt.event.ActionListener;
@@ -66,6 +67,8 @@ public class PanelProgrammPlanningOverview extends JPanel {
 					prodOrders.addAll(pProgramPlanning.getWomanBike().getProductionOrders());
 					prodOrders.addAll(pProgramPlanning.getManBike().getProductionOrders());
 					pProgramPlanning.getOverview().acutalizeOrders(prodOrders);
+					pProgramPlanning.getProdOrd().setProdOrders(prodOrders);
+					PanelPPS.prodOrders = prodOrders;
 					//TODO: Hier die inStock und inWaiting
 				}catch(Exception ex){
 					//Hier passiert nichts
