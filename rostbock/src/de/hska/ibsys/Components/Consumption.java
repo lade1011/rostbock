@@ -22,7 +22,8 @@ public class Consumption {
 	private double preis;
 	
 	private boolean toOrder;
-	
+
+	private int arrivedSupply;
 
 	private boolean withRush;
 
@@ -183,5 +184,15 @@ public class Consumption {
 		int bH = this.bedarfProd3 * prodauftragHerren;
 		
 		return bK + bD + bH;
+	}
+
+
+	public int getArrivedSupply() {
+		return arrivedSupply;
+	}
+
+
+	public void setArrivedSupply(int arrivedSupply) {
+		this.arrivedSupply = arrivedSupply;
 	}
 }

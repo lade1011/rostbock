@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.Components.Consumption;
+import de.hska.ibsys.Components.Supply;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.help.Definitions;
 
@@ -40,6 +41,7 @@ public class PConsumption extends JPanel {
 	//Tabelle
 	private JTable table;
 	private Object[][] rowData;
+	private ArrayList<Supply> supplies;
 	
 	public PConsumption(MainFrame mf, ArrayList<Integer> prognose1) {
 		initconsumptions(mf, prognose1);
@@ -216,7 +218,7 @@ public class PConsumption extends JPanel {
 			rowData[i][0] = c.getId();
 			rowData[i][1] = c.getBezeichnung();
 			rowData[i][2] = c.getLagerbestand();
-			rowData[i][3] = "";
+			rowData[i][3] = c.getArrivedSupply();
 			rowData[i][4] = c.getLieferdauerAbw();
 			rowData[i][5] = c.getDiskontmenge(); 
 			rowData[i][6] = c.getPreis();
@@ -225,7 +227,7 @@ public class PConsumption extends JPanel {
 			rowData[i][9] = c.getBedarfProdukt(200, 150, 50);
 			rowData[i][10] = c.getBedarfProdukt(250, 150, 100);
 			rowData[i][11] = c.getBedarfProdukt(250, 150, 100);
-			rowData[i][12] = c.getLagerbestand() - (int) rowData[i][8];
+			rowData[i][12] = c.getLagerbestand() + c.getArrivedSupply() - (int) rowData[i][8];
 			rowData[i][13] = (int) rowData[i][12] - (int) rowData[i][9];
 			rowData[i][14] = (int) rowData[i][13] - (int) rowData[i][10];
 			rowData[i][15] = (int) rowData[i][14] - (int) rowData[i][11];
@@ -242,6 +244,15 @@ public class PConsumption extends JPanel {
 				for(Articel a : this.articels) {
 					if(c.getId() == a.getId()) {
 						c.setLagerbestand(a.getAmount());
+						break;
+					}
+				}
+			}
+			this.supplies = this.mf.getXp().getSupplies();
+			for(Supply s : this.supplies) {
+				for(Consumption c : this.consumptions) {
+					if(s.getArticleId() == c.getId()) {
+						c.setArrivedSupply(s.getAmount());
 						break;
 					}
 				}

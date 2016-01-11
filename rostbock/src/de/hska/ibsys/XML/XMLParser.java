@@ -9,17 +9,18 @@ import org.xml.sax.SAXException;
 
 import de.hska.ibsys.Components.Articel;
 import de.hska.ibsys.Components.Order;
+import de.hska.ibsys.Components.Supply;
 
 public class XMLParser implements ContentHandler {
 	private ArrayList<Articel> articels;
-	private ArrayList<Order> supplies;
+	private ArrayList<Supply> supplies;
 	
 	private boolean listOfOrdersinwork;
 	private boolean waitinglist;
 
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
-		this.supplies = new ArrayList<Order>();
+		this.supplies = new ArrayList<Supply>();
 		this.listOfOrdersinwork = false;
 		this.waitinglist = false;
 	}
@@ -39,8 +40,10 @@ public class XMLParser implements ContentHandler {
 			this.articels.add(a);
 		}
 		else if(tag.equals("order")){
-//			Order o = new Order(Long.valueOf(atts.getValue("id")), atts.getValue("lieferfrist"), 0, 
-			
+			if(atts.getValue("time") != null){
+				Supply s = new Supply(Integer.parseInt(atts.getValue("id")), Integer.parseInt(atts.getValue("article")), Integer.parseInt(atts.getValue("amount")), Integer.parseInt(atts.getValue("time"))); 
+				supplies.add(s);
+			}
 		}
 		else if(tag.equals("ordersinwork")) {
 			this.listOfOrdersinwork = true;
@@ -129,4 +132,9 @@ public class XMLParser implements ContentHandler {
 	public void setArticels(ArrayList<Articel> articels) {
 		this.articels = articels;
 	}
+	
+	public ArrayList<Supply> getSupplies(){
+		return this.supplies;
+	}
+	
 }
