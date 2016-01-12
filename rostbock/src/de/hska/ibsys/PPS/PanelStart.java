@@ -41,7 +41,7 @@ public class PanelStart extends JPanel {
 		add(lblNewLabel);
 		
 		 btnStart = new JButton("PPS starten");
-		btnStart.setBounds(282, 217, 110, 29);
+		btnStart.setBounds(261, 183, 110, 29);
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -76,12 +76,12 @@ public class PanelStart extends JPanel {
 		
 		JLabel lblNewLabel_2 = new JLabel("<html>&copy; Rostbock - WS15/16</html>");
 		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblNewLabel_2.setBounds(14, 251, 268, 16);
+		lblNewLabel_2.setBounds(10, 227, 268, 16);
 		lblNewLabel_2.setVerticalAlignment(SwingConstants.TOP);
 		add(lblNewLabel_2);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 243, 378, 6);
+		separator.setBounds(10, 220, 378, 6);
 		add(separator);
 	}
 	
