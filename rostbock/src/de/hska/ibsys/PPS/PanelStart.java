@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.JSeparator;
+import java.awt.Color;
 
 public class PanelStart extends JPanel {
 
@@ -20,58 +24,75 @@ public class PanelStart extends JPanel {
 	private static final long serialVersionUID = -7623033603784038130L;
 	
 	private JLabel lblNewLabel;
+	private JButton btnStart;
+	private JFileChooser fc;
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelStart(MainFrame mainFrame) {
-		
-		SpringLayout springLayout = new SpringLayout();
-		setLayout(springLayout);
+		setLayout(null);
 		
 		lblNewLabel = new JLabel();
-		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel, 141, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, lblNewLabel, 79, SpringLayout.WEST, this);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
+		lblNewLabel.setText("<html>Bitte Datei w\u00E4hlen</html>");
+		lblNewLabel.setBounds(10, 110, 378, 29);
 		add(lblNewLabel);
 		
-		JButton btnStart = new JButton("Start");
+		 btnStart = new JButton("PPS starten");
+		btnStart.setBounds(282, 217, 110, 29);
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				mainFrame.setSize(800,600);
 				if(!lblNewLabel.getText().isEmpty()) {
-					mainFrame.parseXML(lblNewLabel.getText());
+					mainFrame.parseXML(fc.getSelectedFile().getAbsolutePath());
 				}
 				mainFrame.getpPPS().setVisible(true);
 			}
 		});
-		springLayout.putConstraint(SpringLayout.WEST, btnStart, 165, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, btnStart, -46, SpringLayout.SOUTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, btnStart, 277, SpringLayout.WEST, this);
+		btnStart.setEnabled(false);
 		add(btnStart);
 		
-		JLabel lblRostbockPps = new JLabel("Rostbock PPS");
+		JLabel lblRostbockPps = new JLabel("Produktionsplanung");
+		lblRostbockPps.setBounds(10, 10, 166, 23);
 		lblRostbockPps.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		springLayout.putConstraint(SpringLayout.NORTH, lblRostbockPps, 50, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, lblRostbockPps, 162, SpringLayout.WEST, this);
 		add(lblRostbockPps);
 		
-		JButton btnNewButton = new JButton("XML");
-		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton, -95, SpringLayout.SOUTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, btnNewButton, -10, SpringLayout.EAST, this);
+		JButton btnNewButton = new JButton("Datei ausw\u00E4hlen");
+		btnNewButton.setBounds(6, 144, 147, 29);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				openFileBrowser();
 			}
 		});
 		add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("<html>\n<br/>\nDamit Sie mit der Produktionsplanung fortfahren k\u00F6nnen, m\u00FCssen Sie zuerst eine g\u00FCltige XML-Datei importieren.\n</html>");
+		lblNewLabel_1.setBounds(10, 57, 374, 56);
+		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
+		add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("<html>&copy; Rostbock - WS15/16</html>");
+		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblNewLabel_2.setBounds(14, 251, 268, 16);
+		lblNewLabel_2.setVerticalAlignment(SwingConstants.TOP);
+		add(lblNewLabel_2);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 243, 378, 6);
+		add(separator);
 	}
 	
 	private void openFileBrowser() {
-		JFileChooser fc = new JFileChooser();
-		
-		int returnValue = fc.showOpenDialog(null);
+		fc = new JFileChooser();
+		fc.setFileFilter(new FileNameExtensionFilter("XML-Datei", "xml"));
+		int returnValue = fc.showOpenDialog(this);
 		if(returnValue == JFileChooser.FILES_ONLY) {
-            this.lblNewLabel.setText(fc.getSelectedFile().getAbsolutePath());
+            this.lblNewLabel.setText("<html>Ausgewählte Datei:<br> " + fc.getSelectedFile().getAbsolutePath()+"</html>");
+            this.lblNewLabel.setForeground(Color.BLUE);
+            this.btnStart.setEnabled(true);
         }
 	}
 }
