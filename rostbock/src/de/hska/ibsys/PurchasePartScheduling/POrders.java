@@ -151,20 +151,26 @@ public class POrders extends JPanel {
 		add(jsp, BorderLayout.CENTER);
 		
 		JPanel colorDesc = new JPanel();
-		JLabel white = new JLabel("White: ");
-		white.setForeground(Color.BLACK);
+		JLabel white = new JLabel("[....]");
+		white.setBackground(new Color(255, 255, 255));
+		white.setForeground(Color.WHITE);
+		white.setOpaque(true);
 		colorDesc.add(white);
-		JLabel wDesc = new JLabel("Everything is ok");
+		JLabel wDesc = new JLabel("Keine Bestellung nötig");
 		colorDesc.add(wDesc);
-		JLabel orange = new JLabel("Orange: ");
+		JLabel orange = new JLabel("[....]");
+		orange.setBackground(Color.ORANGE);
 		orange.setForeground(Color.ORANGE);
+		orange.setOpaque(true);
 		colorDesc.add(orange);
-		JLabel oDesc = new JLabel("Normal order is recommended");
+		JLabel oDesc = new JLabel("Bestellung wird empfohlen");
 		colorDesc.add(oDesc);
-		JLabel red = new JLabel("Red: ");
+		JLabel red = new JLabel("[....]");
+		red.setBackground(Color.RED);
 		red.setForeground(Color.RED);
+		red.setOpaque(true);
 		colorDesc.add(red);
-		JLabel rDesc = new JLabel("Rush order is recommended");
+		JLabel rDesc = new JLabel("Eilbestellung wird empfohlen");
 		colorDesc.add(rDesc);
 		add(colorDesc, BorderLayout.SOUTH);
 	}
