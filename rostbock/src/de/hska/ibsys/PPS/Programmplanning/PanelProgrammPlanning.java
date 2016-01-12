@@ -220,6 +220,37 @@ public class PanelProgrammPlanning extends JPanel {
 		}
 	}
 	
+	public ArrayList<ArticleAmountPair> getAllProdOrders() {
+		ArrayList<ArticleAmountPair> prodorders = new ArrayList<ArticleAmountPair>();
+		prodorders.addAll(this.childBike.getProductionOrders());
+		for(ArticleAmountPair po1 : this.womanBike.getProductionOrders()) {
+			boolean exist = false;
+			for(ArticleAmountPair po2 : prodorders) {
+				if(po1.getArticelNumber() == po2.getArticelNumber()) {
+					exist = true;
+					po2.setAmount(po2.getAmount() + po1.getAmount());
+				}
+			}
+			if(!exist) {
+				prodorders.add(po1);
+			}
+		}
+		for(ArticleAmountPair po1 : this.manBike.getProductionOrders()) {
+			boolean exist = false;
+			for(ArticleAmountPair po2 : prodorders) {
+				if(po1.getArticelNumber() == po2.getArticelNumber()) {
+					exist = true;
+					po2.setAmount(po2.getAmount() + po1.getAmount());
+					break;
+				}
+			}
+			if(!exist) {
+				prodorders.add(po1);
+			}
+		}
+		return prodorders;
+	}
+	
 	public PanelBike getChildBike() {
 		return childBike;
 	}
@@ -247,7 +278,6 @@ public class PanelProgrammPlanning extends JPanel {
 	public ArrayList<Bike> getBikes() {
 		return bikes;
 	}
-
 	public void setBikes(ArrayList<Bike> bikes) {
 		this.bikes = bikes;
 	}

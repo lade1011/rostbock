@@ -1,5 +1,6 @@
 package de.hska.ibsys.PurchasePartScheduling;
 
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 import de.hska.ibsys.MainFrame.ControlButtons;
@@ -10,6 +11,7 @@ import de.hska.ibsys.XML.XMLGenerator;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 
 public class PanelConsumption extends JPanel {
@@ -25,8 +27,10 @@ public class PanelConsumption extends JPanel {
 	private Content c;
 	private PanelPPSOverview pOver;
 	private ControlButtons cb;
+	private MainFrame mf;
 	
 	public PanelConsumption(MainFrame mf, ArrayList<Integer> prognose1, PanelPPSOverview pOver) {
+		this.mf = mf;
 		this.pOver = pOver;
 		setLayout(new BorderLayout());
 		
@@ -65,11 +69,27 @@ public class PanelConsumption extends JPanel {
 			this.cb.getBtnNext().setText("Export");
 		}
 		else if (cw.getBtnDef().isSelected() && this.cb.getBtnNext().getText().equals("Export")) {
-			XMLGenerator xmlgen = new XMLGenerator(this.c.getOrders());
-			xmlgen.generate();
+			String destination = getDestination();
+			if(destination != null) {
+				XMLGenerator xmlgen = new XMLGenerator(destination, this.c.getOrders(), this.mf.getpPPS().getpProgrammPlanning().getAllProdOrders());
+				xmlgen.generate();
+			}
 		}
 	}
 	
+	private String getDestination() {
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("Datei zum speichern auswählen");
+		int userSelection = fileChooser.showSaveDialog(this);
+		if (userSelection == JFileChooser.APPROVE_OPTION) {
+		    File fileToSave = fileChooser.getSelectedFile();
+		    return fileToSave.getAbsolutePath();
+		}
+		else {
+			return null;
+		}
+	}
+
 	public Content getContent() {
 		return c;
 	}

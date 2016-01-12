@@ -18,19 +18,24 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import de.hska.ibsys.Components.Order;
+import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 public class XMLGenerator {
 	
+	private String destination;
 	private ArrayList<Order> orders;
+	private ArrayList<ArticleAmountPair> prodorders;
 	
-	public XMLGenerator(ArrayList<Order> orders) {
+	public XMLGenerator(String destination, ArrayList<Order> orders, ArrayList<ArticleAmountPair> prodorders) {
+		System.out.println(destination);
+		this.destination = destination;
 		this.orders = orders;
+		this.prodorders = prodorders;
 	}
 
 	public void generate() {
 
 		try {
-
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
@@ -42,7 +47,6 @@ public class XMLGenerator {
 			//orders
 			Element orderlist = doc.createElement("orderlist");
 			rootElement.appendChild(orderlist);
-			
 			for(Order o : this.orders) {
 				if(o.isToOrder()) {
 					Element order = doc.createElement("order");
@@ -55,29 +59,25 @@ public class XMLGenerator {
 					order.setAttribute("modus", String.valueOf(orderModus));
 					orderlist.appendChild(order);
 				}
-				
 			}
 			
 			//productions
 			Element productionlist = doc.createElement("productionlist");
 			rootElement.appendChild(productionlist);
-
-			// firstname elements
-			Element production = doc.createElement("production");
-			production.setAttribute("article", "456");
-			production.setAttribute("quantity", "123");
-			productionlist.appendChild(production);
-
-			// lastname elements
-//			Element lastname = doc.createElement("lastname");
-//			lastname.appendChild(doc.createTextNode("mook kim"));
-//			staff.appendChild(lastname);
+			for(ArticleAmountPair po : this.prodorders) {
+				if(po.getAmount() > 0) {
+					Element production = doc.createElement("production");
+					production.setAttribute("article", String.valueOf(po.getArticelNumber()));
+					production.setAttribute("quantity", String.valueOf(po.getAmount()));
+					productionlist.appendChild(production);
+				}
+			}
 
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("C:\\Users\\Denis\\Desktop\\myresults.xml"));
+			StreamResult result = new StreamResult(new File(this.destination));
 
 			// Output to console for testing
 			// StreamResult result = new StreamResult(System.out);
