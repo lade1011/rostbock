@@ -9,7 +9,6 @@ import javax.swing.JTable;
 
 import de.hska.ibsys.help.*;
 import de.hska.ibsys.Components.Articel;
-import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 public class PanelOverview extends JPanel {

@@ -8,7 +8,6 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 import de.hska.ibsys.Components.Articel;
-import de.hska.ibsys.Components.Order;
 import de.hska.ibsys.Components.Supply;
 
 public class XMLParser implements ContentHandler {

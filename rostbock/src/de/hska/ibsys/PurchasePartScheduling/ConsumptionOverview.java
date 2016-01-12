@@ -29,23 +29,25 @@ public class ConsumptionOverview extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				pc.getContent().changeVisibility();
 				pc.getContent().getPc().setVisible(true);
+				btnAbc.setSelected(true);
+				btnDef.setSelected(false);
 			}
 		});
 		btnAbc.setSelected(true);
-		bg.add(btnAbc);
 		add(btnAbc);
+		bg.add(btnAbc);
 		
 		btnDef = new JButton("Bestellungen");
 		btnDef.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pc.getContent().changeVisibility();
 				pc.getContent().getPo().setVisible(true);
+				btnAbc.setSelected(false);
+				btnDef.setSelected(true);
 			}
 		});
-		
-		bg.add(btnDef);
 		add(btnDef);
-
+		bg.add(btnDef);
 	}
 
 	public JButton getBtnAbc() {

@@ -45,6 +45,7 @@ public class POrders extends JPanel {
 		initOrders(mf, prognose1);
 	}
 	
+	@SuppressWarnings("serial")
 	public void initOrders(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
 		this.prognose1 = prognose1;
@@ -131,7 +132,7 @@ public class POrders extends JPanel {
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
 					boolean hasFocus, int row, int column) {
 
-				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+//				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				if(column == 0) {
 					orderColor = getOrderColor((int) value);
 				}
@@ -169,23 +170,16 @@ public class POrders extends JPanel {
 		for(Order o : this.orders) {
 			if(o.getId() == orderId) {
 				if(o.isOrder() && o.isRushOrder()) {
-
-					System.out.println("rot"+o.getId());
 					return Color.RED;
 				}
 				else if(o.isOrder() && !o.isRushOrder()) {
-
-					System.out.println("orange"+o.getId());
 					return Color.ORANGE;
 				}
 				else {
-					System.out.println("white"+o.getId() + " " + o.isOrder() + " xx" + o.isRushOrder());
 					return Color.WHITE;
 				}
 			}
 		}
-
-		System.out.println("der längste");
 		return Color.WHITE;
 	}
 	

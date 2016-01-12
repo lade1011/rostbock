@@ -1,6 +1,5 @@
 package de.hska.ibsys.PurchasePartScheduling;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.hska.ibsys.Components.Articel;
@@ -21,7 +20,6 @@ import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
 public class PConsumption extends JPanel {
@@ -47,6 +45,7 @@ public class PConsumption extends JPanel {
 		initconsumptions(mf, prognose1);
 	}
 	
+	@SuppressWarnings("serial")
 	public void initconsumptions(MainFrame mf, ArrayList<Integer> prognose1) {
 		this.mf = mf;
 		this.prognose1 = prognose1;
@@ -203,9 +202,7 @@ public class PConsumption extends JPanel {
 	private void updateDiskontMenge(int ConsumptionId, Object value) {
 		for(Consumption o : this.consumptions) {
 			if(o.getId() == ConsumptionId) {
-				System.out.println("Id:" + o.getId() + "value: " + value);
 				o.setDiskontmenge(Integer.valueOf((String) value));
-				System.out.println("Id:" + o.getId() + "value: " + o.getDiskontmenge());
 				break;
 			}
 		}
