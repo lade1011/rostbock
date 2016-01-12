@@ -99,34 +99,13 @@ public class PConsumption extends JPanel {
 		};
 		this.table.setGridColor(Color.LIGHT_GRAY);
 		
-//		TableColumn tc = this.table.getColumnModel().getColumn(7);
-//		tc.setCellEditor(this.table.getDefaultEditor(Boolean.class));
-//		tc.setCellRenderer(this.table.getDefaultRenderer(Boolean.class));
-//		tc = this.table.getColumnModel().getColumn(8);
-//		tc.setCellEditor(this.table.getDefaultEditor(Boolean.class));
-//		tc.setCellRenderer(this.table.getDefaultRenderer(Boolean.class));
-		
 		this.table.getModel().addTableModelListener(new TableModelListener() {
 			@Override
 			public void tableChanged(TableModelEvent e) {
 				int row = e.getFirstRow();
 		        int column = e.getColumn();
 		        TableModel model = (TableModel)e.getSource();
-//		        String columnName = model.getColumnName(column);
 		        Object data = model.getValueAt(row, column);
-//		        
-//		        if(column == 7 && (boolean) data == false) {
-//		        	model.setValueAt(false, row, column +1);
-//		        	changeConsumptionValue((int) model.getValueAt(row, 0), column, data);
-//		        }
-//		        else 
-		        	
-//		        if(column == 8) {
-//		        	changeConsumptionValue((int) model.getValueAt(row, 0), column, data);
-//		        }
-//		        else if(column == 6) {
-//		        	updateDiskontMenge((int) model.getValueAt(row, 0), data);
-//		        }
 		        
 			}
 		});
@@ -138,76 +117,22 @@ public class PConsumption extends JPanel {
 
 				Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				if(column == 0) {
-					ConsumptionColor = getConsumptionColor((int) value);
+					ConsumptionColor = Color.WHITE;
 				}
 				setForeground(Color.BLACK);
 				setBackground(ConsumptionColor);
 				return this;
 			}
         });
-//		this.table.getColumn(1).setWidth(20);
 		
 		JScrollPane jsp = new JScrollPane(this.table,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 			    JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		jsp.setPreferredSize(new Dimension(750, 750));
 		add(jsp, BorderLayout.CENTER);
-		
-//		JPanel colorDesc = new JPanel();
-//		JLabel white = new JLabel("White: ");
-//		white.setForeground(Color.BLACK);
-//		colorDesc.add(white);
-//		JLabel wDesc = new JLabel("Everything is ok");
-//		colorDesc.add(wDesc);
-//		JLabel orange = new JLabel("Orange: ");
-//		orange.setForeground(Color.ORANGE);
-//		colorDesc.add(orange);
-//		JLabel oDesc = new JLabel("Normal Consumption is recommended");
-//		colorDesc.add(oDesc);
-//		JLabel red = new JLabel("Red: ");
-//		red.setForeground(Color.RED);
-//		colorDesc.add(red);
-//		JLabel rDesc = new JLabel("Rush Consumption is recommended");
-//		colorDesc.add(rDesc);
-//		add(colorDesc, BorderLayout.SOUTH);
 	}
 	
-	private Color getConsumptionColor(int ConsumptionId) {
-//		for(Consumption o : this.consumptions) {
-//			if(o.getId() == ConsumptionId) {
-//				if(o.isConsumption() && o.isRushConsumption()) {
-//					return Color.RED;
-//				}
-//				else if(o.isConsumption() && !o.isRushConsumption()) {
-//					return Color.ORANGE;
-//				}
-//				else {
-//					return Color.WHITE;
-//				}
-//			}
-//		}
-		return Color.WHITE;
-	}
-	
-	private void changeConsumptionValue(int ConsumptionId, int column, Object data) {
-		for(Consumption c : this.consumptions) {
-			if(c.getId() == ConsumptionId) {
-				if(column == 8) {
-					c.setWithRush((boolean) data);
-				}
-				break;
-			}
-		}
-	}
-	
-	private void updateDiskontMenge(int ConsumptionId, Object value) {
-		for(Consumption o : this.consumptions) {
-			if(o.getId() == ConsumptionId) {
-				o.setDiskontmenge(Integer.valueOf((String) value));
-				break;
-			}
-		}
-	}
-	
+
+
 	private void fillRowData(List<Consumption> consumptions) {
 		rowData = new Object[consumptions.size()][Definitions.consumptionColumnNames.length];
 		for(int i = 0; i < consumptions.size(); i++){
