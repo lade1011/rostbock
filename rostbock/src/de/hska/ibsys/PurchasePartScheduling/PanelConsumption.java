@@ -1,6 +1,7 @@
 package de.hska.ibsys.PurchasePartScheduling;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import de.hska.ibsys.MainFrame.ControlButtons;
@@ -71,8 +72,10 @@ public class PanelConsumption extends JPanel {
 		else if (cw.getBtnDef().isSelected() && this.cb.getBtnNext().getText().equals("Export")) {
 			String destination = getDestination();
 			if(destination != null) {
-				XMLGenerator xmlgen = new XMLGenerator(destination, this.c.getOrders(), this.mf.getpPPS().getpProgrammPlanning().getAllProdOrders());
+				
+				XMLGenerator xmlgen = new XMLGenerator(destination, this.c.getOrders(), this.mf.getpPPS().getpProgrammPlanning().getAllProdOrders(), this.mf.getpPPS().getpCapacity().getwTimes());
 				xmlgen.generate();
+				JOptionPane.showMessageDialog(this, "Ergebnis-XML wurde erstellt !");
 			}
 		}
 	}

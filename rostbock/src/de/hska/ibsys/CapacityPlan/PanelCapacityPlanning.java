@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import de.hska.ibsys.Components.Workingtime;
 import de.hska.ibsys.MainFrame.ControlButtons;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelPPSOverview;
@@ -25,8 +26,10 @@ public class PanelCapacityPlanning extends JPanel {
 	private JTable table;
 	private Object[][] rowData;
 	private HashMap<Integer, Integer> orders;
+	private ArrayList<Workingtime> wTimes;
 	
 	public PanelCapacityPlanning(PanelPPSOverview pOver){
+		this.wTimes = new ArrayList<Workingtime>();
 		setLayout(new BorderLayout());
 		orders = new HashMap<Integer, Integer>();
 		fillOrderData();
@@ -89,6 +92,9 @@ public class PanelCapacityPlanning extends JPanel {
 			int anzahlSchichten = calculateSchichten(gesBedarf);
 			rowData[x][6] = anzahlSchichten;
 			rowData[x][7] = calculateOvertime(gesBedarf, anzahlSchichten);
+			
+			Workingtime w = new Workingtime(i, anzahlSchichten, calculateOvertime(gesBedarf, anzahlSchichten));
+			this.wTimes.add(w);
 		}
 	}
 
@@ -305,5 +311,9 @@ public class PanelCapacityPlanning extends JPanel {
 		}else{
 			return gesBedarf - 7200 < 0 ? 0 : gesBedarf - 7200;
 		}
+	}
+
+	public ArrayList<Workingtime> getwTimes() {
+		return wTimes;
 	}
 }

@@ -3,6 +3,7 @@ package de.hska.ibsys.XML;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,6 +19,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import de.hska.ibsys.Components.Order;
+import de.hska.ibsys.Components.Workingtime;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 
 public class XMLGenerator {
@@ -25,12 +27,14 @@ public class XMLGenerator {
 	private String destination;
 	private ArrayList<Order> orders;
 	private ArrayList<ArticleAmountPair> prodorders;
+	private ArrayList<Workingtime> wtimes;
 	
-	public XMLGenerator(String destination, ArrayList<Order> orders, ArrayList<ArticleAmountPair> prodorders) {
-		System.out.println(destination);
+	public XMLGenerator(String destination, ArrayList<Order> orders, ArrayList<ArticleAmountPair> prodorders, ArrayList<Workingtime> wtimes) {
 		this.destination = destination;
 		this.orders = orders;
 		this.prodorders = prodorders;
+		System.out.println(wtimes.size());
+		this.wtimes = wtimes;
 	}
 
 	public void generate() {
@@ -72,6 +76,17 @@ public class XMLGenerator {
 					productionlist.appendChild(production);
 				}
 			}
+			
+			//working times
+			Element workingtimelist = doc.createElement("workingtimelist");
+			rootElement.appendChild(workingtimelist);
+			for(Workingtime w : this.wtimes) {
+				Element workingtime = doc.createElement("workingtime");
+				workingtime.setAttribute("station", String.valueOf(w.getStation()));
+				workingtime.setAttribute("shift", String.valueOf(w.getShift()));
+				workingtime.setAttribute("overtime", String.valueOf(w.getOvertime()));
+				workingtimelist.appendChild(workingtime);
+			}
 
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -83,9 +98,6 @@ public class XMLGenerator {
 			// StreamResult result = new StreamResult(System.out);
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.transform(source, result);
-
-			//TODO make a popup ! :)
-			System.out.println("File saved!");
 
 		} catch (ParserConfigurationException pce) {
 			pce.printStackTrace();
