@@ -45,6 +45,8 @@ public class Consumption {
 		this.bedarfProd1 = bp1;
 		this.bedarfProd2 = bp2;
 		this.bedarfProd3 = bp3;
+		
+		this.arrivedSupply = 0;
 	}
 	
 	
@@ -94,39 +96,10 @@ public class Consumption {
 	}
 
 	public boolean isOrder() {
-//		int per = (int) Math.ceil(sichereLieferfrist());
-//		int bestand = bestandNachPeriode(per + 1);
-//		if(bestand == -999999999) {
-//			return false;
-//		}
-//		else if(bestand < 0) {
-//			return true;
-//		}
-//		else {
-//			return false;
-//		}
 		return false;
 	}
 	
 	public boolean isRushOrder() {
-//		if(this.isOrder()) {
-//			double rush = sichereLieferfrist()/2;
-//			int per = (int) Math.ceil(rush);
-//			
-//			int bestand = bestandNachPeriode(per + 1);
-//			if(bestand == -999999999) {
-//				return false;
-//			}
-//			else if(bestand < 0) {
-//				return true;
-//			}
-//			else {
-//				return false;
-//			}
-//		}
-//		else {
-//			return false;
-//		}
 		return false;
 	}
 	
@@ -193,6 +166,6 @@ public class Consumption {
 
 
 	public void setArrivedSupply(int arrivedSupply) {
-		this.arrivedSupply = arrivedSupply;
+		this.arrivedSupply += arrivedSupply;
 	}
 }
