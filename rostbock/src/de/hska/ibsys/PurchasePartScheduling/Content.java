@@ -2,6 +2,7 @@ package de.hska.ibsys.PurchasePartScheduling;
 
 import javax.swing.JPanel;
 
+import de.hska.ibsys.Components.Order;
 import de.hska.ibsys.MainFrame.MainFrame;
 
 import java.awt.CardLayout;
@@ -54,6 +55,10 @@ public class Content extends JPanel {
 
 	public void setPc(PConsumption pc) {
 		this.pc = pc;
+	}
+
+	public ArrayList<Order> getOrders() {
+		return this.po.getOrders();
 	}
 
 }

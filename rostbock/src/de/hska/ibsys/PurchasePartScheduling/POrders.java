@@ -117,6 +117,9 @@ public class POrders extends JPanel {
 		        	model.setValueAt(false, row, column +1);
 		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
 		        }
+		        else if(column == 7 && (boolean) data == true) {
+		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
+		        }
 		        else if(column == 8) {
 		        	changeOrderValue((int) model.getValueAt(row, 0), column, data);
 		        }
@@ -248,6 +251,10 @@ public class POrders extends JPanel {
 
 	public void setPrognose1(ArrayList<Integer> prognose1) {
 		this.prognose1 = prognose1;
+	}
+
+	public ArrayList<Order> getOrders() {
+		return orders;
 	}
 
 }

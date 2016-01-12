@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import de.hska.ibsys.MainFrame.ControlButtons;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.PPS.PanelPPSOverview;
+import de.hska.ibsys.XML.XMLGenerator;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,7 @@ public class PanelConsumption extends JPanel {
 	private ConsumptionOverview cw;
 	private Content c;
 	private PanelPPSOverview pOver;
+	private ControlButtons cb;
 	
 	public PanelConsumption(MainFrame mf, ArrayList<Integer> prognose1, PanelPPSOverview pOver) {
 		this.pOver = pOver;
@@ -34,7 +36,7 @@ public class PanelConsumption extends JPanel {
 		c = new Content(mf, prognose1);
 		add(c, BorderLayout.CENTER);
 		
-		ControlButtons cb = new ControlButtons();
+		cb = new ControlButtons();
 		cb.getBtnBack().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				goBackwards();
@@ -54,11 +56,17 @@ public class PanelConsumption extends JPanel {
 		}
 		else if(cw.getBtnDef().isSelected()) {
 			cw.getBtnAbc().doClick();
+			this.cb.getBtnNext().setText("Next");
 		}
 	}
 	public void goForwards() {
 		if(cw.getBtnAbc().isSelected()) {
 			cw.getBtnDef().doClick();
+			this.cb.getBtnNext().setText("Export");
+		}
+		else if (cw.getBtnDef().isSelected() && this.cb.getBtnNext().getText().equals("Export")) {
+			XMLGenerator xmlgen = new XMLGenerator(this.c.getOrders());
+			xmlgen.generate();
 		}
 	}
 	
