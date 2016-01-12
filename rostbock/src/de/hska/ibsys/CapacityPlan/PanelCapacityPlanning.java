@@ -25,7 +25,6 @@ public class PanelCapacityPlanning extends JPanel {
 	private JTable table;
 	private Object[][] rowData;
 	private HashMap<Integer, Integer> orders;
-	privat
 	
 	public PanelCapacityPlanning(PanelPPSOverview pOver){
 		setLayout(new BorderLayout());
