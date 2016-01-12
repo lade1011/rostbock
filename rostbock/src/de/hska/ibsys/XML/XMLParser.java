@@ -16,11 +16,13 @@ public class XMLParser implements ContentHandler {
 	
 	private boolean listOfOrdersinwork;
 	private boolean waitinglist;
+	private boolean listOfFutureInwards;
 
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
 		this.supplies = new ArrayList<Supply>();
 		this.listOfOrdersinwork = false;
+		this.listOfFutureInwards = false;
 		this.waitinglist = false;
 	}
 
@@ -38,11 +40,12 @@ public class XMLParser implements ContentHandler {
 					Double.parseDouble(atts.getValue("price")), Double.parseDouble(atts.getValue("stockvalue")));
 			this.articels.add(a);
 		}
-		else if(tag.equals("order")){
-			if(atts.getValue("time") != null){
-				Supply s = new Supply(Integer.parseInt(atts.getValue("id")), Integer.parseInt(atts.getValue("article")), Integer.parseInt(atts.getValue("amount")), Integer.parseInt(atts.getValue("time"))); 
-				supplies.add(s);
-			}
+		else if(tag.equals("futureinwardstockmovement")) {
+			this.listOfFutureInwards = true;
+		}
+		else if(tag.equals("order") && this.listOfFutureInwards){
+			Supply s = new Supply(Integer.parseInt(atts.getValue("id")), Integer.parseInt(atts.getValue("article")), Integer.parseInt(atts.getValue("amount")), 0); 
+			supplies.add(s);
 		}
 		else if(tag.equals("ordersinwork")) {
 			this.listOfOrdersinwork = true;
@@ -79,6 +82,9 @@ public class XMLParser implements ContentHandler {
 		}
 		else if(tag.equals("waitinglistworkstations")) {
 			this.waitinglist = false;
+		}
+		else if(tag.equals("futureinwardstockmovement")) {
+			this.listOfFutureInwards = false;
 		}
 	}
 
