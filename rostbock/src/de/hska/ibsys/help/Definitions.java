@@ -42,8 +42,7 @@ public class Definitions {
 			};
 	public static String[] consumptionColumnNames = { "Art.", "Bezeichnung", "akt. Lagerb.", "Lagerzugang",
 			"Lfd. Abw.", "Diskontmenge", "Preis", "Best.kosten", "Bedarf P1",
-			"Bedarf P2", "Bedarf P3", "Bedarf P4", "Anfangsb. P2",
-			"Anfangsb. P3", "Anfangsb. P4", "Anfangsb. P5" };
+			"Bedarf P2", "Bedarf P3", "Bedarf P4" };
 	
 	public static String[] orderColumnNames = {
 			"Teile-Nr.", "Akt. Bestand", "n. Per. 1",

@@ -224,11 +224,6 @@ public class PConsumption extends JPanel {
 			rowData[i][9] = c.getBedarfProdukt(200, 150, 50);
 			rowData[i][10] = c.getBedarfProdukt(250, 150, 100);
 			rowData[i][11] = c.getBedarfProdukt(250, 150, 100);
-			rowData[i][12] = c.getLagerbestand() + c.getArrivedSupply() - (int) rowData[i][8];
-			rowData[i][13] = (int) rowData[i][12] - (int) rowData[i][9];
-			rowData[i][14] = (int) rowData[i][13] - (int) rowData[i][10];
-			rowData[i][15] = (int) rowData[i][14] - (int) rowData[i][11];
-			
 
 		}
 	}
