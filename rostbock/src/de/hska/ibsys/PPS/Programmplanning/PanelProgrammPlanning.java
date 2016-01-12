@@ -113,7 +113,6 @@ public class PanelProgrammPlanning extends JPanel {
 	public void goBackwards() {
 		switch (getVisible()) {
 			case "childBike":
-				//TODO get back to prognose
 				this.pOver.getPrognoseButton().doClick();
 				break;
 			case "womanBike":
