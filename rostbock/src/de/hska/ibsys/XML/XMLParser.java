@@ -17,6 +17,8 @@ public class XMLParser implements ContentHandler {
 	private boolean listOfOrdersinwork;
 	private boolean waitinglist;
 	private boolean listOfFutureInwards;
+	
+	private int period;
 
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
@@ -24,6 +26,8 @@ public class XMLParser implements ContentHandler {
 		this.listOfOrdersinwork = false;
 		this.listOfFutureInwards = false;
 		this.waitinglist = false;
+		
+		this.period = -1;
 	}
 
 	@Override
@@ -44,7 +48,7 @@ public class XMLParser implements ContentHandler {
 			this.listOfFutureInwards = true;
 		}
 		else if(tag.equals("order") && this.listOfFutureInwards){
-			Supply s = new Supply(Integer.parseInt(atts.getValue("id")), Integer.parseInt(atts.getValue("article")), Integer.parseInt(atts.getValue("amount")), 0); 
+			Supply s = new Supply(Integer.parseInt(atts.getValue("id")), Integer.parseInt(atts.getValue("article")), Integer.parseInt(atts.getValue("amount")), Integer.parseInt(atts.getValue("orderperiod"))); 
 			supplies.add(s);
 		}
 		else if(tag.equals("ordersinwork")) {
@@ -66,6 +70,9 @@ public class XMLParser implements ContentHandler {
 					a.setWaitingAmount(Integer.valueOf(atts.getValue("amount")));
 				}
 			}
+		}
+		else if(tag.equals("results")){
+			this.period = Integer.parseInt(atts.getValue("period"));
 		}
 	}
 
@@ -140,6 +147,10 @@ public class XMLParser implements ContentHandler {
 	
 	public ArrayList<Supply> getSupplies(){
 		return this.supplies;
+	}
+
+	public int getPeriod() {
+		return period;
 	}
 	
 }

@@ -23,7 +23,7 @@ public class Consumption {
 	
 	private boolean toOrder;
 
-	private int arrivedSupply;
+	private ArrayList<Supply> arrivedSupply;
 
 	private boolean withRush;
 
@@ -46,7 +46,7 @@ public class Consumption {
 		this.bedarfProd2 = bp2;
 		this.bedarfProd3 = bp3;
 		
-		this.arrivedSupply = 0;
+		this.arrivedSupply = new ArrayList<Supply>();
 	}
 	
 	
@@ -64,22 +64,6 @@ public class Consumption {
 		}
 
 	}
-	
-//	public int bestandNachPeriode(int p){
-//		switch(p) {
-//			case 1:
-//				return this.anfangsbestand - bedarfPeriode1;
-//			case 2:
-//				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2;
-//			case 3:
-//				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3;
-//			case 4: 
-//				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3 - bedarfPeriode4;
-//			default:
-//				return -999999999;
-//		}
-//	}
-	
 
 	public void setAnfangsbestand(String bezeichnung) {
 		this.bezeichnung = bezeichnung;
@@ -160,12 +144,16 @@ public class Consumption {
 	}
 
 
-	public int getArrivedSupply() {
-		return arrivedSupply;
+	public int getArrivedSupplyAmount() {
+		int amount = 0;
+		for (Supply supply : arrivedSupply) {
+			amount += supply.getAmount();
+		}
+		return amount;
 	}
 
 
-	public void setArrivedSupply(int arrivedSupply) {
-		this.arrivedSupply += arrivedSupply;
+	public void setArrivedSupply(Supply arrivedSupply) {
+		this.arrivedSupply.add(arrivedSupply);
 	}
 }

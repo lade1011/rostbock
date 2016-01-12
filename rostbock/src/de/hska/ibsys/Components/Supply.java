@@ -4,13 +4,13 @@ public class Supply {
 	private int orderId;
 	private int articleId;
 	private int amount;
-	private int time;
+	private int orderPeriod;
 	
-	public Supply(int orderId, int articleId, int amount, int time) {
+	public Supply(int orderId, int articleId, int amount, int orderPeriod) {
 		this.orderId = orderId;
 		this.articleId = articleId;
 		this.amount = amount;
-		this.time = time;
+		this.orderPeriod = orderPeriod;
 	}
 
 	public int getOrderId() {
@@ -25,8 +25,8 @@ public class Supply {
 		return amount;
 	}
 
-	public int getTime() {
-		return time;
+	public int getOrderPeriod() {
+		return orderPeriod;
 	}
 	
 }

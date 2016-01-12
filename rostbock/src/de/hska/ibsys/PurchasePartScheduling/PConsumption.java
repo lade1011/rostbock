@@ -140,7 +140,7 @@ public class PConsumption extends JPanel {
 			rowData[i][0] = c.getId();
 			rowData[i][1] = c.getBezeichnung();
 			rowData[i][2] = c.getLagerbestand();
-			rowData[i][3] = c.getArrivedSupply();
+			rowData[i][3] = c.getArrivedSupplyAmount();
 			rowData[i][4] = c.getLieferdauerAbw();
 			rowData[i][5] = c.getDiskontmenge(); 
 			rowData[i][6] = c.getPreis();
@@ -169,7 +169,7 @@ public class PConsumption extends JPanel {
 			for(Supply s : this.supplies) {
 				for(Consumption c : this.consumptions) {
 					if(s.getArticleId() == c.getId()) {
-						c.setArrivedSupply(s.getAmount());
+						c.setArrivedSupply(s);
 						break;
 					}
 				}

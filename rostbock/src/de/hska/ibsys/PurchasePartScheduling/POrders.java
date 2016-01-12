@@ -4,7 +4,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.hska.ibsys.Components.Articel;
+import de.hska.ibsys.Components.Consumption;
 import de.hska.ibsys.Components.Order;
+import de.hska.ibsys.Components.Supply;
 import de.hska.ibsys.MainFrame.MainFrame;
 import de.hska.ibsys.help.Definitions;
 
@@ -40,6 +42,7 @@ public class POrders extends JPanel {
 	//Tabelle
 	private JTable table;
 	private Object[][] rowData;
+	private ArrayList<Supply> supplies;
 	
 	public POrders(MainFrame mf, ArrayList<Integer> prognose1) {
 		initOrders(mf, prognose1);
@@ -169,10 +172,10 @@ public class POrders extends JPanel {
 	private Color getOrderColor(int orderId) {
 		for(Order o : this.orders) {
 			if(o.getId() == orderId) {
-				if(o.isOrder() && o.isRushOrder()) {
+				if(o.isOrder(this.mf.getXp().getPeriod()) && o.isRushOrder(this.mf.getXp().getPeriod())) {
 					return Color.RED;
 				}
-				else if(o.isOrder() && !o.isRushOrder()) {
+				else if(o.isOrder(this.mf.getXp().getPeriod()) && !o.isRushOrder(this.mf.getXp().getPeriod())) {
 					return Color.ORANGE;
 				}
 				else {
@@ -214,10 +217,10 @@ public class POrders extends JPanel {
 			Order o = orders.get(i);
 			rowData[i][0] = o.getId();
 			rowData[i][1] = o.getAnfangsbestand();
-			rowData[i][2] = o.bestandNachPeriode(1);
-			rowData[i][3] = o.bestandNachPeriode(2);
-			rowData[i][4] = o.bestandNachPeriode(3);
-			rowData[i][5] = o.bestandNachPeriode(4); 
+			rowData[i][2] = o.bestandNachPeriode(1, this.mf.getXp().getPeriod());
+			rowData[i][3] = o.bestandNachPeriode(2, this.mf.getXp().getPeriod());
+			rowData[i][4] = o.bestandNachPeriode(3, this.mf.getXp().getPeriod());
+			rowData[i][5] = o.bestandNachPeriode(4, this.mf.getXp().getPeriod()); 
 			rowData[i][6] = o.getDiskontmenge();
 			rowData[i][7] = o.isToOrder(); //isOrder();
 			rowData[i][8] = o.isWithRush(); //o.isRushOrder();
@@ -236,6 +239,17 @@ public class POrders extends JPanel {
 					}
 				}
 			}
+			
+			this.supplies = this.mf.getXp().getSupplies();
+			for(Supply s : this.supplies) {
+				for(Order o : this.orders) {
+					if(s.getArticleId() == o.getId()) {
+						o.setArrivedSupply(s);
+						break;
+					}
+				}
+			}
+			
 		}catch(Exception e){
 			//do nothing
 		}

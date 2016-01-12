@@ -24,6 +24,8 @@ public class Order {
 
 	private boolean withRush;
 
+	private ArrayList<Supply> arrivedSupply;
+
 	public Order(int id, double lieferfrist, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
 			int diskontmenge) {
 		this.id = id;
@@ -33,6 +35,8 @@ public class Order {
 		this.verbrauchP2 = verbrauchP2;
 		this.verbrauchP3 = verbrauchP3;
 		this.diskontmenge = diskontmenge;
+		
+		arrivedSupply = new ArrayList<Supply>();
 	}
 	
 	
@@ -54,21 +58,34 @@ public class Order {
 		this.bedarfPeriode4 = verbrauchP1 * correctPer.get(9) + verbrauchP2 * correctPer.get(10) + verbrauchP3 * correctPer.get(11);
 	}
 	
-	public int bestandNachPeriode(int p){
+	public int bestandNachPeriode(int p, int aktuellePeriode){
 		switch(p) {
 			case 1:
-				return this.anfangsbestand - bedarfPeriode1;
+				return this.anfangsbestand - bedarfPeriode1 + supplyBisPeriode(p, aktuellePeriode);
 			case 2:
-				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2;
+				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 + supplyBisPeriode(p, aktuellePeriode);
 			case 3:
-				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3;
+				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3 + supplyBisPeriode(p, aktuellePeriode);
 			case 4: 
-				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3 - bedarfPeriode4;
+				return this.anfangsbestand - bedarfPeriode1 - bedarfPeriode2 - bedarfPeriode3 - bedarfPeriode4 + supplyBisPeriode(p, aktuellePeriode);
 			default:
 				return -999999999;
 		}
 	}
 	
+	private int supplyBisPeriode(int p, int aktuellePeriode){
+		if(aktuellePeriode == -1){
+			return 0;
+		}
+
+		int suppliedAmount = 0;
+		for (Supply supply : arrivedSupply) {
+			if((supply.getOrderPeriod() + sichereLieferfrist()) < (aktuellePeriode + p)){
+				suppliedAmount += supply.getAmount();
+			}
+		}
+		return suppliedAmount;
+	}
 
 	public void setAnfangsbestand(int anfangsbestand) {
 		this.anfangsbestand = anfangsbestand;
@@ -84,11 +101,11 @@ public class Order {
 		return anfangsbestand;
 	}
 
-	public boolean isOrder() {
+	public boolean isOrder(int aktuellePeriode) {
 		int per = (int) Math.ceil(sichereLieferfrist());
-		int bestand = bestandNachPeriode(per + 1);
+		int bestand = bestandNachPeriode(per + 1, aktuellePeriode);
 		if(per >= 4){
-			bestand = bestandNachPeriode(4);
+			bestand = bestandNachPeriode(4, aktuellePeriode);
 		}
 		
 		if(bestand == -999999999) {
@@ -102,14 +119,14 @@ public class Order {
 		}
 	}
 	
-	public boolean isRushOrder() {
-		if(this.isOrder()) {
+	public boolean isRushOrder(int aktuellePeriode) {
+		if(this.isOrder(aktuellePeriode)) {
 			double rush = sichereLieferfrist()/2;
 			int per = (int) Math.ceil(rush);
 			
-			int bestand = bestandNachPeriode(per + 1);
+			int bestand = bestandNachPeriode(per + 1, -1);
 			if(per >= 4){
-				bestand = bestandNachPeriode(4);
+				bestand = bestandNachPeriode(4, -1);
 			}
 			
 			if(bestand == -999999999) {
@@ -149,5 +166,18 @@ public class Order {
 
 	public void setDiskontmenge(int diskontmenge) {
 		this.diskontmenge = diskontmenge;
+	}
+	
+	public int getArrivedSupplyAmount() {
+		int amount = 0;
+		for (Supply supply : arrivedSupply) {
+			amount += supply.getAmount();
+		}
+		return amount;
+	}
+
+
+	public void setArrivedSupply(Supply arrivedSupply) {
+		this.arrivedSupply.add(arrivedSupply);
 	}
 }
