@@ -13,57 +13,84 @@ public class PanelPPSOverview extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = -2794225891362061195L;
-
+	
+	private JToggleButton prognoseButton;
+	private JToggleButton programmPlanningButton;
+	private JToggleButton capacityButton;
+	private JToggleButton orderButton;
+	private PanelPPS pPPS;
 	/**
 	 * Create the panel.
 	 */
 	public PanelPPSOverview(PanelPPS pPPS) {
+		this.pPPS = pPPS;
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
 		ButtonGroup bg = new ButtonGroup();
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("XML laden");
-		tglbtnNewToggleButton.addActionListener(new ActionListener() {
+		prognoseButton = new JToggleButton("Prognose");
+		prognoseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
 				pPPS.getpPrognose().setVisible(true);
 			}
 		});
-		tglbtnNewToggleButton.setSelected(true);
-		add(tglbtnNewToggleButton);
-		bg.add(tglbtnNewToggleButton);
+		prognoseButton.setSelected(true);
+		add(prognoseButton);
+		bg.add(prognoseButton);
 		
-		JToggleButton tglBtnPurchasePartScheduling = new JToggleButton("Programmplanung");
-		tglBtnPurchasePartScheduling.addActionListener(new ActionListener() {
+		programmPlanningButton = new JToggleButton("Programmplanung");
+		programmPlanningButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
-				pPPS.createProgramplaning();
+				createProgrammPlaning();
 				pPPS.getpProgrammPlanning().setVisible(true);
 			}
 		});
-		add(tglBtnPurchasePartScheduling);
-		bg.add(tglBtnPurchasePartScheduling);
+		add(programmPlanningButton);
+		bg.add(programmPlanningButton);
 		
-		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("Kapazit\u00E4tsplanung");
-		tglbtnNewToggleButton_2.addActionListener(new ActionListener() {
+		capacityButton = new JToggleButton("Kapazitaetsplanung");
+		capacityButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
-				pPPS.createPCapacity();
+				createPCapacity();
 				pPPS.getpCapacity().setVisible(true);
 			}
 		});
-		add(tglbtnNewToggleButton_2);
-		bg.add(tglbtnNewToggleButton_2);
+		add(capacityButton);
+		bg.add(capacityButton);
 		
-		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("Kaufteildisposition");
-		add(tglbtnNewToggleButton_3);
-		bg.add(tglbtnNewToggleButton_3);
-		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
+		orderButton = new JToggleButton("Kaufteildisposition");
+		add(orderButton);
+		bg.add(orderButton);
+		orderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pPPS.resetVisibility();
-				pPPS.createPConsumption();
+				createPConsumption();
 				pPPS.getpConsumption().setVisible(true);
 			}
 		});
+	}
+	public void createProgrammPlaning() {
+		pPPS.createProgramplaning(this);
+	}
+	public void createPCapacity() {
+		pPPS.createPCapacity(this);
+	}
+	public void createPConsumption() {
+		pPPS.createPConsumption(this);
+	}
+	public JToggleButton getPrognoseButton() {
+		return prognoseButton;
+	}
+	public JToggleButton getProgrammPlanningButton() {
+		return programmPlanningButton;
+	}
+	public JToggleButton getCapacityButton() {
+		return capacityButton;
+	}
+	public JToggleButton getOrderButton() {
+		return orderButton;
 	}
 }

@@ -18,7 +18,11 @@ public class PanelProgrammPlanningOverview extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = -6991783473956010214L;
-
+	private JToggleButton childbikeButton;
+	private JToggleButton womanbikeButton;
+	private JToggleButton manButton;
+	private JToggleButton overviewButton;
+	private JToggleButton prodOrderButton;
 	/**
 	 * Create the panel.
 	 */
@@ -27,39 +31,39 @@ public class PanelProgrammPlanningOverview extends JPanel {
 		
 		ButtonGroup bg = new ButtonGroup();
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Kinderfahrrad");
-		tglbtnNewToggleButton.addActionListener(new ActionListener() {
+		childbikeButton = new JToggleButton("Kinderfahrrad");
+		childbikeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pProgramPlanning.resetVisibility();
 				pProgramPlanning.getChildBike().setVisible(true);
 			}
 		});
-		tglbtnNewToggleButton.setSelected(true);
-		add(tglbtnNewToggleButton);
-		bg.add(tglbtnNewToggleButton);
+		childbikeButton.setSelected(true);
+		add(childbikeButton);
+		bg.add(childbikeButton);
 		
-		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("Damenfahrrad");
-		tglbtnNewToggleButton_1.addActionListener(new ActionListener() {
+		womanbikeButton = new JToggleButton("Damenfahrrad");
+		womanbikeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pProgramPlanning.resetVisibility();
 				pProgramPlanning.getWomanBike().setVisible(true);
 			}
 		});
-		add(tglbtnNewToggleButton_1);
-		bg.add(tglbtnNewToggleButton_1);
+		add(womanbikeButton);
+		bg.add(womanbikeButton);
 		
-		JToggleButton tglbtnNewToggleButton_2 = new JToggleButton("Herrenfahrrad");
-		tglbtnNewToggleButton_2.addActionListener(new ActionListener() {
+		manButton = new JToggleButton("Herrenfahrrad");
+		manButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pProgramPlanning.resetVisibility();
 				pProgramPlanning.getManBike().setVisible(true);
 			}
 		});
-		add(tglbtnNewToggleButton_2);
-		bg.add(tglbtnNewToggleButton_2);
+		add(manButton);
+		bg.add(manButton);
 		
-		JToggleButton tglbtnNewToggleButton_3 = new JToggleButton("Uebersicht");
-		tglbtnNewToggleButton_3.addActionListener(new ActionListener() {
+		overviewButton = new JToggleButton("Uebersicht");
+		overviewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
 					ArrayList<ArticleAmountPair> prodOrders = new ArrayList<ArticleAmountPair>();
@@ -77,19 +81,34 @@ public class PanelProgrammPlanningOverview extends JPanel {
 				pProgramPlanning.getOverview().setVisible(true);
 			}
 		});
-		add(tglbtnNewToggleButton_3);
-		bg.add(tglbtnNewToggleButton_3);
+		add(overviewButton);
+		bg.add(overviewButton);
 		
-		JToggleButton tglbtnNewToggleButton_4 = new JToggleButton("Produktionsauftraege");
-		tglbtnNewToggleButton_4.addActionListener(new ActionListener() {
+		prodOrderButton = new JToggleButton("Produktionsauftraege");
+		prodOrderButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pProgramPlanning.resetVisibility();
 				pProgramPlanning.getProdOrd().initProdOrders(pProgramPlanning.getChildBike().getProductionOrders(), pProgramPlanning.getWomanBike().getProductionOrders(), pProgramPlanning.getManBike().getProductionOrders());
 				pProgramPlanning.getProdOrd().setVisible(true);
 			}
 		});
-		add(tglbtnNewToggleButton_4);
-		bg.add(tglbtnNewToggleButton_4);
+		add(prodOrderButton);
+		bg.add(prodOrderButton);
+	}
+	public JToggleButton getChildbikeButton() {
+		return childbikeButton;
+	}
+	public JToggleButton getWomanbikeButton() {
+		return womanbikeButton;
+	}
+	public JToggleButton getManButton() {
+		return manButton;
+	}
+	public JToggleButton getOverviewButton() {
+		return overviewButton;
+	}
+	public JToggleButton getProdOrderButton() {
+		return prodOrderButton;
 	}
 
 }

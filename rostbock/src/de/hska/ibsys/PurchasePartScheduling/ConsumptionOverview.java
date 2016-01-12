@@ -11,14 +11,20 @@ import javax.swing.JButton;
 public class ConsumptionOverview extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1401802783245532153L;
+	/**
 	 * Create the panel.
 	 */
+	private JButton btnAbc;
+	private JButton btnDef;
 	
 	public ConsumptionOverview(PanelConsumption pc) {
 		
 		ButtonGroup bg = new ButtonGroup();
 		
-		JButton btnAbc = new JButton("Bruttobedarf + Verbrauch");
+		btnAbc = new JButton("Bruttobedarf + Verbrauch");
 		btnAbc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pc.getContent().changeVisibility();
@@ -29,7 +35,7 @@ public class ConsumptionOverview extends JPanel {
 		bg.add(btnAbc);
 		add(btnAbc);
 		
-		JButton btnDef = new JButton("Bestellungen");
+		btnDef = new JButton("Bestellungen");
 		btnDef.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pc.getContent().changeVisibility();
@@ -40,6 +46,14 @@ public class ConsumptionOverview extends JPanel {
 		bg.add(btnDef);
 		add(btnDef);
 
+	}
+
+	public JButton getBtnAbc() {
+		return btnAbc;
+	}
+
+	public JButton getBtnDef() {
+		return btnDef;
 	}
 
 }

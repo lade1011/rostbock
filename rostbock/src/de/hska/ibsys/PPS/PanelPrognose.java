@@ -6,12 +6,15 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import de.hska.ibsys.Bike.Bike;
+import de.hska.ibsys.MainFrame.ControlButtons;
 import de.hska.ibsys.XML.XMLParser;
 
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JSpinner;
@@ -39,13 +42,11 @@ public class PanelPrognose extends JPanel {
 	private JSpinner spChildQuantityReserve;
 	private JSpinner spWomanQuantityReserve;
 	private JSpinner spManQuantityReserve;
-//	private XMLParser xp;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelPrognose(XMLParser xp) {
-//		this.xp = xp;
+	public PanelPrognose(XMLParser xp, PanelPPSOverview ppsOverview) {
 		setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Prognose");
@@ -236,6 +237,20 @@ public class PanelPrognose extends JPanel {
 		gbc_spManP5.gridx = 12;
 		gbc_spManP5.gridy = 7;
 		panel.add(spManP5, gbc_spManP5);
+		
+		
+		ControlButtons cb = new ControlButtons();
+		cb.getBtnBack().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("zurück geht hier nicht");
+			}
+		});
+		cb.getBtnNext().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ppsOverview.getProgrammPlanningButton().doClick();
+			}
+		});
+		add(cb, BorderLayout.SOUTH);
 	}
 	
 	public ArrayList<Bike> getBikeValues() {

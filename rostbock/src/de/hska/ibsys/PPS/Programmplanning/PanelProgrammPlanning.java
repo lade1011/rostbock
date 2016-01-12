@@ -2,6 +2,8 @@ package de.hska.ibsys.PPS.Programmplanning;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,8 @@ import javax.swing.JPanel;
 
 import de.hska.ibsys.Bike.Bike;
 import de.hska.ibsys.Components.Articel;
+import de.hska.ibsys.MainFrame.ControlButtons;
+import de.hska.ibsys.PPS.PanelPPSOverview;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.XML.XMLParser;
 
@@ -31,13 +35,15 @@ public class PanelProgrammPlanning extends JPanel {
 	private ArrayList<Articel> manComponents;
 	private List<ArticleAmountPair> prodOrders;
 	private ArrayList<Bike> bikes;
+	private PanelPPSOverview pOver;
 	
 	/**
 	 * Create the panel.
 	 * @param xp 
 	 */
-	public PanelProgrammPlanning(ArrayList<Bike> newBikes, XMLParser xp) {
+	public PanelProgrammPlanning(ArrayList<Bike> newBikes, XMLParser xp, PanelPPSOverview pOver) {
 		this.xp = xp;
+		this.pOver = pOver;
 		childComponents = new ArrayList<Articel>();
 		womanComponents = new ArrayList<Articel>();
 		manComponents = new ArrayList<Articel>();
@@ -78,10 +84,22 @@ public class PanelProgrammPlanning extends JPanel {
 			arts = new ArrayList<Articel>();
 		}
 		
-		
 		overview = new PanelOverview(prodOrders, arts);
 		overview.setVisible(false);
 		panelContent.add(overview);
+		
+		ControlButtons cb = new ControlButtons();
+		cb.getBtnBack().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				goBackwards();
+			}
+		});
+		cb.getBtnNext().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				goForwards();
+			}
+		});
+		add(cb, BorderLayout.SOUTH);
 	}
 	
 	public PanelProductionOrders getProdOrd() {
@@ -90,6 +108,50 @@ public class PanelProgrammPlanning extends JPanel {
 
 	public void setProdOrd(PanelProductionOrders prodOrd) {
 		this.prodOrd = prodOrd;
+	}
+	
+	public void goBackwards() {
+		switch (getVisible()) {
+			case "childBike":
+				//TODO get back to prognose
+				this.pOver.getPrognoseButton().doClick();
+				break;
+			case "womanBike":
+				pppOverview.getChildbikeButton().doClick();
+				break;
+			case "manBike":
+				pppOverview.getWomanbikeButton().doClick();
+				break;
+			case "overview":
+				pppOverview.getManButton().doClick();
+				break;
+			case "prodOrd":
+				pppOverview.getOverviewButton().doClick();
+				break;
+			case "nothing":
+				break;
+		}
+	}
+	public void goForwards() {
+		switch (getVisible()) {
+			case "childBike":
+				pppOverview.getWomanbikeButton().doClick();
+				break;
+			case "womanBike":
+				pppOverview.getManButton().doClick();
+				break;
+			case "manBike":
+				pppOverview.getOverviewButton().doClick();
+				break;
+			case "overview":
+				pppOverview.getProdOrderButton().doClick();
+				break;
+			case "prodOrd":
+				this.pOver.getCapacityButton().doClick();
+				break;
+			case "nothing":
+				break;
+		}
 	}
 
 	/**
@@ -102,6 +164,25 @@ public class PanelProgrammPlanning extends JPanel {
 		manBike.setVisible(false);
 		prodOrd.setVisible(false);
 		overview.setVisible(false);
+	}
+	
+	public String getVisible() {
+		if (childBike.isVisible()) {
+			return "childBike";
+		}
+		else if (womanBike.isVisible()) {
+			return "womanBike";
+		}
+		else if (manBike.isVisible()) {
+			return "manBike";
+		}
+		else if (prodOrd.isVisible()) {
+			return "prodOrd";
+		}
+		else if (overview.isVisible()) {
+			return "overview";
+		}
+		return "nothing";
 	}
 	
 	public PanelOverview getOverview() {

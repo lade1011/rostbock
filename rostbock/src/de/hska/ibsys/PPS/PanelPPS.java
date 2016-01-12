@@ -41,7 +41,7 @@ public class PanelPPS extends JPanel {
 		add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(new CardLayout(0, 0));
 		
-		pPrognose = new PanelPrognose(this.mf.getXp());
+		pPrognose = new PanelPrognose(this.mf.getXp(), ppsOverview);
 		pPrognose.setVisible(true);
 		panelContent.add(pPrognose);
 	}
@@ -71,22 +71,22 @@ public class PanelPPS extends JPanel {
 		this.pCapacity = pCapacity;
 	}
 	
-	public void createProgramplaning() {
+	public void createProgramplaning(PanelPPSOverview pOver) {
 		if(this.pProgrammPlanning == null || !this.getpPrognose().getBikeValues().equals(this.pProgrammPlanning.getBikes())) {
-			this.pProgrammPlanning = new PanelProgrammPlanning(this.getpPrognose().getBikeValues(), this.mf.getXp());
+			this.pProgrammPlanning = new PanelProgrammPlanning(this.getpPrognose().getBikeValues(), this.mf.getXp(), pOver);
 			this.pProgrammPlanning.setVisible(false);
 			this.panelContent.add(this.pProgrammPlanning);
 		}
 	}
 	
-	public void createPConsumption() {
-		pConsumption = new PanelConsumption(this.mf, getPrognoseValues());
+	public void createPConsumption(PanelPPSOverview pOver) {
+		pConsumption = new PanelConsumption(this.mf, getPrognoseValues(), pOver);
 		pConsumption.setVisible(false);
 		this.panelContent.add(pConsumption);
 	}
 	
-	public void createPCapacity() {
-		pCapacity = new PanelCapacityPlanning();
+	public void createPCapacity(PanelPPSOverview pOver) {
+		pCapacity = new PanelCapacityPlanning(pOver);
 		pCapacity.setVisible(false);
 		this.panelContent.add(pCapacity);
 	}

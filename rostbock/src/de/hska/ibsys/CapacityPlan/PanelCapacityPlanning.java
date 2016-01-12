@@ -1,6 +1,9 @@
 package de.hska.ibsys.CapacityPlan;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import de.hska.ibsys.MainFrame.ControlButtons;
 import de.hska.ibsys.PPS.PanelPPS;
+import de.hska.ibsys.PPS.PanelPPSOverview;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
 import de.hska.ibsys.help.Definitions;
 import de.hska.ibsys.help.Workplace;
@@ -21,7 +26,8 @@ public class PanelCapacityPlanning extends JPanel {
 	private Object[][] rowData;
 	private HashMap<Integer, Integer> orders;
 	
-	public PanelCapacityPlanning(){
+	public PanelCapacityPlanning(PanelPPSOverview pOver){
+		setLayout(new BorderLayout());
 		orders = new HashMap<Integer, Integer>();
 		fillOrderData();
 		fillRowData();
@@ -29,7 +35,20 @@ public class PanelCapacityPlanning extends JPanel {
 		table = new JTable(rowData, Definitions.capacityColumnNames);
 		JScrollPane jsp = new JScrollPane(table);
 		jsp.setPreferredSize(new Dimension(750, 450));
-		add(jsp);
+		add(jsp, BorderLayout.CENTER);
+		
+		ControlButtons cb = new ControlButtons();
+		cb.getBtnBack().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				pOver.getProgrammPlanningButton().doClick();
+			}
+		});
+		cb.getBtnNext().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				pOver.getOrderButton().doClick();
+			}
+		});
+		add(cb, BorderLayout.SOUTH);
 	}
 	
 	private void fillOrderData(){

@@ -181,13 +181,7 @@ public class MainFrame extends JFrame {
 			this.xp = new XMLParser();
 			xmlReader.setContentHandler(xp);
 			xmlReader.parse(input);
-
-//			ArrayList<Articel> articels = xp.getArticels();
-//			for (Articel a : articels) {
-//				System.out.println(a.toString());
-//			}
 		} catch (SAXException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
