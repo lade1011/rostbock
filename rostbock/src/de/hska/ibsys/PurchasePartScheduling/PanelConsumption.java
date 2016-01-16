@@ -86,7 +86,11 @@ public class PanelConsumption extends JPanel {
 		int userSelection = fileChooser.showSaveDialog(this);
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 		    File fileToSave = fileChooser.getSelectedFile();
-		    return fileToSave.getAbsolutePath();
+		    String f2s = fileToSave.getAbsolutePath();
+		    if(!f2s.endsWith(".xml")){
+		    	f2s += ".xml";
+		    }
+		    return f2s;
 		}
 		else {
 			return null;
