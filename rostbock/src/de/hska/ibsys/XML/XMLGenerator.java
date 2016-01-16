@@ -61,15 +61,15 @@ public class XMLGenerator {
 			rootElement.appendChild(sellwish);
 			
 			Element childSellwish = doc.createElement("item");
-			childSellwish.setAttribute("articel", "1");
+			childSellwish.setAttribute("article", "1");
 			childSellwish.setAttribute("quantity", this.sellwish.get(0));
 			sellwish.appendChild(childSellwish);
 			Element womanSellwish = doc.createElement("item");
-			womanSellwish.setAttribute("articel", "2");
+			womanSellwish.setAttribute("article", "2");
 			womanSellwish.setAttribute("quantity", this.sellwish.get(1));
 			sellwish.appendChild(womanSellwish);
 			Element manSellwish = doc.createElement("item");
-			manSellwish.setAttribute("articel", "3");
+			manSellwish.setAttribute("article", "3");
 			manSellwish.setAttribute("quantity", this.sellwish.get(2));
 			sellwish.appendChild(manSellwish);
 			
@@ -78,20 +78,21 @@ public class XMLGenerator {
 			Element selldirect = doc.createElement("selldirect");
 			rootElement.appendChild(selldirect);
 			
+			//TODO woman attributes
 			Element childSelldirect = doc.createElement("item");
-			childSelldirect.setAttribute("articel", "1");
+			childSelldirect.setAttribute("article", "1");
 			childSelldirect.setAttribute("quantity", "0");
 			childSelldirect.setAttribute("price", "0.0");
 			childSelldirect.setAttribute("penalty", "0.0");
 			selldirect.appendChild(childSelldirect);
 			Element womanSelldirect = doc.createElement("item");
-			womanSelldirect.setAttribute("articel", "2");
+			womanSelldirect.setAttribute("article", "2");
 			womanSelldirect.setAttribute("quantity", "0");
 			womanSelldirect.setAttribute("price", "0.0");
-			womanSelldirect.setAttribute("quantity", "0.0");
+			womanSelldirect.setAttribute("penalty", "0.0");
 			selldirect.appendChild(womanSelldirect);
 			Element manSelldirect = doc.createElement("item");
-			manSelldirect.setAttribute("articel", "3");
+			manSelldirect.setAttribute("article", "3");
 			manSelldirect.setAttribute("quantity", "0");
 			manSelldirect.setAttribute("price", "0.0");
 			manSelldirect.setAttribute("penalty", "0.0");
@@ -134,7 +135,12 @@ public class XMLGenerator {
 				Element workingtime = doc.createElement("workingtime");
 				workingtime.setAttribute("station", String.valueOf(w.getStation()));
 				workingtime.setAttribute("shift", String.valueOf(w.getShift()));
-				workingtime.setAttribute("overtime", String.valueOf(w.getOvertime()));
+				if(w.getShift() == 3) {
+					workingtime.setAttribute("overtime", "0");
+				}
+				else {
+					workingtime.setAttribute("overtime", String.valueOf((int)Math.ceil(w.getOvertime()/5)));
+				}
 				workingtimelist.appendChild(workingtime);
 			}
 
