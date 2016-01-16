@@ -27,7 +27,7 @@ public class PanelConsumption extends JPanel {
 	private ConsumptionOverview cw;
 	private Content c;
 	private PanelPPSOverview pOver;
-	private ControlButtons cb;
+	public ControlButtons cb;
 	private MainFrame mf;
 	
 	public PanelConsumption(MainFrame mf, ArrayList<Integer> prognose1, PanelPPSOverview pOver) {

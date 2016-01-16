@@ -31,6 +31,8 @@ public class ConsumptionOverview extends JPanel {
 				pc.getContent().getPc().setVisible(true);
 				btnAbc.setSelected(true);
 				btnDef.setSelected(false);
+				//BTN next = "Weiter"
+				pc.cb.getBtnNext().setText("Weiter");
 			}
 		});
 		btnAbc.setSelected(true);
@@ -44,6 +46,7 @@ public class ConsumptionOverview extends JPanel {
 				pc.getContent().getPo().setVisible(true);
 				btnAbc.setSelected(false);
 				btnDef.setSelected(true);
+				pc.cb.getBtnNext().setText("Exportieren");
 			}
 		});
 		add(btnDef);
