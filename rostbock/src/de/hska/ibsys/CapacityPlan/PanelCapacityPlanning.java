@@ -41,6 +41,8 @@ public class PanelCapacityPlanning extends JPanel {
 		add(jsp, BorderLayout.CENTER);
 		
 		ControlButtons cb = new ControlButtons();
+		cb.getBtnNext().setText("Weiter");
+		cb.getBtnBack().setText("Zur\u00FCck");
 		cb.getBtnBack().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				pOver.getProgrammPlanningButton().doClick();

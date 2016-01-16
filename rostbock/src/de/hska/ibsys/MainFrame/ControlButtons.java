@@ -17,11 +17,11 @@ public class ControlButtons extends JPanel {
 	public ControlButtons() {
 		setSize(800,50);
 		
-		btnBack = new JButton("Back");
+		btnBack = new JButton("Zurück");
 		btnBack.setBounds(26, 5, 67, 23);
 		add(btnBack);
 		
-		btnNext = new JButton("Next");
+		btnNext = new JButton("Weiter");
 		btnNext.setBounds(723, 5, 55, 23);
 		add(btnNext);
 	}

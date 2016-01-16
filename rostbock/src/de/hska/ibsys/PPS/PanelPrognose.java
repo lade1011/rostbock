@@ -240,6 +240,8 @@ public class PanelPrognose extends JPanel {
 		
 		
 		ControlButtons cb = new ControlButtons();
+		cb.getBtnNext().setText("Weiter");
+		cb.getBtnBack().setText("Zur\u00FCck");
 		cb.getBtnBack().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("zurück geht hier nicht");

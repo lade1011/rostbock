@@ -42,6 +42,8 @@ public class PanelConsumption extends JPanel {
 		add(c, BorderLayout.CENTER);
 		
 		cb = new ControlButtons();
+		cb.getBtnNext().setText("Weiter");
+		cb.getBtnBack().setText("Zur\u00FCck");
 		cb.getBtnBack().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				goBackwards();
@@ -61,15 +63,15 @@ public class PanelConsumption extends JPanel {
 		}
 		else if(cw.getBtnDef().isSelected()) {
 			cw.getBtnAbc().doClick();
-			this.cb.getBtnNext().setText("Next");
+			this.cb.getBtnNext().setText("Weiter");
 		}
 	}
 	public void goForwards() {
 		if(cw.getBtnAbc().isSelected()) {
 			cw.getBtnDef().doClick();
-			this.cb.getBtnNext().setText("Export");
+			this.cb.getBtnNext().setText("Exportieren");
 		}
-		else if (cw.getBtnDef().isSelected() && this.cb.getBtnNext().getText().equals("Export")) {
+		else if (cw.getBtnDef().isSelected() && this.cb.getBtnNext().getText().equals("Exportieren")) {
 			String destination = getDestination();
 			if(destination != null) {
 				
