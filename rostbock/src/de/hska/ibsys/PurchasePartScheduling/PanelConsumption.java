@@ -75,7 +75,7 @@ public class PanelConsumption extends JPanel {
 			String destination = getDestination();
 			if(destination != null) {
 				
-				XMLGenerator xmlgen = new XMLGenerator(destination, this.c.getOrders(), this.mf.getpPPS().getpProgrammPlanning().getAllProdOrders(), this.mf.getpPPS().getpCapacity().getwTimes());
+				XMLGenerator xmlgen = new XMLGenerator(destination, this.c.getOrders(), this.mf.getpPPS().getpProgrammPlanning().getAllProdOrders(), this.mf.getpPPS().getpCapacity().getwTimes(), this.mf.getpPPS().getSellWish());
 				xmlgen.generate();
 				JOptionPane.showMessageDialog(this, "Ergebnis-XML wurde erstellt !");
 			}
