@@ -60,18 +60,43 @@ public class XMLGenerator {
 			Element sellwish = doc.createElement("sellwish");
 			rootElement.appendChild(sellwish);
 			
-			Element childSellwish = doc.createElement("sellwish");
+			Element childSellwish = doc.createElement("item");
 			childSellwish.setAttribute("articel", "1");
 			childSellwish.setAttribute("quantity", this.sellwish.get(0));
 			sellwish.appendChild(childSellwish);
-			Element womanSellwish = doc.createElement("sellwish");
+			Element womanSellwish = doc.createElement("item");
 			womanSellwish.setAttribute("articel", "2");
 			womanSellwish.setAttribute("quantity", this.sellwish.get(1));
 			sellwish.appendChild(womanSellwish);
-			Element manSellwish = doc.createElement("sellwish");
+			Element manSellwish = doc.createElement("item");
 			manSellwish.setAttribute("articel", "3");
 			manSellwish.setAttribute("quantity", this.sellwish.get(2));
 			sellwish.appendChild(manSellwish);
+			
+			
+			//sellwish
+			Element selldirect = doc.createElement("selldirect");
+			rootElement.appendChild(selldirect);
+			
+			Element childSelldirect = doc.createElement("item");
+			childSelldirect.setAttribute("articel", "1");
+			childSelldirect.setAttribute("quantity", "0");
+			childSelldirect.setAttribute("price", "0.0");
+			childSelldirect.setAttribute("penalty", "0.0");
+			selldirect.appendChild(childSelldirect);
+			Element womanSelldirect = doc.createElement("item");
+			womanSelldirect.setAttribute("articel", "2");
+			womanSelldirect.setAttribute("quantity", "0");
+			womanSelldirect.setAttribute("price", "0.0");
+			womanSelldirect.setAttribute("quantity", "0.0");
+			selldirect.appendChild(womanSelldirect);
+			Element manSelldirect = doc.createElement("item");
+			manSelldirect.setAttribute("articel", "3");
+			manSelldirect.setAttribute("quantity", "0");
+			manSelldirect.setAttribute("price", "0.0");
+			manSelldirect.setAttribute("penalty", "0.0");
+			selldirect.appendChild(manSelldirect);
+			
 			
 			//orders
 			Element orderlist = doc.createElement("orderlist");
