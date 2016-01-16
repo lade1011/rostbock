@@ -91,6 +91,10 @@ public class PanelPPS extends JPanel {
 		this.panelContent.add(pCapacity);
 	}
 	
+	public ArrayList<String> getSellWish() {
+		return this.pPrognose.getPrognose3();
+	}
+	
 	public ArrayList<Integer> getPrognoseValues() {
 		ArrayList<Integer> values = new ArrayList<Integer>();
 		int child;

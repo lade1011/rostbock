@@ -3,7 +3,6 @@ package de.hska.ibsys.XML;
 import java.io.File;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,13 +27,15 @@ public class XMLGenerator {
 	private ArrayList<Order> orders;
 	private ArrayList<ArticleAmountPair> prodorders;
 	private ArrayList<Workingtime> wtimes;
+	private ArrayList<String> sellwish;
 	
-	public XMLGenerator(String destination, ArrayList<Order> orders, ArrayList<ArticleAmountPair> prodorders, ArrayList<Workingtime> wtimes) {
+	public XMLGenerator(String destination, ArrayList<Order> orders, ArrayList<ArticleAmountPair> prodorders, ArrayList<Workingtime> wtimes, ArrayList<String> sellwish) {
 		this.destination = destination;
 		this.orders = orders;
 		this.prodorders = prodorders;
 		System.out.println(wtimes.size());
 		this.wtimes = wtimes;
+		this.sellwish = sellwish;
 	}
 
 	public void generate() {
@@ -47,6 +48,30 @@ public class XMLGenerator {
 			Document doc = docBuilder.newDocument();
 			Element rootElement = doc.createElement("input");
 			doc.appendChild(rootElement);
+			
+			//qualitycontrol
+			Element qualitycontrol = doc.createElement("qualitycontrol");
+			qualitycontrol.setAttribute("type", "no");
+			qualitycontrol.setAttribute("losequantity", "0");
+			qualitycontrol.setAttribute("delay", "0");
+			rootElement.appendChild(qualitycontrol);
+			
+			//sellwish
+			Element sellwish = doc.createElement("sellwish");
+			rootElement.appendChild(sellwish);
+			
+			Element childSellwish = doc.createElement("sellwish");
+			childSellwish.setAttribute("articel", "1");
+			childSellwish.setAttribute("quantity", this.sellwish.get(0));
+			sellwish.appendChild(childSellwish);
+			Element womanSellwish = doc.createElement("sellwish");
+			womanSellwish.setAttribute("articel", "2");
+			womanSellwish.setAttribute("quantity", this.sellwish.get(1));
+			sellwish.appendChild(womanSellwish);
+			Element manSellwish = doc.createElement("sellwish");
+			manSellwish.setAttribute("articel", "3");
+			manSellwish.setAttribute("quantity", this.sellwish.get(2));
+			sellwish.appendChild(manSellwish);
 			
 			//orders
 			Element orderlist = doc.createElement("orderlist");
