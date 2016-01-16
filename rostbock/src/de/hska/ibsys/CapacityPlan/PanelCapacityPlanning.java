@@ -85,15 +85,12 @@ public class PanelCapacityPlanning extends JPanel {
 			rowData[x][1] = bedarf;
 			rowData[x][2] = ruestzeit;
 			
-			rowData[x][3] = 0; //TODO: KapBedarf alt
-			rowData[x][4] = 0; //TODO: Ruestzeit alt
-			
 			int gesBedarf = bedarf + ruestzeit;
-			rowData[x][5] = gesBedarf;
+			rowData[x][3] = gesBedarf;
 			
 			int anzahlSchichten = calculateSchichten(gesBedarf);
-			rowData[x][6] = anzahlSchichten;
-			rowData[x][7] = calculateOvertime(gesBedarf, anzahlSchichten);
+			rowData[x][4] = anzahlSchichten;
+			rowData[x][5] = calculateOvertime(gesBedarf, anzahlSchichten);
 			
 			Workingtime w = new Workingtime(i, anzahlSchichten, calculateOvertime(gesBedarf, anzahlSchichten));
 			this.wTimes.add(w);
