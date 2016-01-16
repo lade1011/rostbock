@@ -47,13 +47,9 @@ public class MainFrame extends JFrame {
 	private PanelPPS pPPS;
 	private JMenuBar menuBar;
 	private JMenu mnDatei;
-	private JMenu mnSprache;
 	private JMenu mnScsim;
 	private JMenu menu;
-	private JMenuItem mntmXml;
 	private JMenuItem mntmBeenden;
-	private JCheckBoxMenuItem chckbxmntmDeutsch;
-	private JCheckBoxMenuItem chckbxmntmEnglisch;
 	private JMenuItem mntmStartseite;
 	private JMenuItem mntmHandbuch;
 	private XMLParser xp;
@@ -91,21 +87,8 @@ public class MainFrame extends JFrame {
 		mnDatei = new JMenu("Datei");
 		menuBar.add(mnDatei);
 		
-		mntmXml = new JMenuItem("XML export");
-		mnDatei.add(mntmXml);
-		
 		mntmBeenden = new JMenuItem("Beenden");
 		mnDatei.add(mntmBeenden);
-		
-		mnSprache = new JMenu("Sprache");
-		menuBar.add(mnSprache);
-		
-		chckbxmntmDeutsch = new JCheckBoxMenuItem("Deutsch");
-		chckbxmntmDeutsch.setSelected(true);
-		mnSprache.add(chckbxmntmDeutsch);
-		
-		chckbxmntmEnglisch = new JCheckBoxMenuItem("Englisch");
-		mnSprache.add(chckbxmntmEnglisch);
 		
 		mnScsim = new JMenu("Scsim");
 		menuBar.add(mnScsim);
