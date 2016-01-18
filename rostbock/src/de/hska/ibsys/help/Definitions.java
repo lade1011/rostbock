@@ -51,7 +51,7 @@ public class Definitions {
 			};
 	public static String[] capacityColumnNames = {
 			"Arbeitsplatz", "Kapazitätsbedarf", "Rüstzeit",
-			"Gesamt", 
+			"Rückstand", "Gesamt", 
 			"Schichten", "Überstunden (min)"
 			};
 	

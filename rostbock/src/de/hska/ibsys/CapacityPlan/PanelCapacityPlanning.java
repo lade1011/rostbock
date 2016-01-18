@@ -17,6 +17,7 @@ import de.hska.ibsys.MainFrame.ControlButtons;
 import de.hska.ibsys.PPS.PanelPPS;
 import de.hska.ibsys.PPS.PanelPPSOverview;
 import de.hska.ibsys.ProductionPlan.ArticleAmountPair;
+import de.hska.ibsys.XML.XMLParser;
 import de.hska.ibsys.help.Definitions;
 import de.hska.ibsys.help.Workplace;
 
@@ -27,11 +28,13 @@ public class PanelCapacityPlanning extends JPanel {
 	private Object[][] rowData;
 	private HashMap<Integer, Integer> orders;
 	private ArrayList<Workingtime> wTimes;
+	private XMLParser parser;
 	
-	public PanelCapacityPlanning(PanelPPSOverview pOver){
+	public PanelCapacityPlanning(PanelPPSOverview pOver, XMLParser parser){
 		this.wTimes = new ArrayList<Workingtime>();
 		setLayout(new BorderLayout());
 		orders = new HashMap<Integer, Integer>();
+		this.parser = parser;
 		fillOrderData();
 		fillRowData();
 		
@@ -85,12 +88,18 @@ public class PanelCapacityPlanning extends JPanel {
 			rowData[x][1] = bedarf;
 			rowData[x][2] = ruestzeit;
 			
-			int gesBedarf = bedarf + ruestzeit;
-			rowData[x][3] = gesBedarf;
+			parser.getArticels();
+			
+			int rueckstand = this.parser.getWorkplaces().getOrDefault(i, 0);
+			
+			rowData[x][3] = rueckstand;
+			
+			int gesBedarf = bedarf + ruestzeit + rueckstand;
+			rowData[x][4] = gesBedarf;
 			
 			int anzahlSchichten = calculateSchichten(gesBedarf);
-			rowData[x][4] = anzahlSchichten;
-			rowData[x][5] = calculateOvertime(gesBedarf, anzahlSchichten);
+			rowData[x][5] = anzahlSchichten;
+			rowData[x][6] = calculateOvertime(gesBedarf, anzahlSchichten);
 			
 			Workingtime w = new Workingtime(i, anzahlSchichten, calculateOvertime(gesBedarf, anzahlSchichten));
 			this.wTimes.add(w);

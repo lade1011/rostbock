@@ -1,6 +1,7 @@
 package de.hska.ibsys.XML;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -13,6 +14,7 @@ import de.hska.ibsys.Components.Supply;
 public class XMLParser implements ContentHandler {
 	private ArrayList<Articel> articels;
 	private ArrayList<Supply> supplies;
+	private HashMap<Integer, Integer> workplaces;
 	
 	private boolean listOfOrdersinwork;
 	private boolean waitinglist;
@@ -23,6 +25,7 @@ public class XMLParser implements ContentHandler {
 	public XMLParser() {
 		this.articels = new ArrayList<Articel>();
 		this.supplies = new ArrayList<Supply>();
+		this.workplaces = new HashMap<Integer, Integer>();
 		this.listOfOrdersinwork = false;
 		this.listOfFutureInwards = false;
 		this.waitinglist = false;
@@ -60,9 +63,14 @@ public class XMLParser implements ContentHandler {
 					a.setOrdersInWork(Integer.valueOf(atts.getValue("amount")));
 				}
 			}
+			putOrAddTimeToWorkplaces(Integer.valueOf(atts.getValue("id")), Integer.valueOf(atts.getValue("timeneed")));
 		}
 		else if(tag.equals("waitinglistworkstations")) {
 			this.waitinglist = true;
+		}
+		else if(tag.equals("workplace") && this.waitinglist)
+		{
+			putOrAddTimeToWorkplaces(Integer.valueOf(atts.getValue("id")), Integer.valueOf(atts.getValue("timeneed")));
 		}
 		else if(tag.equals("waitinglist") && this.waitinglist) {
 			for(Articel a : this.articels) {
@@ -76,6 +84,11 @@ public class XMLParser implements ContentHandler {
 		}
 	}
 
+	private void putOrAddTimeToWorkplaces(int workplaceId, int timeNeed){
+		int timeBefore = workplaces.getOrDefault(workplaceId, 0);
+		workplaces.put(workplaceId, timeNeed + timeBefore);
+	}
+	
 	@Override
 	public void endDocument() throws SAXException {
 		// TODO Auto-generated method stub
@@ -135,6 +148,12 @@ public class XMLParser implements ContentHandler {
 	public void startPrefixMapping(String arg0, String arg1) throws SAXException {
 		// TODO Auto-generated method stub
 
+	}
+
+	
+	
+	public HashMap<Integer, Integer> getWorkplaces() {
+		return workplaces;
 	}
 
 	public ArrayList<Articel> getArticels() {

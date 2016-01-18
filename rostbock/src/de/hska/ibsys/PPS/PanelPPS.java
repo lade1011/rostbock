@@ -86,7 +86,7 @@ public class PanelPPS extends JPanel {
 	}
 	
 	public void createPCapacity(PanelPPSOverview pOver) {
-		pCapacity = new PanelCapacityPlanning(pOver);
+		pCapacity = new PanelCapacityPlanning(pOver, this.mf.getXp());
 		pCapacity.setVisible(false);
 		this.panelContent.add(pCapacity);
 	}

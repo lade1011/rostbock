@@ -28,7 +28,7 @@ import java.awt.Desktop;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JCheckBoxMenuItem;
+//import javax.swing.JCheckBoxMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -47,8 +47,10 @@ public class MainFrame extends JFrame {
 	private PanelPPS pPPS;
 	private JMenuBar menuBar;
 	private JMenu mnDatei;
+//	private JMenu mnSprache;
 	private JMenu mnScsim;
 	private JMenu menu;
+//	private JMenuItem mntmXml;
 	private JMenuItem mntmBeenden;
 	private JMenuItem mntmStartseite;
 	private JMenuItem mntmHandbuch;
@@ -88,6 +90,11 @@ public class MainFrame extends JFrame {
 		menuBar.add(mnDatei);
 		
 		mntmBeenden = new JMenuItem("Beenden");
+		mntmBeenden.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
 		mnDatei.add(mntmBeenden);
 		
 		mnScsim = new JMenu("Scsim");
