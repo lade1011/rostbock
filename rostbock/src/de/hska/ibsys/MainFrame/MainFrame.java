@@ -146,7 +146,7 @@ public class MainFrame extends JFrame {
 				if (Desktop.isDesktopSupported()) {
 				    try {
 				    	// Load the directory as a resource
-				    	File f = new File(MainFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath() + File.separator + "Handbuch_DE.pdf");
+				    	File f = new File("Handbuch_DE.pdf");
 				    	System.out.println(f.getAbsolutePath());
 //				    	File f = new File(System.getProperty("user.dir") + File.separator + "Handbuch_DE.pdf");
 				    	// Turn the resource into a File object
