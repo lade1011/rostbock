@@ -59,7 +59,7 @@ public class PanelOverview extends JPanel {
 	
 	public void acutalizeOthers(List<Articel> articels){
 		for(Articel a : articels){
-			rowData[(int) (a.getId() - 1)][6] = a.getOrdersInWork();
+			rowData[(int) (a.getId() - 1)][6] = a.getOrdersInWork() * 3;
 			rowData[(int) (a.getId() - 1)][3] = a.getStartamount();
 			double startStock = (double)Definitions.startStockValues[(int) (a.getId() - 1)];
 			double amount = (double)a.getAmount();
