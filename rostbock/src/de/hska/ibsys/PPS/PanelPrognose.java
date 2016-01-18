@@ -42,6 +42,10 @@ public class PanelPrognose extends JPanel {
 	private JSpinner spChildQuantityReserve;
 	private JSpinner spWomanQuantityReserve;
 	private JSpinner spManQuantityReserve;
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	private JLabel label_3;
 
 	/**
 	 * Create the panel.
@@ -70,12 +74,26 @@ public class PanelPrognose extends JPanel {
 		gbc_lblPeriode.gridy = 1;
 		panel.add(lblPeriode, gbc_lblPeriode);
 		
+		label = new JLabel(" ");
+		GridBagConstraints gbc_label = new GridBagConstraints();
+		gbc_label.insets = new Insets(0, 0, 5, 5);
+		gbc_label.gridx = 5;
+		gbc_label.gridy = 1;
+		panel.add(label, gbc_label);
+		
 		JLabel lblMengenreserve = new JLabel("Mengenreserve");
 		GridBagConstraints gbc_lblMengenreserve = new GridBagConstraints();
 		gbc_lblMengenreserve.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMengenreserve.gridx = 6;
 		gbc_lblMengenreserve.gridy = 1;
 		panel.add(lblMengenreserve, gbc_lblMengenreserve);
+		
+		label_1 = new JLabel(" ");
+		GridBagConstraints gbc_label_1 = new GridBagConstraints();
+		gbc_label_1.insets = new Insets(0, 0, 5, 5);
+		gbc_label_1.gridx = 7;
+		gbc_label_1.gridy = 1;
+		panel.add(label_1, gbc_label_1);
 		
 		JLabel lblPeriode_1 = new JLabel("Periode n+1");
 		GridBagConstraints gbc_lblPeriode_1 = new GridBagConstraints();
@@ -84,12 +102,26 @@ public class PanelPrognose extends JPanel {
 		gbc_lblPeriode_1.gridy = 1;
 		panel.add(lblPeriode_1, gbc_lblPeriode_1);
 		
+		label_2 = new JLabel(" ");
+		GridBagConstraints gbc_label_2 = new GridBagConstraints();
+		gbc_label_2.insets = new Insets(0, 0, 5, 5);
+		gbc_label_2.gridx = 9;
+		gbc_label_2.gridy = 1;
+		panel.add(label_2, gbc_label_2);
+		
 		JLabel lblPeriode_2 = new JLabel("Periode n+2");
 		GridBagConstraints gbc_lblPeriode_2 = new GridBagConstraints();
 		gbc_lblPeriode_2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPeriode_2.gridx = 10;
 		gbc_lblPeriode_2.gridy = 1;
 		panel.add(lblPeriode_2, gbc_lblPeriode_2);
+		
+		label_3 = new JLabel(" ");
+		GridBagConstraints gbc_label_3 = new GridBagConstraints();
+		gbc_label_3.insets = new Insets(0, 0, 5, 5);
+		gbc_label_3.gridx = 11;
+		gbc_label_3.gridy = 1;
+		panel.add(label_3, gbc_label_3);
 		
 		JLabel lblPeriode_3 = new JLabel("Periode n+3");
 		GridBagConstraints gbc_lblPeriode_3 = new GridBagConstraints();
@@ -114,7 +146,7 @@ public class PanelPrognose extends JPanel {
 		panel.add(spChildP2, gbc_spChildP2);
 		
 		spChildQuantityReserve = new JSpinner();
-		spChildQuantityReserve.setModel(new SpinnerNumberModel(new Integer(50), null, null, new Integer(1)));
+		spChildQuantityReserve.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spChildQuantityReserve = new GridBagConstraints();
 		gbc_spChildQuantityReserve.insets = new Insets(0, 0, 5, 5);
 		gbc_spChildQuantityReserve.gridx = 6;
@@ -161,7 +193,7 @@ public class PanelPrognose extends JPanel {
 		panel.add(spWomanP2, gbc_spWomanP2);
 		
 		spWomanQuantityReserve = new JSpinner();
-		spWomanQuantityReserve.setModel(new SpinnerNumberModel(new Integer(50), null, null, new Integer(1)));
+		spWomanQuantityReserve.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spWomanQuantityReserve = new GridBagConstraints();
 		gbc_spWomanQuantityReserve.insets = new Insets(0, 0, 5, 5);
 		gbc_spWomanQuantityReserve.gridx = 6;
@@ -208,7 +240,7 @@ public class PanelPrognose extends JPanel {
 		panel.add(spManP2, gbc_spManP2);
 		
 		spManQuantityReserve = new JSpinner();
-		spManQuantityReserve.setModel(new SpinnerNumberModel(new Integer(50), null, null, new Integer(1)));
+		spManQuantityReserve.setModel(new SpinnerNumberModel(new Integer(100), null, null, new Integer(1)));
 		GridBagConstraints gbc_spManQuantityReserve = new GridBagConstraints();
 		gbc_spManQuantityReserve.insets = new Insets(0, 0, 0, 5);
 		gbc_spManQuantityReserve.gridx = 6;
