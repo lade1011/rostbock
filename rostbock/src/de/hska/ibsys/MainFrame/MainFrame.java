@@ -89,9 +89,6 @@ public class MainFrame extends JFrame {
 		mnDatei = new JMenu("Datei");
 		menuBar.add(mnDatei);
 		
-//		mntmXml = new JMenuItem("XML export");
-//		mnDatei.add(mntmXml);
-		
 		mntmBeenden = new JMenuItem("Beenden");
 		mntmBeenden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
