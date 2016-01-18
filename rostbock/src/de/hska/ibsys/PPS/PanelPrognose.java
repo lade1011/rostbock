@@ -271,9 +271,9 @@ public class PanelPrognose extends JPanel {
 	
 	public ArrayList<String> getPrognose3() {
 		ArrayList<String> sellwish = new ArrayList<String>();
-		sellwish.add(String.valueOf(this.spChildP3.getValue()));
-		sellwish.add(String.valueOf(this.spWomanP3.getValue()));
-		sellwish.add(String.valueOf(this.spManP3.getValue()));
+		sellwish.add(String.valueOf(this.spChildP2.getValue()));
+		sellwish.add(String.valueOf(this.spWomanP2.getValue()));
+		sellwish.add(String.valueOf(this.spManP2.getValue()));
 		return sellwish;
 	}
 
