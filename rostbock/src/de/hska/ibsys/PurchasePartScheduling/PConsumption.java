@@ -145,10 +145,10 @@ public class PConsumption extends JPanel {
 			rowData[i][5] = c.getDiskontmenge(); 
 			rowData[i][6] = c.getPreis();
 			rowData[i][7] = c.getBestellkosten();
-			rowData[i][8] = c.getBedarfProdukt(200, 140, 20); //TODO aus Import oder Eingabe einlesen
-			rowData[i][9] = c.getBedarfProdukt(200, 150, 50);
-			rowData[i][10] = c.getBedarfProdukt(250, 150, 100);
-			rowData[i][11] = c.getBedarfProdukt(250, 150, 100);
+			rowData[i][8] = c.getBedarfper1();
+			rowData[i][9] = c.getBedarfper2();
+			rowData[i][10] = c.getBedarfper3();
+			rowData[i][11] = c.getBedarfper4();
 
 		}
 	}

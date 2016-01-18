@@ -29,6 +29,14 @@ public class Consumption {
 
 	private double bestellkosten;
 
+	private int bedarfProd4;
+	
+	private int bedarfper1;
+	private int bedarfper2;
+	private int bedarfper3;
+	private int bedarfper4;
+	
+
 	public Consumption(int id, String bezeichnung, double lieferdauer, double abweichung, int verbrauchP1, int verbrauchP2, int verbrauchP3,
 			int diskontmenge, double preis, double bestellkosten, int bp1, int bp2, int bp3) {
 		this.id = id;
@@ -62,7 +70,10 @@ public class Consumption {
 			}
 			correctPer.add(p);
 		}
-
+		this.bedarfper1 = verbrauchP1 * correctPer.get(0) + verbrauchP2 * correctPer.get(1) + verbrauchP3 * correctPer.get(2); 
+		this.bedarfper2 = verbrauchP1 * correctPer.get(3) + verbrauchP2 * correctPer.get(4) + verbrauchP3 * correctPer.get(5);
+		this.bedarfper3 = verbrauchP1 * correctPer.get(6) + verbrauchP2 * correctPer.get(7) + verbrauchP3 * correctPer.get(8);
+		this.bedarfper4 = verbrauchP1 * correctPer.get(9) + verbrauchP2 * correctPer.get(10) + verbrauchP3 * correctPer.get(11);
 	}
 
 	public void setAnfangsbestand(String bezeichnung) {
@@ -155,5 +166,45 @@ public class Consumption {
 
 	public void setArrivedSupply(Supply arrivedSupply) {
 		this.arrivedSupply.add(arrivedSupply);
+	}
+
+
+	public int getBedarfper1() {
+		return bedarfper1;
+	}
+
+
+	public void setBedarfper1(int bedarfper1) {
+		this.bedarfper1 = bedarfper1;
+	}
+
+
+	public int getBedarfper2() {
+		return bedarfper2;
+	}
+
+
+	public void setBedarfper2(int bedarfper2) {
+		this.bedarfper2 = bedarfper2;
+	}
+
+
+	public int getBedarfper3() {
+		return bedarfper3;
+	}
+
+
+	public void setBedarfper3(int bedarfper3) {
+		this.bedarfper3 = bedarfper3;
+	}
+
+
+	public int getBedarfper4() {
+		return bedarfper4;
+	}
+
+
+	public void setBedarfper4(int bedarfper4) {
+		this.bedarfper4 = bedarfper4;
 	}
 }
