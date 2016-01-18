@@ -63,7 +63,7 @@ public class PanelPrognose extends JPanel {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		JLabel lblPeriode = new JLabel("Periode 2");
+		JLabel lblPeriode = new JLabel("Periode n");
 		GridBagConstraints gbc_lblPeriode = new GridBagConstraints();
 		gbc_lblPeriode.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPeriode.gridx = 4;
@@ -77,21 +77,21 @@ public class PanelPrognose extends JPanel {
 		gbc_lblMengenreserve.gridy = 1;
 		panel.add(lblMengenreserve, gbc_lblMengenreserve);
 		
-		JLabel lblPeriode_1 = new JLabel("Periode 3");
+		JLabel lblPeriode_1 = new JLabel("Periode n+1");
 		GridBagConstraints gbc_lblPeriode_1 = new GridBagConstraints();
 		gbc_lblPeriode_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPeriode_1.gridx = 8;
 		gbc_lblPeriode_1.gridy = 1;
 		panel.add(lblPeriode_1, gbc_lblPeriode_1);
 		
-		JLabel lblPeriode_2 = new JLabel("Periode 4");
+		JLabel lblPeriode_2 = new JLabel("Periode n+2");
 		GridBagConstraints gbc_lblPeriode_2 = new GridBagConstraints();
 		gbc_lblPeriode_2.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPeriode_2.gridx = 10;
 		gbc_lblPeriode_2.gridy = 1;
 		panel.add(lblPeriode_2, gbc_lblPeriode_2);
 		
-		JLabel lblPeriode_3 = new JLabel("Periode 5");
+		JLabel lblPeriode_3 = new JLabel("Periode n+3");
 		GridBagConstraints gbc_lblPeriode_3 = new GridBagConstraints();
 		gbc_lblPeriode_3.insets = new Insets(0, 0, 5, 0);
 		gbc_lblPeriode_3.gridx = 12;
