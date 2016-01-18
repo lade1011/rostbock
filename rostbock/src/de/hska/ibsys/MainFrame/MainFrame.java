@@ -1,12 +1,14 @@
 package de.hska.ibsys.MainFrame;
 
 import java.awt.EventQueue;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,6 +30,8 @@ import java.awt.Desktop;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 //import javax.swing.JCheckBoxMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -47,7 +51,7 @@ public class MainFrame extends JFrame {
 	private PanelPPS pPPS;
 	private JMenuBar menuBar;
 	private JMenu mnDatei;
-//	private JMenu mnSprache;
+	private JMenu mnSprache;
 	private JMenu mnScsim;
 	private JMenu menu;
 //	private JMenuItem mntmXml;
@@ -55,6 +59,9 @@ public class MainFrame extends JFrame {
 	private JMenuItem mntmStartseite;
 	private JMenuItem mntmHandbuch;
 	private XMLParser xp;
+	private JMenu mnSprache_1;
+	private JMenuItem mntmDeutsch;
+	private JMenuItem mntmEnglisch;
 	/**
 	 * Launch the application.
 	 */
@@ -108,10 +115,48 @@ public class MainFrame extends JFrame {
 		});
 		mnScsim.add(mntmStartseite);
 		
+		mnSprache_1 = new JMenu("Sprache");
+		menuBar.add(mnSprache_1);
+		
+		mntmDeutsch = new JMenuItem("Deutsch");
+		mntmDeutsch.setEnabled(false);
+		mnSprache_1.add(mntmDeutsch);
+		
+		mntmEnglisch = new JMenuItem("Englisch");
+		mntmEnglisch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mntmDeutsch.setEnabled(true);
+				mntmEnglisch.setEnabled(false);
+			}
+		});
+		mntmDeutsch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mntmDeutsch.setEnabled(false);
+				mntmEnglisch.setEnabled(true);
+			}
+		});
+		mnSprache_1.add(mntmEnglisch);
+		
 		menu = new JMenu("?");
 		menuBar.add(menu);
 		
 		mntmHandbuch = new JMenuItem("Handbuch");
+		mntmHandbuch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Desktop.isDesktopSupported()) {
+				    try {
+				    	// Load the directory as a resource
+				    	File f = new File(MainFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath() + File.separator + "Handbuch_DE.pdf");
+				    	System.out.println(f.getAbsolutePath());
+//				    	File f = new File(System.getProperty("user.dir") + File.separator + "Handbuch_DE.pdf");
+				    	// Turn the resource into a File object
+				        Desktop.getDesktop().open(f);
+				    } catch (Exception ex) {
+				    	JOptionPane.showMessageDialog(null, "Die Datei 'Handbuch_DE.pdf' konnte nicht gefunden werden.", "Fehler", JOptionPane.YES_OPTION);
+				    }
+				}
+			}
+		});
 		menu.add(mntmHandbuch);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
