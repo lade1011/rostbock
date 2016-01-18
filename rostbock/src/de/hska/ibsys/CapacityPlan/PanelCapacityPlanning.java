@@ -83,7 +83,7 @@ public class PanelCapacityPlanning extends JPanel {
 			}
 			
 			rowData[x][0] = i;
-			int bedarf = calculateBedarf(i);
+			int bedarf = (calculateBedarf(i) < 0 ) ? 0 : calculateBedarf(i);
 			int ruestzeit = calcuclateRuestzeit(i);
 			rowData[x][1] = bedarf;
 			rowData[x][2] = ruestzeit;
@@ -95,7 +95,7 @@ public class PanelCapacityPlanning extends JPanel {
 			rowData[x][3] = rueckstand;
 			
 			int gesBedarf = bedarf + ruestzeit + rueckstand;
-			rowData[x][4] = gesBedarf;
+			rowData[x][4] = (gesBedarf < 0) ? 0 : gesBedarf;
 			
 			int anzahlSchichten = calculateSchichten(gesBedarf);
 			rowData[x][5] = anzahlSchichten;
